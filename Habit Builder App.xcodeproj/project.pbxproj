@@ -7,13 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		53AB64E129FB046000C19CFA /* Habit_Builder_AppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64E029FB046000C19CFA /* Habit_Builder_AppApp.swift */; };
-		53AB64E329FB046000C19CFA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64E229FB046000C19CFA /* ContentView.swift */; };
 		53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E429FB046100C19CFA /* Assets.xcassets */; };
 		53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E729FB046100C19CFA /* Preview Assets.xcassets */; };
 		53AB64F229FB046100C19CFA /* Habit_Builder_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64F129FB046100C19CFA /* Habit_Builder_AppTests.swift */; };
 		53AB64FC29FB046100C19CFA /* Habit_Builder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */; };
 		53AB64FE29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FD29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift */; };
+		53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65462A0169F000C19CFA /* AppDelegate.swift */; };
+		53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65482A0169FD00C19CFA /* SceneDelegate.swift */; };
+		53AB654B2A016A7200C19CFA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB654A2A016A7200C19CFA /* RootViewController.swift */; };
+		53AB654F2A02C10800C19CFA /* Cordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB654E2A02C10800C19CFA /* Cordinator.swift */; };
+		53AB65522A02C1C400C19CFA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65512A02C1C400C19CFA /* Router.swift */; };
+		53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65532A049BB600C19CFA /* RootCordinator.swift */; };
+		53AB65572A04BA5900C19CFA /* LandingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65562A04BA5900C19CFA /* LandingCordinator.swift */; };
+		53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65582A060D8300C19CFA /* LandingViewController.swift */; };
+		53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */; };
+		53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB655C2A060E2C00C19CFA /* LandingView.swift */; };
+		53AB65602A0616D000C19CFA /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB655F2A0616D000C19CFA /* Extension+UIView.swift */; };
+		53AB65632A06B52E00C19CFA /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 53AB65622A06B52E00C19CFA /* Factory */; };
+		53AB65652A06B56D00C19CFA /* Resolver+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */; };
+		53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65672A06B66200C19CFA /* ColorSystem.swift */; };
+		53AB656A2A06BFEC00C19CFA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65692A06BFEC00C19CFA /* Config.swift */; };
+		53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,8 +49,6 @@
 
 /* Begin PBXFileReference section */
 		53AB64DD29FB046000C19CFA /* Habit Builder App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Builder App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		53AB64E029FB046000C19CFA /* Habit_Builder_AppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_Builder_AppApp.swift; sourceTree = "<group>"; };
-		53AB64E229FB046000C19CFA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		53AB64E429FB046100C19CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AB64E729FB046100C19CFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		53AB64ED29FB046100C19CFA /* Habit Builder AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Habit Builder AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +56,21 @@
 		53AB64F729FB046100C19CFA /* Habit Builder AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Habit Builder AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_Builder_AppUITests.swift; sourceTree = "<group>"; };
 		53AB64FD29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_Builder_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		53AB65462A0169F000C19CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		53AB65482A0169FD00C19CFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		53AB654A2A016A7200C19CFA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		53AB654E2A02C10800C19CFA /* Cordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cordinator.swift; sourceTree = "<group>"; };
+		53AB65512A02C1C400C19CFA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		53AB65532A049BB600C19CFA /* RootCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCordinator.swift; sourceTree = "<group>"; };
+		53AB65562A04BA5900C19CFA /* LandingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCordinator.swift; sourceTree = "<group>"; };
+		53AB65582A060D8300C19CFA /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
+		53AB655C2A060E2C00C19CFA /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
+		53AB655F2A0616D000C19CFA /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
+		53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependency.swift"; sourceTree = "<group>"; };
+		53AB65672A06B66200C19CFA /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
+		53AB65692A06BFEC00C19CFA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystemConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AB65632A06B52E00C19CFA /* Factory in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,10 +122,14 @@
 		53AB64DF29FB046000C19CFA /* Habit Builder App */ = {
 			isa = PBXGroup;
 			children = (
-				53AB64E029FB046000C19CFA /* Habit_Builder_AppApp.swift */,
-				53AB64E229FB046000C19CFA /* ContentView.swift */,
+				53AB65552A04BA2800C19CFA /* LandingScreen */,
+				53AB654D2A02C0FA00C19CFA /* Root */,
+				53AB654C2A02C0CE00C19CFA /* Common */,
 				53AB64E429FB046100C19CFA /* Assets.xcassets */,
 				53AB64E629FB046100C19CFA /* Preview Content */,
+				53AB65462A0169F000C19CFA /* AppDelegate.swift */,
+				53AB65482A0169FD00C19CFA /* SceneDelegate.swift */,
+				53AB654A2A016A7200C19CFA /* RootViewController.swift */,
 			);
 			path = "Habit Builder App";
 			sourceTree = "<group>";
@@ -127,6 +159,71 @@
 			path = "Habit Builder AppUITests";
 			sourceTree = "<group>";
 		};
+		53AB654C2A02C0CE00C19CFA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65662A06B62D00C19CFA /* DesignSystem */,
+				53AB655E2A0616B700C19CFA /* Extensions */,
+				53AB65502A02C1B800C19CFA /* Router */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		53AB654D2A02C0FA00C19CFA /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				53AB656B2A06C36A00C19CFA /* Config */,
+				53AB65532A049BB600C19CFA /* RootCordinator.swift */,
+				53AB654E2A02C10800C19CFA /* Cordinator.swift */,
+				53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		53AB65502A02C1B800C19CFA /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65512A02C1C400C19CFA /* Router.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		53AB65552A04BA2800C19CFA /* LandingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65562A04BA5900C19CFA /* LandingCordinator.swift */,
+				53AB65582A060D8300C19CFA /* LandingViewController.swift */,
+				53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */,
+				53AB655C2A060E2C00C19CFA /* LandingView.swift */,
+			);
+			path = LandingScreen;
+			sourceTree = "<group>";
+		};
+		53AB655E2A0616B700C19CFA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				53AB655F2A0616D000C19CFA /* Extension+UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		53AB65662A06B62D00C19CFA /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65672A06B66200C19CFA /* ColorSystem.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		53AB656B2A06C36A00C19CFA /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65692A06BFEC00C19CFA /* Config.swift */,
+				53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +240,9 @@
 			dependencies = (
 			);
 			name = "Habit Builder App";
+			packageProductDependencies = (
+				53AB65622A06B52E00C19CFA /* Factory */,
+			);
 			productName = "Habit Builder App";
 			productReference = 53AB64DD29FB046000C19CFA /* Habit Builder App.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +315,9 @@
 				Base,
 			);
 			mainGroup = 53AB64D429FB046000C19CFA;
+			packageReferences = (
+				53AB65612A06B52E00C19CFA /* XCRemoteSwiftPackageReference "Factory" */,
+			);
 			productRefGroup = 53AB64DE29FB046000C19CFA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -257,8 +360,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53AB64E329FB046000C19CFA /* ContentView.swift in Sources */,
-				53AB64E129FB046000C19CFA /* Habit_Builder_AppApp.swift in Sources */,
+				53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */,
+				53AB656A2A06BFEC00C19CFA /* Config.swift in Sources */,
+				53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */,
+				53AB654F2A02C10800C19CFA /* Cordinator.swift in Sources */,
+				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
+				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
+				53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */,
+				53AB65652A06B56D00C19CFA /* Resolver+Dependency.swift in Sources */,
+				53AB65602A0616D000C19CFA /* Extension+UIView.swift in Sources */,
+				53AB65522A02C1C400C19CFA /* Router.swift in Sources */,
+				53AB65572A04BA5900C19CFA /* LandingCordinator.swift in Sources */,
+				53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */,
+				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
+				53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */,
+				53AB654B2A016A7200C19CFA /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +693,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		53AB65612A06B52E00C19CFA /* XCRemoteSwiftPackageReference "Factory" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Factory";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		53AB65622A06B52E00C19CFA /* Factory */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AB65612A06B52E00C19CFA /* XCRemoteSwiftPackageReference "Factory" */;
+			productName = Factory;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 53AB64D529FB046000C19CFA /* Project object */;
 }
