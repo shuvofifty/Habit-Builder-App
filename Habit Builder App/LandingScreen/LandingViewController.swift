@@ -27,5 +27,10 @@ class LandingViewController: UIViewController {
         addChild(contentView)
         view.addSubview(contentView.view)
         contentView.view.hook(to: view, with: 0)
+        
+        for family in UIFont.familyNames.sorted() {
+            let names = UIFont.fontNames(forFamilyName: family)
+            print("Family: \(family) Font names: \(names)")
+        }
     }
 }

@@ -28,6 +28,11 @@
 		53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65672A06B66200C19CFA /* ColorSystem.swift */; };
 		53AB656A2A06BFEC00C19CFA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65692A06BFEC00C19CFA /* Config.swift */; };
 		53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */; };
+		53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB656E2A06C5AE00C19CFA /* FontSystemConfig.swift */; };
+		53AB65712A06C5C400C19CFA /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65702A06C5C400C19CFA /* FontSystem.swift */; };
+		53AB65812A06C8D500C19CFA /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53AB65742A06C8D400C19CFA /* Roboto-Medium.ttf */; };
+		53AB65832A06C8D500C19CFA /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53AB65762A06C8D400C19CFA /* Roboto-Regular.ttf */; };
+		53AB658B2A06C8D500C19CFA /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53AB657E2A06C8D400C19CFA /* Roboto-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,12 @@
 		53AB65672A06B66200C19CFA /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
 		53AB65692A06BFEC00C19CFA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystemConfig.swift; sourceTree = "<group>"; };
+		53AB656E2A06C5AE00C19CFA /* FontSystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystemConfig.swift; sourceTree = "<group>"; };
+		53AB65702A06C5C400C19CFA /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
+		53AB65742A06C8D400C19CFA /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		53AB65762A06C8D400C19CFA /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		53AB657E2A06C8D400C19CFA /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		53AB658E2A06C92D00C19CFA /* Habit-Builder-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Habit-Builder-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +133,8 @@
 		53AB64DF29FB046000C19CFA /* Habit Builder App */ = {
 			isa = PBXGroup;
 			children = (
+				53AB658E2A06C92D00C19CFA /* Habit-Builder-App-Info.plist */,
+				53AB65722A06C8BC00C19CFA /* CustomFont */,
 				53AB65552A04BA2800C19CFA /* LandingScreen */,
 				53AB654D2A02C0FA00C19CFA /* Root */,
 				53AB654C2A02C0CE00C19CFA /* Common */,
@@ -211,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				53AB65672A06B66200C19CFA /* ColorSystem.swift */,
+				53AB65702A06C5C400C19CFA /* FontSystem.swift */,
 			);
 			path = DesignSystem;
 			sourceTree = "<group>";
@@ -220,8 +234,27 @@
 			children = (
 				53AB65692A06BFEC00C19CFA /* Config.swift */,
 				53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */,
+				53AB656E2A06C5AE00C19CFA /* FontSystemConfig.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		53AB65722A06C8BC00C19CFA /* CustomFont */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65732A06C8D400C19CFA /* Roboto */,
+			);
+			path = CustomFont;
+			sourceTree = "<group>";
+		};
+		53AB65732A06C8D400C19CFA /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65742A06C8D400C19CFA /* Roboto-Medium.ttf */,
+				53AB65762A06C8D400C19CFA /* Roboto-Regular.ttf */,
+				53AB657E2A06C8D400C19CFA /* Roboto-Bold.ttf */,
+			);
+			path = Roboto;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,8 +367,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AB658B2A06C8D500C19CFA /* Roboto-Bold.ttf in Resources */,
 				53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */,
 				53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */,
+				53AB65832A06C8D500C19CFA /* Roboto-Regular.ttf in Resources */,
+				53AB65812A06C8D500C19CFA /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +399,8 @@
 				53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */,
 				53AB656A2A06BFEC00C19CFA /* Config.swift in Sources */,
 				53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */,
+				53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */,
+				53AB65712A06C5C400C19CFA /* FontSystem.swift in Sources */,
 				53AB654F2A02C10800C19CFA /* Cordinator.swift in Sources */,
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
@@ -535,6 +573,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Habit Builder App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Habit-Builder-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -563,6 +602,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Habit Builder App/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Habit-Builder-App-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

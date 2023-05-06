@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class OrangeHeavenColorSystem: ColorSystem {
+final class OrangeHeavenColorSystem: ColorSystem {
     func get(for type: ColorType, _ shade: ColorShades) -> UIColor {
         switch type {
         case .primary:

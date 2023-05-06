@@ -10,4 +10,5 @@ import UIKit
 
 final class Config {
     static let color: ColorSystem = OrangeHeavenColorSystem()
+    static let font: FontSystem = RobotFontSystem()
 }
