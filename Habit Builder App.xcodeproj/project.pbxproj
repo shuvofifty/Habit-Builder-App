@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E429FB046100C19CFA /* Assets.xcassets */; };
 		53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E729FB046100C19CFA /* Preview Assets.xcassets */; };
-		53AB64F229FB046100C19CFA /* Habit_Builder_AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64F129FB046100C19CFA /* Habit_Builder_AppTests.swift */; };
 		53AB64FC29FB046100C19CFA /* Habit_Builder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */; };
 		53AB64FE29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FD29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift */; };
 		53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65462A0169F000C19CFA /* AppDelegate.swift */; };
@@ -34,6 +33,9 @@
 		53AB658B2A06C8D500C19CFA /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53AB657E2A06C8D400C19CFA /* Roboto-Bold.ttf */; };
 		53AB65972A0AD2EA00C19CFA /* ImageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65962A0AD2EA00C19CFA /* ImageSystem.swift */; };
 		53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB659A2A0B3A5300C19CFA /* ButtonStyle.swift */; };
+		53AB65A12A0BE7A200C19CFA /* LandingScreenSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65A02A0BE7A200C19CFA /* LandingScreenSnapshotTest.swift */; };
+		53AB65A42A0BE94F00C19CFA /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 53AB65A32A0BE94F00C19CFA /* SnapshotTesting */; };
+		53AB65A72A0BEC5000C19CFA /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65A62A0BEC5000C19CFA /* TestConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +60,6 @@
 		53AB64E429FB046100C19CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AB64E729FB046100C19CFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		53AB64ED29FB046100C19CFA /* Habit Builder AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Habit Builder AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		53AB64F129FB046100C19CFA /* Habit_Builder_AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_Builder_AppTests.swift; sourceTree = "<group>"; };
 		53AB64F729FB046100C19CFA /* Habit Builder AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Habit Builder AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_Builder_AppUITests.swift; sourceTree = "<group>"; };
 		53AB64FD29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_Builder_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -84,6 +85,8 @@
 		53AB658E2A06C92D00C19CFA /* Habit-Builder-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Habit-Builder-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		53AB65962A0AD2EA00C19CFA /* ImageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSystem.swift; sourceTree = "<group>"; };
 		53AB659A2A0B3A5300C19CFA /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		53AB65A02A0BE7A200C19CFA /* LandingScreenSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreenSnapshotTest.swift; sourceTree = "<group>"; };
+		53AB65A62A0BEC5000C19CFA /* TestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AB65A42A0BE94F00C19CFA /* SnapshotTesting in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +123,7 @@
 				53AB64F029FB046100C19CFA /* Habit Builder AppTests */,
 				53AB64FA29FB046100C19CFA /* Habit Builder AppUITests */,
 				53AB64DE29FB046000C19CFA /* Products */,
+				53AB65A22A0BE94F00C19CFA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -159,7 +164,8 @@
 		53AB64F029FB046100C19CFA /* Habit Builder AppTests */ = {
 			isa = PBXGroup;
 			children = (
-				53AB64F129FB046100C19CFA /* Habit_Builder_AppTests.swift */,
+				53AB65A52A0BEBE100C19CFA /* Helpers */,
+				53AB659F2A0BE78300C19CFA /* LandingScreen */,
 			);
 			path = "Habit Builder AppTests";
 			sourceTree = "<group>";
@@ -276,6 +282,29 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		53AB659F2A0BE78300C19CFA /* LandingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65A02A0BE7A200C19CFA /* LandingScreenSnapshotTest.swift */,
+			);
+			path = LandingScreen;
+			sourceTree = "<group>";
+		};
+		53AB65A22A0BE94F00C19CFA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		53AB65A52A0BEBE100C19CFA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65A62A0BEC5000C19CFA /* TestConfig.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -313,6 +342,9 @@
 				53AB64EF29FB046100C19CFA /* PBXTargetDependency */,
 			);
 			name = "Habit Builder AppTests";
+			packageProductDependencies = (
+				53AB65A32A0BE94F00C19CFA /* SnapshotTesting */,
+			);
 			productName = "Habit Builder AppTests";
 			productReference = 53AB64ED29FB046100C19CFA /* Habit Builder AppTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -369,6 +401,7 @@
 			mainGroup = 53AB64D429FB046000C19CFA;
 			packageReferences = (
 				53AB65612A06B52E00C19CFA /* XCRemoteSwiftPackageReference "Factory" */,
+				53AB659C2A0BE74800C19CFA /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			productRefGroup = 53AB64DE29FB046000C19CFA /* Products */;
 			projectDirPath = "";
@@ -440,7 +473,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				53AB64F229FB046100C19CFA /* Habit_Builder_AppTests.swift in Sources */,
+				53AB65A12A0BE7A200C19CFA /* LandingScreenSnapshotTest.swift in Sources */,
+				53AB65A72A0BEC5000C19CFA /* TestConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -763,6 +797,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		53AB659C2A0BE74800C19CFA /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -770,6 +812,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53AB65612A06B52E00C19CFA /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
+		};
+		53AB65A32A0BE94F00C19CFA /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AB659C2A0BE74800C19CFA /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
