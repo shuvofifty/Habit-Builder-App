@@ -25,7 +25,7 @@
 		53AB65632A06B52E00C19CFA /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 53AB65622A06B52E00C19CFA /* Factory */; };
 		53AB65652A06B56D00C19CFA /* Resolver+Dependency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */; };
 		53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65672A06B66200C19CFA /* ColorSystem.swift */; };
-		53AB656A2A06BFEC00C19CFA /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65692A06BFEC00C19CFA /* Config.swift */; };
+		53AB656A2A06BFEC00C19CFA /* C.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65692A06BFEC00C19CFA /* C.swift */; };
 		53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */; };
 		53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB656E2A06C5AE00C19CFA /* FontSystemConfig.swift */; };
 		53AB65712A06C5C400C19CFA /* FontSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65702A06C5C400C19CFA /* FontSystem.swift */; };
@@ -33,6 +33,7 @@
 		53AB65832A06C8D500C19CFA /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53AB65762A06C8D400C19CFA /* Roboto-Regular.ttf */; };
 		53AB658B2A06C8D500C19CFA /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 53AB657E2A06C8D400C19CFA /* Roboto-Bold.ttf */; };
 		53AB65972A0AD2EA00C19CFA /* ImageSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65962A0AD2EA00C19CFA /* ImageSystem.swift */; };
+		53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB659A2A0B3A5300C19CFA /* ButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +74,7 @@
 		53AB655F2A0616D000C19CFA /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 		53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependency.swift"; sourceTree = "<group>"; };
 		53AB65672A06B66200C19CFA /* ColorSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystem.swift; sourceTree = "<group>"; };
-		53AB65692A06BFEC00C19CFA /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		53AB65692A06BFEC00C19CFA /* C.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = C.swift; sourceTree = "<group>"; };
 		53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSystemConfig.swift; sourceTree = "<group>"; };
 		53AB656E2A06C5AE00C19CFA /* FontSystemConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystemConfig.swift; sourceTree = "<group>"; };
 		53AB65702A06C5C400C19CFA /* FontSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSystem.swift; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 		53AB657E2A06C8D400C19CFA /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		53AB658E2A06C92D00C19CFA /* Habit-Builder-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Habit-Builder-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		53AB65962A0AD2EA00C19CFA /* ImageSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSystem.swift; sourceTree = "<group>"; };
+		53AB659A2A0B3A5300C19CFA /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,7 +234,7 @@
 		53AB656B2A06C36A00C19CFA /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				53AB65692A06BFEC00C19CFA /* Config.swift */,
+				53AB65692A06BFEC00C19CFA /* C.swift */,
 				53AB656C2A06C38700C19CFA /* ColorSystemConfig.swift */,
 				53AB656E2A06C5AE00C19CFA /* FontSystemConfig.swift */,
 				53AB65962A0AD2EA00C19CFA /* ImageSystem.swift */,
@@ -269,6 +271,7 @@
 		53AB65992A0B391B00C19CFA /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
+				53AB659A2A0B3A5300C19CFA /* ButtonStyle.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -413,7 +416,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */,
-				53AB656A2A06BFEC00C19CFA /* Config.swift in Sources */,
+				53AB656A2A06BFEC00C19CFA /* C.swift in Sources */,
 				53AB65972A0AD2EA00C19CFA /* ImageSystem.swift in Sources */,
 				53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */,
 				53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */,
@@ -427,6 +430,7 @@
 				53AB65522A02C1C400C19CFA /* Router.swift in Sources */,
 				53AB65572A04BA5900C19CFA /* LandingCordinator.swift in Sources */,
 				53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */,
+				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
 				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
 				53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */,
 			);

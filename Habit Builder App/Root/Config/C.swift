@@ -1,5 +1,5 @@
 //
-//  Config.swift
+//  C.swift
 //  Habit Builder App
 //
 //  Created by Shubroto Shuvo on 5/6/23.
@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
-final class Config {
+final class C {
     static let color: ColorSystem = OrangeHeavenColorSystem()
     static let font: FontSystem = RobotFontSystem()
     

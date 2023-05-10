@@ -13,18 +13,22 @@ struct LandingView: View {
     
     var body: some View {
         ZStack {
-            Config.color.get(for: .background, .main)
+            C.color.get(for: .background, .main)
                 .ignoresSafeArea()
             VStack {
-                Config.asset(.infoHeroIcon)
+                C.asset(.infoHeroIcon)
                     .frame(maxWidth: .infinity)
                 
                 Text("Habit Builder")
-                    .modifier(Config.font.get(for: .h1, customWeight: nil))
-                    .foregroundColor(Config.color.get(for: .primary, .s4))
+                    .modifier(C.font.get(for: .h1, customWeight: nil))
+                    .foregroundColor(C.color.get(for: .primary, .s4))
                 
                 Text("Simple way to make great progress")
-                    .modifier(Config.font.get(for: .secondaryElements, customWeight: nil))
+                    .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
+                
+                Button("Create an account") {
+                    print("Hahahaha")
+                }.buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                 
                 Spacer()
             }
