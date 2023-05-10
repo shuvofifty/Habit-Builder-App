@@ -10,26 +10,30 @@ import UIKit
 import SwiftUI
 
 final class RobotFontSystem: FontSystem {
+    func get(for type: FontType, customWeight: UIFont.Weight?) -> Font {
+        Font(get(for: type, customWeight: customWeight))
+    }
+    
     func get(for type: FontType, customWeight: UIFont.Weight?) -> UIFont {
         switch type {
         case .body:
-            return UIFont(name: getFontName(with: customWeight ?? .regular), size: 24)!
+            return UIFont(name: getFontName(with: customWeight ?? .regular), size: 16)!
         case .h1:
             return UIFont(name: getFontName(with: customWeight ?? .bold), size: 28)!
         case .h2:
-            return UIFont(name: getFontName(with: customWeight), size: 24)!
+            return UIFont(name: getFontName(with: customWeight ?? .bold), size: 22)!
         case .h3:
-            return UIFont(name: getFontName(with: customWeight), size: 24)!
+            return UIFont(name: getFontName(with: customWeight ?? .medium), size: 18)!
         case .secondaryElements:
-            return UIFont(name: getFontName(with: customWeight), size: 24)!
+            return UIFont(name: getFontName(with: customWeight ?? .medium), size: 16)!
         case .successMessage:
-            return UIFont(name: getFontName(with: customWeight), size: 24)!
+            return UIFont(name: getFontName(with: customWeight ?? .medium), size: 16)!
         case .smallText:
-            return UIFont(name: getFontName(with: customWeight), size: 24)!
+            return UIFont(name: getFontName(with: customWeight ?? .regular), size: 14)!
         case .xSmallText:
-            return UIFont(name: getFontName(with: customWeight), size: 24)!
+            return UIFont(name: getFontName(with: customWeight ?? .regular), size: 12)!
         case .custom(let size, let lineSpace):
-            return UIFont(name: getFontName(with: customWeight), size: 24)!
+            return UIFont(name: getFontName(with: customWeight ?? .regular), size: size)!
         }
     }
     

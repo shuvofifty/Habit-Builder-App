@@ -16,6 +16,7 @@ public enum FontType {
 public protocol FontSystem {
     func get(for type: FontType, customWeight: UIFont.Weight?) -> UIFont
     func get(for type: FontType, customWeight: UIFont.Weight?) -> FontModifier
+    func get(for type: FontType, customWeight: UIFont.Weight?) -> Font
 }
 
 public struct FontModifier: ViewModifier {

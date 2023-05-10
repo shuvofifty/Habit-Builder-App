@@ -25,10 +25,15 @@ struct LandingView: View {
                 
                 Text("Simple way to make great progress")
                     .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
+                    .foregroundColor(C.color.get(for: .text, .s1))
                 
                 Button("Create an account") {
                     print("Hahahaha")
                 }.buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                
+                Button("Member? Sign in") {
+                    print("Hahahaha")
+                }.buttonStyle(SecondaryButtonBorderedStyle(colorSystem: C.color, fontSystem: C.font))
                 
                 Spacer()
             }
