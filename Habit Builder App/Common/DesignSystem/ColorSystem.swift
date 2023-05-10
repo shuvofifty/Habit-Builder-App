@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 public enum ColorType {
     case primary, secondary, complementary, background, text, accent, neutral
@@ -18,4 +19,5 @@ public enum ColorShades {
 
 public protocol ColorSystem {
     func get(for type: ColorType, _ shade: ColorShades) -> UIColor
+    func get(for type: ColorType, _ shade: ColorShades) -> Color
 }
