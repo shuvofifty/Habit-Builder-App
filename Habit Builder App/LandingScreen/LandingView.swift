@@ -15,27 +15,38 @@ struct LandingView: View {
         ZStack {
             C.color.get(for: .background, .main)
                 .ignoresSafeArea()
-            VStack {
+            VStack(spacing: 0) {
                 C.asset(.infoHeroIcon)
                     .frame(maxWidth: .infinity)
+                    .padding(.top, 23)
                 
-                Text("Habit Builder")
-                    .modifier(C.font.get(for: .h1, customWeight: nil))
-                    .foregroundColor(C.color.get(for: .primary, .s4))
+                VStack(spacing: 0) {
+                    Text("Habit Builder")
+                        .modifier(C.font.get(for: .h1, customWeight: nil))
+                        .foregroundColor(C.color.get(for: .primary, .s4))
+                    
+                    Text("Simple way to make great progress")
+                        .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
+                        .foregroundColor(C.color.get(for: .text, .s1))
+                }
+                .padding(.top, 37)
                 
-                Text("Simple way to make great progress")
-                    .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
-                    .foregroundColor(C.color.get(for: .text, .s1))
-                
-                Button("Create an account") {
-                    print("Hahahaha")
-                }.buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
-                
-                Button("Member? Sign in") {
-                    print("Hahahaha")
-                }.buttonStyle(SecondaryButtonBorderedStyle(colorSystem: C.color, fontSystem: C.font))
+                VStack(spacing: 15) {
+                    Button("Create an account") {
+                        print("Hahahaha")
+                    }.buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                    
+                    Button("Member? Sign in") {
+                        print("Hahahaha")
+                    }.buttonStyle(SecondaryButtonBorderedStyle(colorSystem: C.color, fontSystem: C.font))
+                }
+                .padding(.top, 30)
                 
                 Spacer()
+                
+                Text("Prod | Version 0.0.1")
+                    .modifier(C.font.get(for: .xSmallText, customWeight: nil))
+                    .foregroundColor(C.color.get(for: .text, .s1))
             }
             .padding(.horizontal, 20)
             
