@@ -9,7 +9,7 @@ import Foundation
 
 /// All Cordinator must follow this protocol
 protocol Cordinator: AnyObject {
-    var rootCordinator: RootCordinator? { get }
+    var rootCordinator: RootCordinator { get }
     
     func start()
     /// Get a starting a vc that will wrap with router
@@ -32,4 +32,5 @@ protocol RootCordinator: AnyObject, CordinatorSources {
  */
 protocol CordinatorSources {
     var landingCordinator: LandingCordinator { get }
+    var signupCordinator: SignUpCordinator { get }
 }

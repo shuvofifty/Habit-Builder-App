@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 protocol LandingCordinator: Cordinator {
-    
+    func navigateToSignUp()
 }
 
 class LandingCordinatorImp: LandingCordinator {
-    weak var rootCordinator: RootCordinator?
+    var rootCordinator: RootCordinator
     
     init(rootCordinator: RootCordinator) {
         self.rootCordinator = rootCordinator
@@ -33,5 +33,7 @@ class LandingCordinatorImp: LandingCordinator {
         )
     }
     
-    
+    func navigateToSignUp() {
+        rootCordinator.signupCordinator.start()
+    }
 }

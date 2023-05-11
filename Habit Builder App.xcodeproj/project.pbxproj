@@ -36,6 +36,10 @@
 		53AB65A12A0BE7A200C19CFA /* LandingScreenSnapshotTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65A02A0BE7A200C19CFA /* LandingScreenSnapshotTest.swift */; };
 		53AB65A42A0BE94F00C19CFA /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 53AB65A32A0BE94F00C19CFA /* SnapshotTesting */; };
 		53AB65A72A0BEC5000C19CFA /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65A62A0BEC5000C19CFA /* TestConfig.swift */; };
+		53AB65AA2A0C8E6A00C19CFA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65A92A0C8E6A00C19CFA /* SignUpViewController.swift */; };
+		53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AB2A0C8E7500C19CFA /* SignUpView.swift */; };
+		53AB65AE2A0C8E8300C19CFA /* SignUpCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AD2A0C8E8300C19CFA /* SignUpCordinator.swift */; };
+		53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +91,10 @@
 		53AB659A2A0B3A5300C19CFA /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
 		53AB65A02A0BE7A200C19CFA /* LandingScreenSnapshotTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingScreenSnapshotTest.swift; sourceTree = "<group>"; };
 		53AB65A62A0BEC5000C19CFA /* TestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfig.swift; sourceTree = "<group>"; };
+		53AB65A92A0C8E6A00C19CFA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		53AB65AB2A0C8E7500C19CFA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		53AB65AD2A0C8E8300C19CFA /* SignUpCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCordinator.swift; sourceTree = "<group>"; };
+		53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,7 @@
 		53AB64DF29FB046000C19CFA /* Habit Builder App */ = {
 			isa = PBXGroup;
 			children = (
+				53AB65A82A0C8E5400C19CFA /* SignUpScreen */,
 				53AB658E2A06C92D00C19CFA /* Habit-Builder-App-Info.plist */,
 				53AB65722A06C8BC00C19CFA /* CustomFont */,
 				53AB65552A04BA2800C19CFA /* LandingScreen */,
@@ -305,6 +314,17 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		53AB65A82A0C8E5400C19CFA /* SignUpScreen */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65AD2A0C8E8300C19CFA /* SignUpCordinator.swift */,
+				53AB65A92A0C8E6A00C19CFA /* SignUpViewController.swift */,
+				53AB65AB2A0C8E7500C19CFA /* SignUpView.swift */,
+				53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */,
+			);
+			path = SignUpScreen;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -455,6 +475,7 @@
 				53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */,
 				53AB65712A06C5C400C19CFA /* FontSystem.swift in Sources */,
 				53AB654F2A02C10800C19CFA /* Cordinator.swift in Sources */,
+				53AB65AA2A0C8E6A00C19CFA /* SignUpViewController.swift in Sources */,
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
 				53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */,
@@ -463,8 +484,11 @@
 				53AB65522A02C1C400C19CFA /* Router.swift in Sources */,
 				53AB65572A04BA5900C19CFA /* LandingCordinator.swift in Sources */,
 				53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */,
+				53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */,
+				53AB65AE2A0C8E8300C19CFA /* SignUpCordinator.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
 				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
+				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,
 				53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

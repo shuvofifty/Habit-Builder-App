@@ -9,6 +9,10 @@ import Foundation
 import UIKit
 
 class RootCordinatorImp: RootCordinator {
+    lazy var signupCordinator: SignUpCordinator = {
+        SignUpCordinatorImp(rootCordinator: self)
+    }()
+    
     lazy var landingCordinator: LandingCordinator = {
         LandingCordinatorImp(rootCordinator: self)
     }()
