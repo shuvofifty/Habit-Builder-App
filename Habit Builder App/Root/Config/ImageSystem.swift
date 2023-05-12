@@ -10,4 +10,5 @@ import UIKit
 
 enum Assets: String {
     case infoHeroIcon = "introHeroImage"
+    case accountHeroImage = "accountHeroImage"
 }

@@ -48,6 +48,7 @@ struct LandingView: View {
                     .modifier(C.font.get(for: .xSmallText, customWeight: nil))
                     .foregroundColor(C.color.get(for: .text, .s1))
             }
+            .frame(maxWidth: .infinity)
             .padding(.horizontal, 20)
             
             

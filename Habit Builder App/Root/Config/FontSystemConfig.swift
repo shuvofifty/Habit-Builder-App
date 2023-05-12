@@ -40,21 +40,21 @@ final class RobotFontSystem: FontSystem {
     func get(for type: FontType, customWeight: UIFont.Weight?) -> FontModifier {
         switch type {
         case .body:
-            return FontModifier(fontName: getFontName(with: customWeight ?? .regular), size: 16, lineSpacing: 24)
+            return FontModifier(fontName: getFontName(with: customWeight ?? .regular), size: 16, lineSpacing: 0)
         case .h1:
-            return FontModifier(fontName: getFontName(with: customWeight ?? .bold), size: 28, lineSpacing: 33.6)
+            return FontModifier(fontName: getFontName(with: customWeight ?? .bold), size: 28, lineSpacing: 0)
         case .h2:
-            return FontModifier(fontName: getFontName(with: customWeight ?? .bold), size: 22, lineSpacing: 28.6)
+            return FontModifier(fontName: getFontName(with: customWeight ?? .bold), size: 22, lineSpacing: 0)
         case .h3:
-            return FontModifier(fontName: getFontName(with: customWeight ?? .medium), size: 18, lineSpacing: 25.2)
+            return FontModifier(fontName: getFontName(with: customWeight ?? .medium), size: 18, lineSpacing: 0)
         case .secondaryElements:
-            return FontModifier(fontName: getFontName(with: customWeight ?? .medium), size: 16, lineSpacing: 24)
+            return FontModifier(fontName: getFontName(with: customWeight ?? .medium), size: 16, lineSpacing: 0)
         case .successMessage:
-            return FontModifier(fontName: getFontName(with: customWeight ?? .medium), size: 16, lineSpacing: 24)
+            return FontModifier(fontName: getFontName(with: customWeight ?? .medium), size: 16, lineSpacing: 0)
         case .smallText:
-            return FontModifier(fontName: getFontName(with: customWeight ?? .regular), size: 14, lineSpacing: 21)
+            return FontModifier(fontName: getFontName(with: customWeight ?? .regular), size: 14, lineSpacing: 0)
         case .xSmallText:
-            return FontModifier(fontName: getFontName(with: customWeight ?? .regular), size: 12, lineSpacing: 18)
+            return FontModifier(fontName: getFontName(with: customWeight ?? .regular), size: 12, lineSpacing: 0)
         case .custom(let size, let lineSpace):
             return FontModifier(fontName: getFontName(with: customWeight ?? .regular), size: size, lineSpacing: lineSpace)
         }
