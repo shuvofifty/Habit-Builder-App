@@ -10,18 +10,13 @@ import Factory
 
 // MARK: - Cordinators
 extension Container {
-    var rootCordinator: Factory<RootCordinator> {
+    var rootCordinator: Factory<Cordinator> {
         self { RootCordinatorImp() }
             .singleton
     }
     
     var landingCordinator: Factory<LandingCordinator> {
-        self { LandingCordinatorImp(rootCordinator: Container.shared.rootCordinator()) }
-            .singleton
-    }
-    
-    var signUpCordinator: Factory<SignUpCordinator> {
-        self { SignUpCordinatorImp(rootCordinator: Container.shared.rootCordinator()) }
+        self { LandingCordinatorImp() }
             .singleton
     }
 }
@@ -29,10 +24,10 @@ extension Container {
 // MARK: - ViewModels
 extension Container {
     var landingViewModel: Factory<LandingView.ViewModel> {
-        self { LandingView.ViewModel(cordinator: Container.shared.landingCordinator()) }
+        self { LandingView.ViewModel() }
     }
     
     var signUpViewModel: Factory<SignUpView.ViewModel> {
-        self { SignUpView.ViewModel(cordinator: Container.shared.signUpCordinator()) }
+        self { SignUpView.ViewModel() }
     }
 }

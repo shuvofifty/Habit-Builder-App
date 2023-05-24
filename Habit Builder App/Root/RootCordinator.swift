@@ -6,20 +6,37 @@
 //
 
 import Foundation
+import Factory
 import UIKit
 
-class RootCordinatorImp: RootCordinator {
-    lazy var signupCordinator: SignUpCordinator = {
-        SignUpCordinatorImp(rootCordinator: self)
-    }()
+enum Screen {
+    case landing, signUp
+}
+
+protocol Cordinator {
+    var router: Router? { get set }
     
-    lazy var landingCordinator: LandingCordinator = {
-        LandingCordinatorImp(rootCordinator: self)
-    }()
-    
+    func navigate(to screen: Screen)
+    func get(for screen: Screen) -> UIViewController
+}
+
+class RootCordinatorImp: Cordinator {
     var router: Router?
     
-    init() {
-        self.router = landingCordinator.getWithRouter()
+    func get(for screen: Screen) -> UIViewController {
+        switch screen {
+        case .landing:
+            return LandingViewController(viewModel: Container.shared.landingViewModel())
+        case .signUp:
+            return SignUpViewController(viewModel: Container.shared.signUpViewModel())
+        }
     }
+    
+    func navigate(to screen: Screen) {
+        router?.push(get(for: screen), animated: true)
+    }
+}
+
+extension Cordinator {
+    func get(for screen: Screen) -> UIViewController { UIViewController() }
 }

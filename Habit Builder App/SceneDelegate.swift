@@ -16,7 +16,8 @@ final class SceneDelegate: NSObject, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let rootCordinator = Container.shared.rootCordinator()
+        var rootCordinator = Container.shared.rootCordinator()
+        rootCordinator.router = RouterImp(navigationController: UINavigationController(rootViewController: rootCordinator.get(for: .landing)))
         window?.rootViewController = rootCordinator.router?.navigationController
         window?.makeKeyAndVisible()
     }

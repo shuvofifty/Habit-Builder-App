@@ -6,13 +6,12 @@
 //
 
 import Foundation
+import Factory
 
 extension LandingView {
     class ViewModel: ObservableObject {
-        var cordinator: LandingCordinator
+        @Injected(\.landingCordinator) var cordinator: LandingCordinator
         
-        init(cordinator: LandingCordinator) {
-            self.cordinator = cordinator
-        }
+        
     }
 }

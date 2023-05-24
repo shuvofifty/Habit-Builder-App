@@ -13,10 +13,8 @@
 		53AB64FE29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FD29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift */; };
 		53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65462A0169F000C19CFA /* AppDelegate.swift */; };
 		53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65482A0169FD00C19CFA /* SceneDelegate.swift */; };
-		53AB654F2A02C10800C19CFA /* Cordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB654E2A02C10800C19CFA /* Cordinator.swift */; };
 		53AB65522A02C1C400C19CFA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65512A02C1C400C19CFA /* Router.swift */; };
 		53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65532A049BB600C19CFA /* RootCordinator.swift */; };
-		53AB65572A04BA5900C19CFA /* LandingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65562A04BA5900C19CFA /* LandingCordinator.swift */; };
 		53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65582A060D8300C19CFA /* LandingViewController.swift */; };
 		53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */; };
 		53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB655C2A060E2C00C19CFA /* LandingView.swift */; };
@@ -38,9 +36,9 @@
 		53AB65A72A0BEC5000C19CFA /* TestConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65A62A0BEC5000C19CFA /* TestConfig.swift */; };
 		53AB65AA2A0C8E6A00C19CFA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65A92A0C8E6A00C19CFA /* SignUpViewController.swift */; };
 		53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AB2A0C8E7500C19CFA /* SignUpView.swift */; };
-		53AB65AE2A0C8E8300C19CFA /* SignUpCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AD2A0C8E8300C19CFA /* SignUpCordinator.swift */; };
 		53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */; };
 		53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65B72A11493800C19CFA /* BaseMods.swift */; };
+		53AB66732A1DC3F100C19CFA /* LandingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,10 +68,8 @@
 		53AB64FD29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_Builder_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		53AB65462A0169F000C19CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53AB65482A0169FD00C19CFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53AB654E2A02C10800C19CFA /* Cordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cordinator.swift; sourceTree = "<group>"; };
 		53AB65512A02C1C400C19CFA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		53AB65532A049BB600C19CFA /* RootCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCordinator.swift; sourceTree = "<group>"; };
-		53AB65562A04BA5900C19CFA /* LandingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCordinator.swift; sourceTree = "<group>"; };
 		53AB65582A060D8300C19CFA /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
 		53AB655C2A060E2C00C19CFA /* LandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingView.swift; sourceTree = "<group>"; };
@@ -94,9 +90,9 @@
 		53AB65A62A0BEC5000C19CFA /* TestConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestConfig.swift; sourceTree = "<group>"; };
 		53AB65A92A0C8E6A00C19CFA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		53AB65AB2A0C8E7500C19CFA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		53AB65AD2A0C8E8300C19CFA /* SignUpCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCordinator.swift; sourceTree = "<group>"; };
 		53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		53AB65B72A11493800C19CFA /* BaseMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMods.swift; sourceTree = "<group>"; };
+		53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,7 +202,6 @@
 			children = (
 				53AB656B2A06C36A00C19CFA /* Config */,
 				53AB65532A049BB600C19CFA /* RootCordinator.swift */,
-				53AB654E2A02C10800C19CFA /* Cordinator.swift */,
 				53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */,
 			);
 			path = Root;
@@ -223,10 +218,10 @@
 		53AB65552A04BA2800C19CFA /* LandingScreen */ = {
 			isa = PBXGroup;
 			children = (
-				53AB65562A04BA5900C19CFA /* LandingCordinator.swift */,
 				53AB65582A060D8300C19CFA /* LandingViewController.swift */,
 				53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */,
 				53AB655C2A060E2C00C19CFA /* LandingView.swift */,
+				53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */,
 			);
 			path = LandingScreen;
 			sourceTree = "<group>";
@@ -320,7 +315,6 @@
 		53AB65A82A0C8E5400C19CFA /* SignUpScreen */ = {
 			isa = PBXGroup;
 			children = (
-				53AB65AD2A0C8E8300C19CFA /* SignUpCordinator.swift */,
 				53AB65A92A0C8E6A00C19CFA /* SignUpViewController.swift */,
 				53AB65AB2A0C8E7500C19CFA /* SignUpView.swift */,
 				53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */,
@@ -485,19 +479,17 @@
 				53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */,
 				53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */,
 				53AB65712A06C5C400C19CFA /* FontSystem.swift in Sources */,
-				53AB654F2A02C10800C19CFA /* Cordinator.swift in Sources */,
 				53AB65AA2A0C8E6A00C19CFA /* SignUpViewController.swift in Sources */,
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
 				53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */,
 				53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */,
+				53AB66732A1DC3F100C19CFA /* LandingCordinator.swift in Sources */,
 				53AB65652A06B56D00C19CFA /* Resolver+Dependency.swift in Sources */,
 				53AB65602A0616D000C19CFA /* Extension+UIView.swift in Sources */,
 				53AB65522A02C1C400C19CFA /* Router.swift in Sources */,
-				53AB65572A04BA5900C19CFA /* LandingCordinator.swift in Sources */,
 				53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */,
 				53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */,
-				53AB65AE2A0C8E8300C19CFA /* SignUpCordinator.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
 				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
 				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,

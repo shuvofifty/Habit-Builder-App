@@ -2,39 +2,22 @@
 //  LandingCordinator.swift
 //  Habit Builder App
 //
-//  Created by Shubroto Shuvo on 5/5/23.
+//  Created by Shubroto Shuvo on 5/24/23.
 //
 
 import Foundation
 import Factory
-import UIKit
 
 protocol LandingCordinator: Cordinator {
-    func navigateToSignUp()
+    
 }
 
 class LandingCordinatorImp: LandingCordinator {
-    var rootCordinator: RootCordinator
+    var router: Router?
     
-    init(rootCordinator: RootCordinator) {
-        self.rootCordinator = rootCordinator
-    }
+    @Injected(\.rootCordinator) var rootCordinator: Cordinator
     
-    func start() {
-        
-    }
-    
-    func getWithRouter() -> Router? {
-        RouterImp(
-            navigationController: UINavigationController(
-                rootViewController: LandingViewController(
-                    viewModel: Container.shared.landingViewModel()
-                )
-            )
-        )
-    }
-    
-    func navigateToSignUp() {
-        rootCordinator.signupCordinator.start()
+    func navigate(to screen: Screen) {
+        rootCordinator.navigate(to: screen)
     }
 }

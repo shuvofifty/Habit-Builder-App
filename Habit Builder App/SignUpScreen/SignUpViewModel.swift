@@ -6,13 +6,10 @@
 //
 
 import Foundation
+import Factory
 
 extension SignUpView {
     class ViewModel: ObservableObject {
-        let cordinator: SignUpCordinator
-        
-        init(cordinator: SignUpCordinator) {
-            self.cordinator = cordinator
-        }
+        @Injected(\.rootCordinator) var cordinator: Cordinator
     }
 }
