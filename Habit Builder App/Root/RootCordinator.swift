@@ -10,7 +10,7 @@ import Factory
 import UIKit
 
 enum Screen {
-    case landing, signUp
+    case landing, signUp, onboarding
 }
 
 protocol Cordinator {
@@ -29,6 +29,8 @@ class RootCordinatorImp: Cordinator {
             return LandingViewController(viewModel: Container.shared.landingViewModel())
         case .signUp:
             return SignUpViewController(viewModel: Container.shared.signUpViewModel())
+        case .onboarding:
+            return OnboardingViewController(viewModel: Container.shared.onboardingViewModel())
         }
     }
     

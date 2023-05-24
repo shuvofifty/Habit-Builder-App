@@ -40,6 +40,10 @@
 		53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65B72A11493800C19CFA /* BaseMods.swift */; };
 		53AB66732A1DC3F100C19CFA /* LandingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */; };
 		53AB66782A1E66A600C19CFA /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */; };
+		53AB667C2A1E8E7F00C19CFA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB667B2A1E8E7F00C19CFA /* OnboardingViewController.swift */; };
+		53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */; };
+		53AB66812A1E8EAF00C19CFA /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */; };
+		53AB66842A1E8EC100C19CFA /* OnboardingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66832A1E8EC100C19CFA /* OnboardingCordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +99,10 @@
 		53AB65B72A11493800C19CFA /* BaseMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMods.swift; sourceTree = "<group>"; };
 		53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCordinator.swift; sourceTree = "<group>"; };
 		53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
+		53AB667B2A1E8E7F00C19CFA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		53AB66832A1E8EC100C19CFA /* OnboardingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,10 +156,9 @@
 		53AB64DF29FB046000C19CFA /* Habit Builder App */ = {
 			isa = PBXGroup;
 			children = (
-				53AB65A82A0C8E5400C19CFA /* SignUpScreen */,
+				53AB667A2A1E8E4100C19CFA /* Screens */,
 				53AB658E2A06C92D00C19CFA /* Habit-Builder-App-Info.plist */,
 				53AB65722A06C8BC00C19CFA /* CustomFont */,
-				53AB65552A04BA2800C19CFA /* LandingScreen */,
 				53AB654D2A02C0FA00C19CFA /* Root */,
 				53AB654C2A02C0CE00C19CFA /* Common */,
 				53AB64E429FB046100C19CFA /* Assets.xcassets */,
@@ -341,6 +348,35 @@
 			path = TextField;
 			sourceTree = "<group>";
 		};
+		53AB66792A1E8E3400C19CFA /* OnboardingScreen */ = {
+			isa = PBXGroup;
+			children = (
+				53AB667D2A1E8E8F00C19CFA /* Views */,
+				53AB667B2A1E8E7F00C19CFA /* OnboardingViewController.swift */,
+				53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */,
+				53AB66832A1E8EC100C19CFA /* OnboardingCordinator.swift */,
+			);
+			path = OnboardingScreen;
+			sourceTree = "<group>";
+		};
+		53AB667A2A1E8E4100C19CFA /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				53AB65552A04BA2800C19CFA /* LandingScreen */,
+				53AB65A82A0C8E5400C19CFA /* SignUpScreen */,
+				53AB66792A1E8E3400C19CFA /* OnboardingScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		53AB667D2A1E8E8F00C19CFA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -484,15 +520,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AB66812A1E8EAF00C19CFA /* OnboardingViewModel.swift in Sources */,
 				53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */,
 				53AB656A2A06BFEC00C19CFA /* C.swift in Sources */,
 				53AB65972A0AD2EA00C19CFA /* ImageSystem.swift in Sources */,
 				53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */,
+				53AB667C2A1E8E7F00C19CFA /* OnboardingViewController.swift in Sources */,
 				53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */,
 				53AB65712A06C5C400C19CFA /* FontSystem.swift in Sources */,
 				53AB65AA2A0C8E6A00C19CFA /* SignUpViewController.swift in Sources */,
 				53AB66782A1E66A600C19CFA /* TextFieldStyle.swift in Sources */,
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
+				53AB66842A1E8EC100C19CFA /* OnboardingCordinator.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
 				53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */,
 				53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */,
@@ -504,6 +543,7 @@
 				53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
 				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
+				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
 				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,
 				53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */,
 			);

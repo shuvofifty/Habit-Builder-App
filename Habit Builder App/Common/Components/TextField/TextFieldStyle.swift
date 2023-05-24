@@ -22,6 +22,22 @@ public struct RegularTextFieldModifier: ViewModifier {
     }
 }
 
+public struct BottomBorderTextFieldModifier: ViewModifier {
+    let fontSystem: FontSystem
+    let colorSystem: ColorSystem
+    
+    public func body(content: Content) -> some View {
+        content
+            .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
+            .background(.clear)
+            .overlay(content: {
+                VStack{Rectangle().fill(colorSystem.get(for: .neutral, .main)).frame(height: 3).offset(x: 0, y: 20)}
+            })
+            .foregroundColor(colorSystem.get(for: .neutral, .main))
+            .font(fontSystem.get(for: .body, customWeight: nil))
+    }
+}
+
 extension View {
     static func placeHolder(text: String, c: ColorSystem, f: FontSystem) -> Text {
         Text(text)

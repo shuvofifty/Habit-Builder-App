@@ -43,7 +43,7 @@ struct SignUpView: View {
                             .foregroundColor(C.color.get(for: .text, .main))
                             .add(mod: .fullWidth())
                         
-                        SecureField("", text: $emailField, prompt: .placeHolder(text: "xxxxxxxxxxxx", c: C.color, f: C.font))
+                        SecureField("", text: $password, prompt: .placeHolder(text: "xxxxxxxxxxxx", c: C.color, f: C.font))
                             .modifier(RegularTextFieldModifier(fontSystem: C.font, colorSystem: C.color))
                             .add(mod: .fullWidth())
                     }
