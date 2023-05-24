@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Factory
 import UIKit
 
 protocol SignUpCordinator: Cordinator {
@@ -21,7 +22,7 @@ class SignUpCordinatorImp: SignUpCordinator {
     
     func start() {
         rootCordinator.router?.push(
-            SignUpViewController(viewModel: SignUpView.ViewModel(cordinator: self)),
+            SignUpViewController(viewModel: Container.shared.signUpViewModel()),
             animated: true
         )
     }

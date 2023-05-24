@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Factory
 import SwiftUI
 
 final class SceneDelegate: NSObject, UIWindowSceneDelegate {
@@ -15,7 +16,7 @@ final class SceneDelegate: NSObject, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        let rootCordinator = RootCordinatorImp()
+        let rootCordinator = Container.shared.rootCordinator()
         window?.rootViewController = rootCordinator.router?.navigationController
         window?.makeKeyAndVisible()
     }

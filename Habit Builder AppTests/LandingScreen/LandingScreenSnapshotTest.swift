@@ -19,9 +19,26 @@ class LandingScreenShapshotTest: XCTestCase {
 }
 
 class MockLandingCordinator: LandingCordinator {
-    var rootCordinator: Habit_Builder_App.RootCordinator?
+    var isNavigatedToSignUp = false
+    func navigateToSignUp() {
+        isNavigatedToSignUp = true
+    }
+    
+    var rootCordinator: RootCordinator = MockRootCordinator()
     
     func start() {
         
     }
+}
+
+class MockRootCordinator: RootCordinator {
+    var router: Router? = nil
+    
+    lazy var landingCordinator: LandingCordinator = {
+        MockLandingCordinator()
+    }()
+    
+    lazy var signupCordinator: SignUpCordinator = {
+        SignUpCordinatorImp(rootCordinator: self)
+    }()
 }

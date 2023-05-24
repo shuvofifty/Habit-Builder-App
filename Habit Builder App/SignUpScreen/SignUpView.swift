@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import Factory
 import SwiftUI
 
 struct SignUpView: View {
     @StateObject var viewModel: ViewModel
+    @State var emailField: String = ""
     
     var body: some View {
         ZStack {
@@ -20,31 +22,29 @@ struct SignUpView: View {
                 Text("It gets easier now to track your progress")
                     .modifier(C.font.get(for: .h2, customWeight: nil))
                     .foregroundColor(C.color.get(for: .primary, .s4))
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .add(mod: .fullWidth())
                 
                 VStack(spacing: 0) {
                     VStack(spacing: 5) {
                         Text("Email")
                             .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
                             .foregroundColor(C.color.get(for: .text, .main))
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .add(mod: .fullWidth())
                         
-                        Text("Email")
-                            .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
-                            .foregroundColor(C.color.get(for: .text, .main))
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                        TextField("Nothing??", text: $emailField)
+                            .add(mod: .fullWidth())
                     }
                     
                     VStack(spacing: 5) {
                         Text("Email")
                             .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
                             .foregroundColor(C.color.get(for: .text, .main))
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .add(mod: .fullWidth())
                         
                         Text("Email")
                             .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
                             .foregroundColor(C.color.get(for: .text, .main))
-                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .add(mod: .fullWidth())
                     }
                     .padding(.top, 10)
                     
@@ -66,10 +66,16 @@ struct SignUpView: View {
                 Spacer()
                 
                 C.asset(.accountHeroImage)
-                    .frame(maxWidth: .infinity)
+                    .add(mod: .fullWidth(alignment: .center))
             }
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 20)
         }
+    }
+}
+
+struct SignUpView_Preview: PreviewProvider {
+    static var previews: some View {
+        SignUpView(viewModel: Container.shared.signUpViewModel())
     }
 }

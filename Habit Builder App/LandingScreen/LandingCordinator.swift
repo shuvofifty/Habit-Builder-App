@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Factory
 import UIKit
 
 protocol LandingCordinator: Cordinator {
@@ -27,7 +28,7 @@ class LandingCordinatorImp: LandingCordinator {
         RouterImp(
             navigationController: UINavigationController(
                 rootViewController: LandingViewController(
-                    viewModel: LandingView.ViewModel(cordinator: self)
+                    viewModel: Container.shared.landingViewModel()
                 )
             )
         )
