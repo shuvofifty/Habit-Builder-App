@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
     var contentView: UIHostingController<SignUpView>
     
     init(viewModel: SignUpView.ViewModel) {
@@ -25,6 +25,13 @@ class SignUpViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.isNavigationBarHidden = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: C.asset(.backButton).withRenderingMode(.alwaysOriginal),
+            style: .plain,
+            target: navigationController,
+            action: #selector(UINavigationController.popViewController(animated:))
+        )
+        navigationController?.interactivePopGestureRecognizer?.delegate = self
     }
     
     override func viewDidLoad() {
