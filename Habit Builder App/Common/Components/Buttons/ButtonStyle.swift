@@ -59,3 +59,16 @@ public struct SecondaryButtonBorderedStyle: ButtonStyle {
             .foregroundColor(colorSystem.get(for: .text, .main))
     }
 }
+
+public struct TertiaryButtonStyle: ButtonStyle {
+    let colorSystem: ColorSystem
+    let fontSystem: FontSystem
+    
+    public func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(maxWidth: .infinity)
+            .background(.clear)
+            .font(fontSystem.get(for: .secondaryElements, customWeight: nil))
+            .foregroundColor(colorSystem.get(for: .complementary, .main))
+    }
+}

@@ -11,7 +11,8 @@ import SwiftUI
 
 struct SignUpView: View {
     @StateObject var viewModel: ViewModel
-    @State var emailField: String = ""
+    @State private var emailField: String = ""
+    @State private var password: String = ""
     
     var body: some View {
         ZStack {
@@ -31,19 +32,19 @@ struct SignUpView: View {
                             .foregroundColor(C.color.get(for: .text, .main))
                             .add(mod: .fullWidth())
                         
-                        TextField("Nothing??", text: $emailField)
+                        TextField("", text: $emailField, prompt: .placeHolder(text: "john@habit.com", c: C.color, f: C.font))
+                            .modifier(RegularTextFieldModifier(fontSystem: C.font, colorSystem: C.color))
                             .add(mod: .fullWidth())
                     }
                     
                     VStack(spacing: 5) {
-                        Text("Email")
+                        Text("Password")
                             .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
                             .foregroundColor(C.color.get(for: .text, .main))
                             .add(mod: .fullWidth())
                         
-                        Text("Email")
-                            .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
-                            .foregroundColor(C.color.get(for: .text, .main))
+                        SecureField("", text: $emailField, prompt: .placeHolder(text: "xxxxxxxxxxxx", c: C.color, f: C.font))
+                            .modifier(RegularTextFieldModifier(fontSystem: C.font, colorSystem: C.color))
                             .add(mod: .fullWidth())
                     }
                     .padding(.top, 10)
@@ -53,11 +54,13 @@ struct SignUpView: View {
                             print("Create Account")
                         }
                         .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                        .add(mod: .fullWidth())
                         
                         Button("Already a member? Sign in") {
                             print("Create Account")
                         }
-                        .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                        .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                        .add(mod: .fullWidth())
                     }
                     .padding(.top, 30)
                 }

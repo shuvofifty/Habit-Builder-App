@@ -39,6 +39,7 @@
 		53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */; };
 		53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65B72A11493800C19CFA /* BaseMods.swift */; };
 		53AB66732A1DC3F100C19CFA /* LandingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */; };
+		53AB66782A1E66A600C19CFA /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,6 +94,7 @@
 		53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		53AB65B72A11493800C19CFA /* BaseMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMods.swift; sourceTree = "<group>"; };
 		53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCordinator.swift; sourceTree = "<group>"; };
+		53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,6 +277,7 @@
 		53AB65982A0B390200C19CFA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				53AB66762A1E65B700C19CFA /* TextField */,
 				53AB65B62A11492700C19CFA /* Mods */,
 				53AB65992A0B391B00C19CFA /* Buttons */,
 			);
@@ -328,6 +331,14 @@
 				53AB65B72A11493800C19CFA /* BaseMods.swift */,
 			);
 			path = Mods;
+			sourceTree = "<group>";
+		};
+		53AB66762A1E65B700C19CFA /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -480,6 +491,7 @@
 				53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */,
 				53AB65712A06C5C400C19CFA /* FontSystem.swift in Sources */,
 				53AB65AA2A0C8E6A00C19CFA /* SignUpViewController.swift in Sources */,
+				53AB66782A1E66A600C19CFA /* TextFieldStyle.swift in Sources */,
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
 				53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */,
