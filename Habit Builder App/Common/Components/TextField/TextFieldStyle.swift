@@ -11,11 +11,12 @@ import SwiftUI
 public struct RegularTextFieldModifier: ViewModifier {
     let fontSystem: FontSystem
     let colorSystem: ColorSystem
+    var height: CGFloat = 44
     
     public func body(content: Content) -> some View {
         content
             .padding(.horizontal, 10)
-            .frame(maxWidth: .infinity, minHeight: 44, maxHeight: 44)
+            .frame(maxWidth: .infinity, minHeight: height, maxHeight: height)
             .background(RoundedRectangle(cornerRadius: 10.0).fill(colorSystem.get(for: .neutral, .main)))
             .foregroundColor(colorSystem.get(for: .text, .main))
             .font(fontSystem.get(for: .body, customWeight: nil))
