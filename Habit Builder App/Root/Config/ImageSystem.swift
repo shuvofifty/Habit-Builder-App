@@ -14,4 +14,5 @@ enum Assets: String {
     case backButton = "backButton"
     case smallNextButtonPrimary = "smallNextButtonPrimary"
     case helloNameHero = "helloNameHeroImage"
+    case habitReasonHero = "habitReasonHeroImage"
 }

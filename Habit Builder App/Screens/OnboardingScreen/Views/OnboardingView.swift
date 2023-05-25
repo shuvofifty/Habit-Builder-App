@@ -11,11 +11,11 @@ import SwiftUI
 
 struct OnboardingView: View {
     enum Step {
-        case intro, name, welcome, firstHabit, why
+        case intro, name, welcome, firstHabit, why, reason
     }
     
     @StateObject var viewModel: ViewModel
-    @State var step: Step = .why
+    @State var step: Step = .reason
     @State var name: String = ""
     @State var whyDescription: String = ""
     
@@ -132,6 +132,32 @@ struct OnboardingView: View {
         .padding(.horizontal, 20)
     }
     
+    var reasonView: some View {
+        VStack(spacing: 0) {
+            C.asset(.habitReasonHero)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(.bottom, 42)
+                .padding(.top, 10)
+            Text("Always Remember that!")
+                .font(C.font.get(for: .h1, customWeight: nil))
+                .foregroundColor(C.color.get(for: .secondary, .s2))
+                .add(mod: .fullWidth())
+                .padding(.bottom, 10)
+            Text("Understanding the why while working on building a habit is important so that it keeps you motivated in long run")
+                .font(C.font.get(for: .h3, customWeight: nil))
+                .foregroundColor(C.color.get(for: .neutral, .main))
+                .add(mod: .fullWidth())
+            Spacer()
+            Button("Continue") {
+                print("Continue")
+            }
+            .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+        }
+        .add(mod: .fullWidth())
+        .padding(.horizontal, 20)
+    }
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -148,6 +174,8 @@ struct OnboardingView: View {
                 firstHabitView
             case .why:
                 whyView
+            case .reason:
+                reasonView
             }
             
         }
