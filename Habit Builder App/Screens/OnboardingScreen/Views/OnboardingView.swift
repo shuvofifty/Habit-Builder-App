@@ -11,11 +11,11 @@ import SwiftUI
 
 struct OnboardingView: View {
     enum Step {
-        case intro, name, welcome, firstHabit, why, reason
+        case intro, name, welcome, firstHabit, why, reason, checkIn, checkInSuccess
     }
     
     @StateObject var viewModel: ViewModel
-    @State var step: Step = .reason
+    @State var step: Step = .checkInSuccess
     @State var name: String = ""
     @State var whyDescription: String = ""
     
@@ -158,6 +158,63 @@ struct OnboardingView: View {
         .padding(.horizontal, 20)
     }
     
+    var checkInView: some View {
+        VStack(spacing: 0) {
+            Spacer()
+            Text("Start with")
+                .font(C.font.get(for: .h1, customWeight: nil))
+                .foregroundColor(C.color.get(for: .secondary, .s1))
+                .add(mod: .fullWidth())
+                .padding(.bottom, 0)
+            Text("Check In")
+                .font(C.font.get(for: .custom(size: 60, lineSpace: 0), customWeight: .bold))
+                .foregroundColor(C.color.get(for: .neutral, .main))
+                .add(mod: .fullWidth())
+                .padding(.bottom, 40)
+            Text("It is also a habit")
+                .font(C.font.get(for: .h3, customWeight: nil))
+                .foregroundColor(C.color.get(for: .background, .s2))
+                .add(mod: .fullWidth())
+            Spacer()
+            Button("Tap to Check in") {
+                print("Continue")
+            }
+            .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+        }
+        .add(mod: .fullWidth())
+        .padding(.horizontal, 20)
+    }
+    
+    var checkInSuccessView: some View {
+        VStack(spacing: 0) {
+            C.asset(.checkInHero)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding(EdgeInsets(top: 10, leading: -20, bottom: 30, trailing: -20))
+            Text("Perfect!")
+                .font(C.font.get(for: .h2, customWeight: nil))
+                .foregroundColor(C.color.get(for: .secondary, .s1))
+                .add(mod: .fullWidth())
+                .padding(.bottom, 10)
+            Text("We added it for you")
+                .font(C.font.get(for: .h1, customWeight: nil))
+                .foregroundColor(C.color.get(for: .secondary, .s2))
+                .add(mod: .fullWidth())
+                .padding(.bottom, 10)
+            Text("Everyday you open the app we will mark this habbit as done")
+                .font(C.font.get(for: .secondaryElements, customWeight: nil))
+                .foregroundColor(C.color.get(for: .neutral, .main))
+                .add(mod: .fullWidth())
+            Spacer()
+            Button("Lets Begin") {
+                print("Continue")
+            }
+            .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+        }
+        .add(mod: .fullWidth())
+        .padding(.horizontal, 20)
+    }
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -176,6 +233,10 @@ struct OnboardingView: View {
                 whyView
             case .reason:
                 reasonView
+            case .checkIn:
+                checkInView
+            case .checkInSuccess:
+                checkInSuccessView
             }
             
         }
