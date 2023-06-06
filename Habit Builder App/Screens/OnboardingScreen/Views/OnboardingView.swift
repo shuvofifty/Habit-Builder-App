@@ -15,7 +15,6 @@ struct OnboardingView: View {
     }
     
     @StateObject var viewModel: ViewModel
-    @State var step: Step = .checkInSuccess
     @State var name: String = ""
     @State var whyDescription: String = ""
     
@@ -220,7 +219,7 @@ struct OnboardingView: View {
             Rectangle()
                 .fill(C.color.get(for: .primary, .s4))
                 .ignoresSafeArea()
-            switch step {
+            switch viewModel.activeStep {
             case .intro:
                 introView
             case .name:
@@ -239,6 +238,9 @@ struct OnboardingView: View {
                 checkInSuccessView
             }
             
+        }
+        .onAppear {
+            viewModel.startOnboardingProcess()
         }
     }
 }
