@@ -18,16 +18,27 @@ extension OnboardingView {
         @Published var name: String = ""
         private var nameStepCancellable: AnyCancellable?
         
+        @Published var firstHabit: String = ""
+        private var firstHabitStepCancellable: AnyCancellable?
+        
+        @Published var whyDescription: String = ""
+        private var whyStepCancellable: AnyCancellable?
+        
+        @Published var continueTapped: Bool = false
+        private var continueCancellable: AnyCancellable?
+        
+        
         private lazy var steps: [(step: Step, completion: () -> Future<Void, Never>)] = [
-            (step: .intro, completion: {[unowned self] in self.introStep() }),
+            (step: .intro, completion: {[unowned self] in self.delayStep(by: 2.0) }),
             (step: .name, completion: {[unowned self] in self.nameStep() }),
-            (step: .welcome, completion: {[unowned self] in self.introStep() }),
-            (step: .firstHabit, completion: {[unowned self] in self.introStep() }),
-            (step: .why, completion: {[unowned self] in self.introStep() }),
-            (step: .reason, completion: {[unowned self] in self.introStep() }),
-            (step: .checkIn, completion: {[unowned self] in self.introStep() }),
-            (step: .checkInSuccess, completion: {[unowned self] in self.introStep() })
+            (step: .welcome, completion: {[unowned self] in self.delayStep(by: 3.0) }),
+            (step: .firstHabit, completion: {[unowned self] in self.firstHabitInputStep() }),
+            (step: .why, completion: {[unowned self] in self.whyStep() }),
+            (step: .reason, completion: {[unowned self] in self.continueStepActions() }),
+            (step: .checkIn, completion: {[unowned self] in self.continueStepActions() }),
+            (step: .checkInSuccess, completion: {[unowned self] in self.continueStepActions() })
         ]
+        
         private var subscriptions = Set<AnyCancellable>()
         
         
@@ -37,15 +48,15 @@ extension OnboardingView {
                     self?.activeStep = stepAction.step
                     return stepAction.completion()
                 }
-                .sink(receiveValue: {
-                    print("This is waiting for meeee")
+                .sink(receiveValue: {[weak self] in
+                    self?.continueTapped = false
                 })
                 .store(in: &subscriptions)
         }
         
-        private func introStep() -> Future<Void, Never> {
+        private func delayStep(by time: CGFloat) -> Future<Void, Never> {
             Future { promise in
-                let delay = 3.0
+                let delay = time
                 DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                     promise(.success(()))
                 }
@@ -62,6 +73,46 @@ extension OnboardingView {
                         promise(.success(()))
                         self.nameStepCancellable?.cancel()
                         self.nameStepCancellable = nil
+                    })
+            }
+        }
+        
+        private func firstHabitInputStep() -> Future<Void, Never> {
+            Future {[unowned self] promise in
+                self.firstHabitStepCancellable = self.$firstHabit
+                    .sink(receiveValue: { value in
+                        guard !value.isEmpty else {
+                            return
+                        }
+                        promise(.success(()))
+                        self.firstHabitStepCancellable?.cancel()
+                        self.firstHabitStepCancellable = nil
+                    })
+            }
+        }
+        
+        private func whyStep() -> Future<Void, Never> {
+            Future {[unowned self] promise in
+                self.whyStepCancellable = self.$whyDescription
+                    .sink(receiveValue: { value in
+                        guard !value.isEmpty else {
+                            return
+                        }
+                        promise(.success(()))
+                        self.whyStepCancellable?.cancel()
+                        self.whyStepCancellable = nil
+                    })
+            }
+        }
+        
+        private func continueStepActions() -> Future<Void, Never> {
+            Future {[unowned self] promise in
+                self.continueCancellable = self.$continueTapped
+                    .sink(receiveValue: { value in
+                        guard value else {
+                            return
+                        }
+                        promise(.success(()))
                     })
             }
         }

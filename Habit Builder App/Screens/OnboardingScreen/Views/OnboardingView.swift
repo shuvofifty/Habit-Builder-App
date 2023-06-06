@@ -17,6 +17,7 @@ struct OnboardingView: View {
     @StateObject var viewModel: ViewModel
     @State var name: String = ""
     @State var whyDescription: String = ""
+    @State var firstHabit: String = ""
     
     var introView: some View {
         VStack(spacing: 10) {
@@ -64,7 +65,7 @@ struct OnboardingView: View {
     var welcomeView: some View {
         VStack(spacing: 0) {
             Spacer()
-            Text("Hello John")
+            Text("Hello \(name)")
                 .font(C.font.get(for: .h1, customWeight: nil))
                 .foregroundColor(C.color.get(for: .neutral, .main))
                 .add(mod: .fullWidth())
@@ -102,11 +103,14 @@ struct OnboardingView: View {
                 .padding(.bottom, 50)
             
             HStack(spacing: 15) {
-                TextField("", text: $name, prompt: .placeHolder(text: "Drink water every morning", c: C.color, f: C.font))
+                TextField("", text: $firstHabit, prompt: .placeHolder(text: "Drink water every morning", c: C.color, f: C.font))
                     .modifier(RegularTextFieldModifier(fontSystem: C.font, colorSystem: C.color))
                     .add(mod: .fullWidth())
                 C.asset(.smallNextButtonPrimary)
                     .frame(width: 40, height: 40)
+                    .onTapGesture {
+                        viewModel.firstHabit = firstHabit
+                    }
             }
         }
         .add(mod: .fullWidth())
@@ -128,6 +132,9 @@ struct OnboardingView: View {
                     .add(mod: .fullWidth())
                 C.asset(.smallNextButtonPrimary)
                     .frame(width: 40, height: 40)
+                    .onTapGesture {
+                        viewModel.whyDescription = whyDescription
+                    }
             }
         }
         .add(mod: .fullWidth())
@@ -152,7 +159,7 @@ struct OnboardingView: View {
                 .add(mod: .fullWidth())
             Spacer()
             Button("Continue") {
-                print("Continue")
+                viewModel.continueTapped = true
             }
             .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
         }
@@ -179,7 +186,7 @@ struct OnboardingView: View {
                 .add(mod: .fullWidth())
             Spacer()
             Button("Tap to Check in") {
-                print("Continue")
+                viewModel.continueTapped = true
             }
             .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
         }
@@ -209,7 +216,7 @@ struct OnboardingView: View {
                 .add(mod: .fullWidth())
             Spacer()
             Button("Lets Begin") {
-                print("Continue")
+                viewModel.continueTapped = true
             }
             .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
         }
