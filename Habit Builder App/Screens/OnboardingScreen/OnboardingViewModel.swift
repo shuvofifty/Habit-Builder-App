@@ -15,9 +15,12 @@ extension OnboardingView {
         
         @Published var activeStep: Step = .intro
         
+        @Published var name: String = ""
+        private var nameStepCancellable: AnyCancellable?
+        
         private lazy var steps: [(step: Step, completion: () -> Future<Void, Never>)] = [
             (step: .intro, completion: {[unowned self] in self.introStep() }),
-            (step: .name, completion: {[unowned self] in self.introStep() }),
+            (step: .name, completion: {[unowned self] in self.nameStep() }),
             (step: .welcome, completion: {[unowned self] in self.introStep() }),
             (step: .firstHabit, completion: {[unowned self] in self.introStep() }),
             (step: .why, completion: {[unowned self] in self.introStep() }),
@@ -26,6 +29,7 @@ extension OnboardingView {
             (step: .checkInSuccess, completion: {[unowned self] in self.introStep() })
         ]
         private var subscriptions = Set<AnyCancellable>()
+        
         
         func startOnboardingProcess() {
             steps.publisher
@@ -39,14 +43,27 @@ extension OnboardingView {
                 .store(in: &subscriptions)
         }
         
-        func introStep() -> Future<Void, Never> {
+        private func introStep() -> Future<Void, Never> {
             Future { promise in
-                let delay = 5.0
+                let delay = 3.0
                 DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
                     promise(.success(()))
                 }
             }
         }
         
+        private func nameStep() -> Future<Void, Never> {
+            Future {[unowned self] promise in
+                self.nameStepCancellable = self.$name
+                    .sink(receiveValue: { value in
+                        guard !value.isEmpty else {
+                            return
+                        }
+                        promise(.success(()))
+                        self.nameStepCancellable?.cancel()
+                        self.nameStepCancellable = nil
+                    })
+            }
+        }
     }
 }

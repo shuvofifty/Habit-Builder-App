@@ -52,6 +52,9 @@ struct OnboardingView: View {
                     .add(mod: .fullWidth())
                 C.asset(.smallNextButtonPrimary)
                     .frame(width: 40, height: 40)
+                    .onTapGesture {
+                        viewModel.name = name
+                    }
             }
         }
         .add(mod: .fullWidth())
