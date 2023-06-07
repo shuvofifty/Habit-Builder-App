@@ -33,7 +33,7 @@ struct LandingView: View {
                 
                 VStack(spacing: 15) {
                     Button("Create an account") {
-                        viewModel.cordinator.navigate(to: .signUp)
+                        viewModel.cordinator.navigate(to: .signUp, groupWith: .onBoarding)
                     }.buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                     
                     Button("Member? Sign in") {

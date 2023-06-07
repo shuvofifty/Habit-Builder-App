@@ -216,7 +216,7 @@ struct OnboardingView: View {
                 .add(mod: .fullWidth())
             Spacer()
             Button("Lets Begin") {
-                viewModel.continueTapped = true
+                viewModel.onboardingProcessComplete()
             }
             .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
         }

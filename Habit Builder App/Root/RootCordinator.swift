@@ -88,5 +88,5 @@ extension Cordinator {
 }
 
 enum ScreenGroupID {
-    case signIn
+    case onBoarding
 }

@@ -54,6 +54,10 @@ extension OnboardingView {
                 .store(in: &subscriptions)
         }
         
+        func onboardingProcessComplete() {
+            cordinator.remove(group: .onBoarding)
+        }
+        
         private func delayStep(by time: CGFloat) -> Future<Void, Never> {
             Future { promise in
                 let delay = time

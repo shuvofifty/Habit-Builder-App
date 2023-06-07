@@ -51,7 +51,7 @@ struct SignUpView: View {
                     
                     VStack(spacing: 10) {
                         Button("Lets get started") {
-                            viewModel.cordinator.navigate(to: .onboarding)
+                            viewModel.cordinator.navigate(to: .onboarding, groupWith: .onBoarding)
                         }
                         .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                         .add(mod: .fullWidth())
