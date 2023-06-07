@@ -16,9 +16,9 @@ enum Screen {
 protocol Cordinator {
     var navigationController: UINavigationController? { get set }
     
-    func navigate(to screen: Screen)
-    func navigate(to screen: Screen, groupWith groupId: ScreenGroupID)
-    func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, id: String)
+    func navigate(to screen: Screen, transition: TransitionStyle)
+    func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, transition: TransitionStyle)
+    func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, id: String, transition: TransitionStyle)
     
     func remove(group id: ScreenGroupID)
     func remove(with viewIDs: [String])
@@ -26,7 +26,7 @@ protocol Cordinator {
     func get(for screen: Screen) -> UIViewController
 }
 
-class RootCordinatorImp: Cordinator {
+class RootCordinatorImp: NSObject, Cordinator {
     var navigationController: UINavigationController?
     private var screenGroups: [ScreenGroupID: [String]] = [:]
     
@@ -41,15 +41,15 @@ class RootCordinatorImp: Cordinator {
         }
     }
     
-    func navigate(to screen: Screen) {
-        navigationController?.pushViewController(get(for: screen), animated: true)
+    func navigate(to screen: Screen, transition: TransitionStyle) {
+        performNavigation(vc: get(for: screen), transition: transition)
     }
     
-    func navigate(to screen: Screen, groupWith groupId: ScreenGroupID) {
-        navigate(to: screen, groupWith: groupId, id: UUID().uuidString)
+    func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, transition: TransitionStyle) {
+        navigate(to: screen, groupWith: groupId, id: UUID().uuidString, transition: transition)
     }
     
-    func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, id: String) {
+    func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, id: String, transition: TransitionStyle) {
         guard let vc = get(for: screen) as? IDViewController else {
             fatalError("IDViewController is not set with this")
         }
@@ -58,7 +58,18 @@ class RootCordinatorImp: Cordinator {
         }
         screenGroups[groupId]?.append(id)
         vc.screen_ID = id
-        navigationController?.pushViewController(vc, animated: true)
+        performNavigation(vc: vc, transition: transition)
+    }
+    
+    private func performNavigation(vc: UIViewController, transition: TransitionStyle) {
+        switch transition {
+        case .push:
+            navigationController?.pushViewController(vc, animated: true)
+        case .fadeIn:
+            navigationController?.delegate = self
+            navigationController?.pushViewController(vc, animated: true)
+        }
+        
     }
     
     func remove(group id: ScreenGroupID) {
@@ -83,8 +94,17 @@ class RootCordinatorImp: Cordinator {
     }
 }
 
-extension Cordinator {
-    func get(for screen: Screen) -> UIViewController { UIViewController() }
+extension RootCordinatorImp: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        switch operation {
+        case .push:
+            let transition = FadeInTransition()
+            transition.navController = navigationController
+            return transition
+        default:
+            return nil
+        }
+    }
 }
 
 enum ScreenGroupID {

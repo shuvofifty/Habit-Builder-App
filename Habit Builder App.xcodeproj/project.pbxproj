@@ -42,6 +42,7 @@
 		53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */; };
 		53AB66812A1E8EAF00C19CFA /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */; };
 		53AB66872A30F7A900C19CFA /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66862A30F7A900C19CFA /* IDViewController.swift */; };
+		53AB668A2A3110ED00C19CFA /* NavigationTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66892A3110ED00C19CFA /* NavigationTransitions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		53AB66862A30F7A900C19CFA /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
+		53AB66892A3110ED00C19CFA /* NavigationTransitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationTransitions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				53AB656B2A06C36A00C19CFA /* Config */,
 				53AB65532A049BB600C19CFA /* RootCordinator.swift */,
 				53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */,
+				53AB66892A3110ED00C19CFA /* NavigationTransitions.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -533,6 +536,7 @@
 				53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */,
 				53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
+				53AB668A2A3110ED00C19CFA /* NavigationTransitions.swift in Sources */,
 				53AB66872A30F7A900C19CFA /* IDViewController.swift in Sources */,
 				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
 				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
