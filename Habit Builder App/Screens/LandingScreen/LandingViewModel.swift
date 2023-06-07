@@ -10,7 +10,7 @@ import Factory
 
 extension LandingView {
     class ViewModel: ObservableObject {
-        @Injected(\.rootCordinator) var cordinator: Cordinator
+        @Injected(\.landingCordinator) var cordinator: LandingCordinator
         
         
     }

@@ -14,6 +14,16 @@ extension Container {
         self { RootCordinatorImp() }
             .singleton
     }
+    
+    var landingCordinator: Factory<LandingCordinator> {
+        self { LandingCordinatorImp() }
+            .singleton
+    }
+    
+    var onboardingCordinator: Factory<OnboardingCordinator> {
+        self { OnboardingCordinatorImp() }
+            .singleton
+    }
 }
 
 // MARK: - ViewModels

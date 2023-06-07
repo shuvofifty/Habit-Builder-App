@@ -14,15 +14,16 @@ enum Screen {
 }
 
 protocol Cordinator {
+    var router: Router? { get set }
+    
     func navigate(to screen: Screen)
-    func navigate(to screen: Screen, using currentRouterID: RouterID, to destinationRouterID: RouterID)
-    func get(for id: RouterID, ifNotPresentGetwith rootScreen: Screen) -> Router
+    func get(for screen: Screen) -> UIViewController
 }
 
 class RootCordinatorImp: Cordinator {
-    var routerMap: [RouterID: Router] = [:]
+    var router: Router?
     
-    private func get(for screen: Screen) -> UIViewController {
+    func get(for screen: Screen) -> UIViewController {
         switch screen {
         case .landing:
             return LandingViewController(viewModel: Container.shared.landingViewModel())
@@ -33,42 +34,11 @@ class RootCordinatorImp: Cordinator {
         }
     }
     
-    private func get(for id: RouterID) -> Router {
-        guard let customRoute = routerMap[id] else {
-            routerMap[id] = RouterImp()
-            return routerMap[id]!
-        }
-        return customRoute
-    }
-    
-    func get(for id: RouterID, ifNotPresentGetwith rootScreen: Screen) -> Router {
-        var router = get(for: id)
-        if router.navigationController == nil {
-            router.navigationController = UINavigationController(rootViewController: get(for: rootScreen))
-        }
-        return router
-    }
-    
     func navigate(to screen: Screen) {
-        navigate(to: screen, using: .regular, to: .regular)
-    }
-    
-    func navigate(to screen: Screen, using currentRouterID: RouterID, to destinationRouterID: RouterID) {
-        let currentRouter = get(for: currentRouterID, ifNotPresentGetwith: screen)
-        
-        guard currentRouterID != destinationRouterID else {
-            currentRouter.push(get(for: screen), animated: true)
-            return
-        }
-        
-        guard let destinatonRouter = routerMap[destinationRouterID] else {
-            fatalError("Destination router \(destinationRouterID) is not present in the router map")
-        }
-        
-        destinatonRouter.push(currentRouter, animated: true)
+        router?.push(get(for: screen), animated: true)
     }
 }
 
-enum RouterID: String {
-    case onBoardingRouter, regular
+extension Cordinator {
+    func get(for screen: Screen) -> UIViewController { UIViewController() }
 }
