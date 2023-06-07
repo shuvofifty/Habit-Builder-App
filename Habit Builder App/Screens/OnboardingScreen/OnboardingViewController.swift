@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 import UIKit
 
-class OnboardingViewController: UIViewController {
+class OnboardingViewController: IDViewController {
     var contentView: UIHostingController<OnboardingView>
     
     init(viewModel: OnboardingView.ViewModel) {

@@ -13,7 +13,6 @@
 		53AB64FE29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FD29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift */; };
 		53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65462A0169F000C19CFA /* AppDelegate.swift */; };
 		53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65482A0169FD00C19CFA /* SceneDelegate.swift */; };
-		53AB65522A02C1C400C19CFA /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65512A02C1C400C19CFA /* Router.swift */; };
 		53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65532A049BB600C19CFA /* RootCordinator.swift */; };
 		53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65582A060D8300C19CFA /* LandingViewController.swift */; };
 		53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */; };
@@ -42,6 +41,7 @@
 		53AB667C2A1E8E7F00C19CFA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB667B2A1E8E7F00C19CFA /* OnboardingViewController.swift */; };
 		53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */; };
 		53AB66812A1E8EAF00C19CFA /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */; };
+		53AB66872A30F7A900C19CFA /* IDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66862A30F7A900C19CFA /* IDViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,7 +71,6 @@
 		53AB64FD29FB046100C19CFA /* Habit_Builder_AppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit_Builder_AppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		53AB65462A0169F000C19CFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53AB65482A0169FD00C19CFA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		53AB65512A02C1C400C19CFA /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		53AB65532A049BB600C19CFA /* RootCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootCordinator.swift; sourceTree = "<group>"; };
 		53AB65582A060D8300C19CFA /* LandingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingViewModel.swift; sourceTree = "<group>"; };
@@ -99,6 +98,7 @@
 		53AB667B2A1E8E7F00C19CFA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		53AB66862A30F7A900C19CFA /* IDViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,10 +194,10 @@
 		53AB654C2A02C0CE00C19CFA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				53AB66852A30F78E00C19CFA /* Basic */,
 				53AB65982A0B390200C19CFA /* Components */,
 				53AB65662A06B62D00C19CFA /* DesignSystem */,
 				53AB655E2A0616B700C19CFA /* Extensions */,
-				53AB65502A02C1B800C19CFA /* Router */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -210,14 +210,6 @@
 				53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */,
 			);
 			path = Root;
-			sourceTree = "<group>";
-		};
-		53AB65502A02C1B800C19CFA /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				53AB65512A02C1C400C19CFA /* Router.swift */,
-			);
-			path = Router;
 			sourceTree = "<group>";
 		};
 		53AB65552A04BA2800C19CFA /* LandingScreen */ = {
@@ -369,6 +361,14 @@
 				53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		53AB66852A30F78E00C19CFA /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				53AB66862A30F7A900C19CFA /* IDViewController.swift */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -530,10 +530,10 @@
 				53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */,
 				53AB65652A06B56D00C19CFA /* Resolver+Dependency.swift in Sources */,
 				53AB65602A0616D000C19CFA /* Extension+UIView.swift in Sources */,
-				53AB65522A02C1C400C19CFA /* Router.swift in Sources */,
 				53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */,
 				53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
+				53AB66872A30F7A900C19CFA /* IDViewController.swift in Sources */,
 				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
 				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
 				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,

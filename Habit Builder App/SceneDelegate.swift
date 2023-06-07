@@ -17,8 +17,8 @@ final class SceneDelegate: NSObject, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         var rootCordinator = Container.shared.rootCordinator()
-        rootCordinator.router = RouterImp(navigationController: UINavigationController(rootViewController: rootCordinator.get(for: .landing)))
-        window?.rootViewController = rootCordinator.router?.navigationController
+        rootCordinator.navigationController = UINavigationController(rootViewController: rootCordinator.get(for: .landing))
+        window?.rootViewController = rootCordinator.navigationController
         window?.makeKeyAndVisible()
     }
 }

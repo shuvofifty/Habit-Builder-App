@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class SignUpViewController: UIViewController, UIGestureRecognizerDelegate {
+class SignUpViewController: IDViewController, UIGestureRecognizerDelegate {
     var contentView: UIHostingController<SignUpView>
     
     init(viewModel: SignUpView.ViewModel) {

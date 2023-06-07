@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 import SwiftUI
 
-class LandingViewController: UIViewController {
+class LandingViewController: IDViewController {
     var contentView: UIHostingController<LandingView>
     
     init(viewModel: LandingView.ViewModel) {
