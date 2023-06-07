@@ -38,12 +38,10 @@
 		53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AB2A0C8E7500C19CFA /* SignUpView.swift */; };
 		53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */; };
 		53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB65B72A11493800C19CFA /* BaseMods.swift */; };
-		53AB66732A1DC3F100C19CFA /* LandingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */; };
 		53AB66782A1E66A600C19CFA /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */; };
 		53AB667C2A1E8E7F00C19CFA /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB667B2A1E8E7F00C19CFA /* OnboardingViewController.swift */; };
 		53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */; };
 		53AB66812A1E8EAF00C19CFA /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */; };
-		53AB66842A1E8EC100C19CFA /* OnboardingCordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66832A1E8EC100C19CFA /* OnboardingCordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,12 +95,10 @@
 		53AB65AB2A0C8E7500C19CFA /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		53AB65AF2A0C8E9900C19CFA /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		53AB65B72A11493800C19CFA /* BaseMods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMods.swift; sourceTree = "<group>"; };
-		53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingCordinator.swift; sourceTree = "<group>"; };
 		53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		53AB667B2A1E8E7F00C19CFA /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		53AB667E2A1E8EA000C19CFA /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		53AB66832A1E8EC100C19CFA /* OnboardingCordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,7 +226,6 @@
 				53AB65582A060D8300C19CFA /* LandingViewController.swift */,
 				53AB655A2A060D8F00C19CFA /* LandingViewModel.swift */,
 				53AB655C2A060E2C00C19CFA /* LandingView.swift */,
-				53AB66722A1DC3F100C19CFA /* LandingCordinator.swift */,
 			);
 			path = LandingScreen;
 			sourceTree = "<group>";
@@ -354,7 +349,6 @@
 				53AB667D2A1E8E8F00C19CFA /* Views */,
 				53AB667B2A1E8E7F00C19CFA /* OnboardingViewController.swift */,
 				53AB66802A1E8EAF00C19CFA /* OnboardingViewModel.swift */,
-				53AB66832A1E8EC100C19CFA /* OnboardingCordinator.swift */,
 			);
 			path = OnboardingScreen;
 			sourceTree = "<group>";
@@ -531,11 +525,9 @@
 				53AB65AA2A0C8E6A00C19CFA /* SignUpViewController.swift in Sources */,
 				53AB66782A1E66A600C19CFA /* TextFieldStyle.swift in Sources */,
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
-				53AB66842A1E8EC100C19CFA /* OnboardingCordinator.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
 				53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */,
 				53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */,
-				53AB66732A1DC3F100C19CFA /* LandingCordinator.swift in Sources */,
 				53AB65652A06B56D00C19CFA /* Resolver+Dependency.swift in Sources */,
 				53AB65602A0616D000C19CFA /* Extension+UIView.swift in Sources */,
 				53AB65522A02C1C400C19CFA /* Router.swift in Sources */,

@@ -11,7 +11,7 @@ import Combine
 
 extension OnboardingView {
     class ViewModel: ObservableObject {
-        @Injected(\.onboardingCordinator) var cordinator: OnboardingCordinator
+        @Injected(\.rootCordinator) var cordinator: Cordinator
         
         @Published var activeStep: Step = .intro
         
