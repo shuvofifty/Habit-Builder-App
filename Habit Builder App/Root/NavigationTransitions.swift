@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum TransitionStyle {
-    case push, fadeIn
+    case push, fadeIn, present
 }
 
 class FadeInTransition: NSObject, UIViewControllerAnimatedTransitioning {

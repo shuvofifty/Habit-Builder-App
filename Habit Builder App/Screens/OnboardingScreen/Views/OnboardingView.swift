@@ -253,7 +253,6 @@ struct OnboardingView: View {
             .onChange(of: viewModel.activeStep) { newValue in
                 withAnimation(Animation.easeInOut) {
                     activeStep = newValue
-                    print("Value Changing Babbyyy \(newValue)")
                 }
             }
         }

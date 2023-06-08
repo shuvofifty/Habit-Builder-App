@@ -30,6 +30,8 @@ final class OrangeHeavenColorSystem: ColorSystem {
             return getAccent(for: shade)
         case .neutral:
             return getNeutral(for: shade)
+        case .black:
+            return UIColor(r: 0, g: 0, b: 0, a: 1)
         }
     }
     

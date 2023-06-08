@@ -10,7 +10,7 @@ import UIKit
 import SwiftUI
 
 public enum ColorType {
-    case primary, secondary, complementary, background, text, accent, neutral
+    case primary, secondary, complementary, background, text, accent, neutral, black
 }
 
 public enum ColorShades {

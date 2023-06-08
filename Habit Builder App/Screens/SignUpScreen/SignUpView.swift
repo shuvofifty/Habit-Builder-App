@@ -57,7 +57,7 @@ struct SignUpView: View {
                         .add(mod: .fullWidth())
                         
                         Button("Already a member? Sign in") {
-                            print("Create Account")
+                            viewModel.cordinator.showLoader(with: nil, description: nil)
                         }
                         .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                         .add(mod: .fullWidth())

@@ -8,6 +8,7 @@
 import Foundation
 import Factory
 import UIKit
+import SwiftUI
 
 enum Screen {
     case landing, signUp, onboarding
@@ -22,6 +23,8 @@ protocol Cordinator {
     
     func remove(group id: ScreenGroupID)
     func remove(with viewIDs: [String])
+    
+    func showLoader(with title: String?, description: String?)
     
     func get(for screen: Screen) -> UIViewController
 }
@@ -61,6 +64,15 @@ class RootCordinatorImp: NSObject, Cordinator {
         performNavigation(vc: vc, transition: transition)
     }
     
+    func showLoader(with title: String?, description: String?) {
+        let loaderView = UIHostingController(rootView: BottomSheetModalView(c: C.color) {
+            LoaderView(c: C.color, f: C.font, title: "Loading", description: "Sometimes we will see BS stuff out of the blue to make things wonderful")
+        })
+        loaderView.view.backgroundColor = .clear
+        loaderView.modalPresentationStyle = .overCurrentContext
+        navigationController?.present(loaderView, animated: false)
+    }
+    
     private func performNavigation(vc: UIViewController, transition: TransitionStyle) {
         switch transition {
         case .push:
@@ -68,6 +80,8 @@ class RootCordinatorImp: NSObject, Cordinator {
         case .fadeIn:
             navigationController?.delegate = self
             navigationController?.pushViewController(vc, animated: true)
+        case .present:
+            navigationController?.present(vc, animated: true)
         }
         
     }
