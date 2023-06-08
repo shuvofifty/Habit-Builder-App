@@ -18,6 +18,7 @@ struct OnboardingView: View {
     @State var name: String = ""
     @State var whyDescription: String = ""
     @State var firstHabit: String = ""
+    @State var activeStep: Step = .intro
     
     var introView: some View {
         VStack(spacing: 10) {
@@ -229,25 +230,32 @@ struct OnboardingView: View {
             Rectangle()
                 .fill(C.color.get(for: .primary, .s4))
                 .ignoresSafeArea()
-            switch viewModel.activeStep {
-            case .intro:
-                introView
-            case .name:
-                nameView
-            case .welcome:
-                welcomeView
-            case .firstHabit:
-                firstHabitView
-            case .why:
-                whyView
-            case .reason:
-                reasonView
-            case .checkIn:
-                checkInView
-            case .checkInSuccess:
-                checkInSuccessView
+            Group {
+                switch activeStep {
+                case .intro:
+                    introView
+                case .name:
+                    nameView
+                case .welcome:
+                    welcomeView
+                case .firstHabit:
+                    firstHabitView
+                case .why:
+                    whyView
+                case .reason:
+                    reasonView
+                case .checkIn:
+                    checkInView
+                case .checkInSuccess:
+                    checkInSuccessView
+                }
             }
-            
+            .onChange(of: viewModel.activeStep) { newValue in
+                withAnimation(Animation.easeInOut) {
+                    activeStep = newValue
+                    print("Value Changing Babbyyy \(newValue)")
+                }
+            }
         }
         .onAppear {
             viewModel.startOnboardingProcess()
