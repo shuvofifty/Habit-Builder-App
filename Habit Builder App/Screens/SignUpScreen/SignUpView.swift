@@ -26,43 +26,17 @@ struct SignUpView: View {
                     .add(mod: .fullWidth())
                 
                 VStack(spacing: 0) {
-                    VStack(spacing: 5) {
-                        Text("Email")
-                            .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
-                            .foregroundColor(C.color.get(for: .text, .main))
-                            .add(mod: .fullWidth())
-                        
-                        if let errorMsg = viewModel.error[.emailFormat] {
-                            Text(errorMsg)
-                                .modifier(C.font.get(for: .smallText, customWeight: nil))
-                                .foregroundColor(C.color.get(for: .red, .main))
-                                .add(mod: .fullWidth())
+                    RegularTextFieldGroupView(headerText: "Email", value: $emailField, placeHolder: "john@habit.com", errorMsg: $viewModel.error[.emailFormat], focusedAction: {
+                        if $0 == false {
+                            let _ = viewModel.isValid(email: emailField)
                         }
-                        RegularTextFieldView(text: $emailField, placeHolder: "john@habit.com", c: C.color, f: C.font, focusedAction: { isFocused in
-                            if isFocused == false {
-                                let _ = viewModel.isValid(email: emailField)
-                            }
-                        })
-                    }
+                    })
                     
-                    VStack(spacing: 5) {
-                        Text("Password")
-                            .modifier(C.font.get(for: .secondaryElements, customWeight: nil))
-                            .foregroundColor(C.color.get(for: .text, .main))
-                            .add(mod: .fullWidth())
-                        
-                        if let errorMsg = viewModel.error[.password] {
-                            Text(errorMsg)
-                                .modifier(C.font.get(for: .smallText, customWeight: nil))
-                                .foregroundColor(C.color.get(for: .red, .main))
-                                .add(mod: .fullWidth())
+                    RegularTextFieldGroupView(isSecuredField: true, headerText: "Password", value: $password, placeHolder: "xxxxxxxxxxxx", errorMsg: $viewModel.error[.password], focusedAction: {
+                        if $0 == false {
+                            let _ = viewModel.isValid(password: password)
                         }
-                        RegularTextFieldView(isSecuredField: true, text: $password, placeHolder: "xxxxxxxxxxxx", c: C.color, f: C.font, focusedAction: { isFocused in
-                            if isFocused == false {
-                                let _ = viewModel.isValid(password: password)
-                            }
-                        })
-                    }
+                    })
                     .padding(.top, 10)
                     
                     VStack(spacing: 10) {

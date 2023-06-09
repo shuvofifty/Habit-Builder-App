@@ -49,6 +49,7 @@
 		53AB66952A32878900C19CFA /* BottomSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66942A32878900C19CFA /* BottomSheetModal.swift */; };
 		53AB66982A33795000C19CFA /* CommonValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66972A33795000C19CFA /* CommonValidators.swift */; };
 		53AB669A2A33A3A900C19CFA /* RegularTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66992A33A3A900C19CFA /* RegularTextFieldView.swift */; };
+		53AB66A02A33B2FE00C19CFA /* RegularTextFieldGroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB669F2A33B2FE00C19CFA /* RegularTextFieldGroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		53AB66942A32878900C19CFA /* BottomSheetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetModal.swift; sourceTree = "<group>"; };
 		53AB66972A33795000C19CFA /* CommonValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonValidators.swift; sourceTree = "<group>"; };
 		53AB66992A33A3A900C19CFA /* RegularTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextFieldView.swift; sourceTree = "<group>"; };
+		53AB669F2A33B2FE00C19CFA /* RegularTextFieldGroupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextFieldGroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 		53AB64DF29FB046000C19CFA /* Habit Builder App */ = {
 			isa = PBXGroup;
 			children = (
+				53AB669D2A33B2C800C19CFA /* AppCommon */,
 				53AB66902A3256BC00C19CFA /* LottieAnimations */,
 				53AB667A2A1E8E4100C19CFA /* Screens */,
 				53AB658E2A06C92D00C19CFA /* Habit-Builder-App-Info.plist */,
@@ -415,6 +418,22 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		53AB669D2A33B2C800C19CFA /* AppCommon */ = {
+			isa = PBXGroup;
+			children = (
+				53AB669E2A33B2D200C19CFA /* Components */,
+			);
+			path = AppCommon;
+			sourceTree = "<group>";
+		};
+		53AB669E2A33B2D200C19CFA /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				53AB669F2A33B2FE00C19CFA /* RegularTextFieldGroupView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -576,6 +595,7 @@
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
 				53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */,
+				53AB66A02A33B2FE00C19CFA /* RegularTextFieldGroupView.swift in Sources */,
 				53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */,
 				53AB65652A06B56D00C19CFA /* Resolver+Dependency.swift in Sources */,
 				53AB65602A0616D000C19CFA /* Extension+UIView.swift in Sources */,
