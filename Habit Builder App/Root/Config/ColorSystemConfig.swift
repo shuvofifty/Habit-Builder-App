@@ -32,6 +32,8 @@ final class OrangeHeavenColorSystem: ColorSystem {
             return getNeutral(for: shade)
         case .black:
             return UIColor(r: 0, g: 0, b: 0, a: 1)
+        case .red:
+            return UIColor(r: 235, g: 95, b: 95, a: 1)
         }
     }
     

@@ -30,3 +30,10 @@ extension Container {
         self { OnboardingView.ViewModel() }
     }
 }
+
+// MARK: - Helpers
+extension Container {
+    var commonValidators: Factory<CommonValidators> {
+        self { CommonValidators() }
+    }
+}

@@ -55,7 +55,7 @@ struct BottomSheetModal_PreviewProvider: PreviewProvider {
 
 extension BottomSheetModalView {
     class ViewModel: ObservableObject {
-        private let dismissModalSubject: PassthroughSubject<Bool, Never>
+        private let dismissModalSubject: ModalDismissalSubject
         weak var navigationController: UINavigationController?
         
         @Published var dismissModal: Bool = false
@@ -63,7 +63,7 @@ extension BottomSheetModalView {
         private var subscriptions = Set<AnyCancellable>()
         
         
-        init(dismissModalSubject: PassthroughSubject<Bool, Never>, navigationController: UINavigationController?) {
+        init(dismissModalSubject: ModalDismissalSubject, navigationController: UINavigationController?) {
             self.dismissModalSubject = dismissModalSubject
             self.navigationController = navigationController
             bind()
@@ -83,3 +83,5 @@ extension BottomSheetModalView {
         }
     }
 }
+
+typealias ModalDismissalSubject = PassthroughSubject<Bool, Never>

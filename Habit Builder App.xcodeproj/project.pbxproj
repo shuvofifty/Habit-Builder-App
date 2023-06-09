@@ -47,6 +47,7 @@
 		53AB668F2A3253F500C19CFA /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 53AB668E2A3253F500C19CFA /* Lottie */; };
 		53AB66922A3256D500C19CFA /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AB66912A3256D500C19CFA /* loader.json */; };
 		53AB66952A32878900C19CFA /* BottomSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66942A32878900C19CFA /* BottomSheetModal.swift */; };
+		53AB66982A33795000C19CFA /* CommonValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66972A33795000C19CFA /* CommonValidators.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -108,6 +109,7 @@
 		53AB668B2A32445800C19CFA /* Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loader.swift; sourceTree = "<group>"; };
 		53AB66912A3256D500C19CFA /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		53AB66942A32878900C19CFA /* BottomSheetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetModal.swift; sourceTree = "<group>"; };
+		53AB66972A33795000C19CFA /* CommonValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonValidators.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +207,7 @@
 		53AB654C2A02C0CE00C19CFA /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				53AB66962A33793C00C19CFA /* Helpers */,
 				53AB66852A30F78E00C19CFA /* Basic */,
 				53AB65982A0B390200C19CFA /* Components */,
 				53AB65662A06B62D00C19CFA /* DesignSystem */,
@@ -401,6 +404,14 @@
 			path = Modal;
 			sourceTree = "<group>";
 		};
+		53AB66962A33793C00C19CFA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				53AB66972A33795000C19CFA /* CommonValidators.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -574,6 +585,7 @@
 				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
 				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,
 				53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */,
+				53AB66982A33795000C19CFA /* CommonValidators.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
