@@ -38,6 +38,7 @@ public struct LoaderView: View {
         let animationView = LottieAnimationView(name: "loader")
         animationView.loopMode = .loop
         animationView.animationSpeed = 0.8
+        
         return animationView
     }
 }

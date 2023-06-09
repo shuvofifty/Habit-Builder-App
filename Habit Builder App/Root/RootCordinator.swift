@@ -9,6 +9,7 @@ import Foundation
 import Factory
 import UIKit
 import SwiftUI
+import Combine
 
 enum Screen {
     case landing, signUp, onboarding
@@ -24,7 +25,7 @@ protocol Cordinator {
     func remove(group id: ScreenGroupID)
     func remove(with viewIDs: [String])
     
-    func showLoader(with title: String?, description: String?)
+    func showLoader(with title: String?, description: String?) -> PassthroughSubject<Bool, Never>
     
     func get(for screen: Screen) -> UIViewController
 }
@@ -64,13 +65,19 @@ class RootCordinatorImp: NSObject, Cordinator {
         performNavigation(vc: vc, transition: transition)
     }
     
-    func showLoader(with title: String?, description: String?) {
-        let loaderView = UIHostingController(rootView: BottomSheetModalView(c: C.color) {
+    func showLoader(with title: String?, description: String?) -> PassthroughSubject<Bool, Never> {
+        let dismissModalSubject: PassthroughSubject<Bool, Never> = .init()
+        let loaderView = UIHostingController(
+            rootView: BottomSheetModalView(
+                c: C.color,
+                viewModel: BottomSheetModalView.ViewModel(dismissModalSubject: dismissModalSubject, navigationController: navigationController)
+            ) {
             LoaderView(c: C.color, f: C.font, title: "Loading", description: "Sometimes we will see BS stuff out of the blue to make things wonderful")
         })
         loaderView.view.backgroundColor = .clear
         loaderView.modalPresentationStyle = .overCurrentContext
         navigationController?.present(loaderView, animated: false)
+        return dismissModalSubject
     }
     
     private func performNavigation(vc: UIViewController, transition: TransitionStyle) {

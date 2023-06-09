@@ -7,16 +7,18 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
 public struct BottomSheetModalView<Content: View>: View {
     let c: ColorSystem
     var content: () -> Content
-    
+    @ObservedObject private var viewModel: ViewModel
     @State var showContent: Bool = false
     
-    init(c: ColorSystem, @ViewBuilder content: @escaping () -> Content) {
+    init(c: ColorSystem, viewModel: ViewModel, @ViewBuilder content: @escaping () -> Content) {
         self.c = c
         self.content = content
+        self.viewModel = viewModel
     }
     
     public var body: some View {
@@ -34,13 +36,50 @@ public struct BottomSheetModalView<Content: View>: View {
                 showContent = true
             }
         }
+        .onChange(of: viewModel.dismissModal) { _ in
+            withAnimation(.spring()) {
+                showContent = false
+            }
+            viewModel.dismissLoader()
+        }
     }
 }
 
 struct BottomSheetModal_PreviewProvider: PreviewProvider {
     static var previews: some View {
-        BottomSheetModalView(c: C.color) {
+        BottomSheetModalView(c: C.color, viewModel: BottomSheetModalView<LoaderView>.ViewModel(dismissModalSubject: .init(), navigationController: nil)) {
             LoaderView(c: C.color, f: C.font, title: "Something", description: "Something Fishy Something Fishy Something Fishy Something Fishy Something Fishy Something Fishy Something Fishy")
+        }
+    }
+}
+
+extension BottomSheetModalView {
+    class ViewModel: ObservableObject {
+        private let dismissModalSubject: PassthroughSubject<Bool, Never>
+        weak var navigationController: UINavigationController?
+        
+        @Published var dismissModal: Bool = false
+        
+        private var subscriptions = Set<AnyCancellable>()
+        
+        
+        init(dismissModalSubject: PassthroughSubject<Bool, Never>, navigationController: UINavigationController?) {
+            self.dismissModalSubject = dismissModalSubject
+            self.navigationController = navigationController
+            bind()
+        }
+        
+        func bind() {
+            dismissModalSubject.sink {[weak self] _ in
+                self?.dismissModal = true
+            }
+            .store(in: &subscriptions)
+        }
+        
+        func dismissLoader() {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {[weak self] in
+                self?.navigationController?.viewControllers.last?.dismiss(animated: true)
+            }
         }
     }
 }
