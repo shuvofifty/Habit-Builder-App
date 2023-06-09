@@ -48,6 +48,7 @@
 		53AB66922A3256D500C19CFA /* loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 53AB66912A3256D500C19CFA /* loader.json */; };
 		53AB66952A32878900C19CFA /* BottomSheetModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66942A32878900C19CFA /* BottomSheetModal.swift */; };
 		53AB66982A33795000C19CFA /* CommonValidators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66972A33795000C19CFA /* CommonValidators.swift */; };
+		53AB669A2A33A3A900C19CFA /* RegularTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66992A33A3A900C19CFA /* RegularTextFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 		53AB66912A3256D500C19CFA /* loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loader.json; sourceTree = "<group>"; };
 		53AB66942A32878900C19CFA /* BottomSheetModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetModal.swift; sourceTree = "<group>"; };
 		53AB66972A33795000C19CFA /* CommonValidators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonValidators.swift; sourceTree = "<group>"; };
+		53AB66992A33A3A900C19CFA /* RegularTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTextFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */,
+				53AB66992A33A3A900C19CFA /* RegularTextFieldView.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -558,6 +561,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53AB669A2A33A3A900C19CFA /* RegularTextFieldView.swift in Sources */,
 				53AB66812A1E8EAF00C19CFA /* OnboardingViewModel.swift in Sources */,
 				53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */,
 				53AB656A2A06BFEC00C19CFA /* C.swift in Sources */,

@@ -14,9 +14,6 @@ struct SignUpView: View {
     @State private var emailField: String = ""
     @State private var password: String = ""
     
-    @FocusState private var emailFieldFocusState: Bool
-    @FocusState private var passWordFocusState: Bool
-    
     var body: some View {
         ZStack {
             C.color.get(for: .background, .main)
@@ -41,16 +38,11 @@ struct SignUpView: View {
                                 .foregroundColor(C.color.get(for: .red, .main))
                                 .add(mod: .fullWidth())
                         }
-                        
-                        TextField("", text: $emailField, prompt: .placeHolder(text: "john@habit.com", c: C.color, f: C.font))
-                            .focused($emailFieldFocusState)
-                            .modifier(RegularTextFieldModifier(fontSystem: C.font, colorSystem: C.color))
-                            .add(mod: .fullWidth())
-                            .onChange(of: emailFieldFocusState) { isFocused in
-                                if isFocused == false {
-                                    let _ = viewModel.isValid(email: emailField)
-                                }
+                        RegularTextFieldView(text: $emailField, placeHolder: "john@habit.com", c: C.color, f: C.font, focusedAction: { isFocused in
+                            if isFocused == false {
+                                let _ = viewModel.isValid(email: emailField)
                             }
+                        })
                     }
                     
                     VStack(spacing: 5) {
@@ -65,16 +57,11 @@ struct SignUpView: View {
                                 .foregroundColor(C.color.get(for: .red, .main))
                                 .add(mod: .fullWidth())
                         }
-                        
-                        SecureField("", text: $password, prompt: .placeHolder(text: "xxxxxxxxxxxx", c: C.color, f: C.font))
-                            .focused($passWordFocusState)
-                            .modifier(RegularTextFieldModifier(fontSystem: C.font, colorSystem: C.color))
-                            .add(mod: .fullWidth())
-                            .onChange(of: passWordFocusState) { isFocused in
-                                if isFocused == false {
-                                    let _ = viewModel.isValid(password: password)
-                                }
+                        RegularTextFieldView(isSecuredField: true, text: $password, placeHolder: "xxxxxxxxxxxx", c: C.color, f: C.font, focusedAction: { isFocused in
+                            if isFocused == false {
+                                let _ = viewModel.isValid(password: password)
                             }
+                        })
                     }
                     .padding(.top, 10)
                     
