@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import FirebaseCore
 
 @main
 final class AppDelegate: NSObject, UIApplicationDelegate {
@@ -15,6 +16,7 @@ final class AppDelegate: NSObject, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
+        FirebaseApp.configure()
         return true
     }
     

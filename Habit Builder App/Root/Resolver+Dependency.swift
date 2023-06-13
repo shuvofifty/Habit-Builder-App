@@ -36,4 +36,8 @@ extension Container {
     var commonValidators: Factory<CommonValidators> {
         self { CommonValidators() }
     }
+    
+    var accountHelper: Factory<AccountHelper> {
+        self { AccountHelperImp() }
+    }
 }

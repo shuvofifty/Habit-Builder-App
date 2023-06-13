@@ -16,6 +16,7 @@ extension SignUpView {
     class ViewModel: ObservableObject {
         @Injected(\.rootCordinator) var cordinator: Cordinator
         @Injected(\.commonValidators) var validator: CommonValidators
+        @Injected(\.accountHelper) var accountHelper: AccountHelper
         
         @Published var error: [Error: String] = [:]
         
@@ -33,6 +34,14 @@ extension SignUpView {
                 return
             }
             loaderDismissal = cordinator.showLoader(with: "Creating Account", description: "Easily track your progress and all other habits with the account")
+            Task {
+                do {
+                    let user = try await accountHelper.createAccount(for: email, password: password)
+                    print("User information: \(user.description)")
+                } catch {
+                    print("Error Occured: \(error)")
+                }
+            }
         }
         
         func isValid(email: String) -> Bool {
