@@ -47,7 +47,7 @@ struct SignUpView: View {
                         .add(mod: .fullWidth())
                         
                         Button("Already a member? Sign in") {
-                            viewModel.showModal()
+                            // Comment
                         }
                         .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                         .add(mod: .fullWidth())

@@ -20,14 +20,7 @@ extension SignUpView {
         
         @Published var error: [Error: String] = [:]
         
-        private var loaderDismissal: ModalDismissalSubject = .init()
-        
-        func showModal() {
-            let subject = cordinator.showLoader(with: nil, description: nil)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                subject.send(false)
-            }
-        }
+        private var loaderDismissal: ModalDismissalSubject?
         
         func continueButtonTapped(email: String, password: String) {
             guard isValid(email: email), isValid(password: password) else {
@@ -37,9 +30,11 @@ extension SignUpView {
             Task {
                 do {
                     let user = try await accountHelper.createAccount(for: email, password: password)
-                    print("User information: \(user.description)")
+                    loaderDismissal?.send(true)
+                    loaderDismissal = nil
                 } catch {
-                    print("Error Occured: \(error)")
+                    loaderDismissal?.send(true)
+                    loaderDismissal = nil
                 }
             }
         }

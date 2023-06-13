@@ -72,7 +72,7 @@ class RootCordinatorImp: NSObject, Cordinator {
                 c: C.color,
                 viewModel: BottomSheetModalView.ViewModel(dismissModalSubject: dismissModalSubject, navigationController: navigationController)
             ) {
-            LoaderView(c: C.color, f: C.font, title: title ?? "Loading", description: description ?? "")
+            ErrorModalView(c: C.color, f: C.font, title: title ?? "Loading", description: description ?? "")
         })
         loaderView.view.backgroundColor = .clear
         loaderView.modalPresentationStyle = .overCurrentContext
