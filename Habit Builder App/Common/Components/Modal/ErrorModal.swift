@@ -14,6 +14,7 @@ public struct ErrorModalView: View {
     let f: FontSystem
     let title: String
     let description: String
+    let continueButtonTapped: () -> Void
     
     public var body: some View {
         VStack {
@@ -25,10 +26,10 @@ public struct ErrorModalView: View {
                 .add(mod: .fullWidth(alignment: .center))
                 .padding(.bottom, 10)
             Text(description)
-                .modifier(f.get(for: .secondaryElements, customWeight: nil))
+                .modifier(f.get(for: .smallText, customWeight: nil))
                 .add(mod: .fullWidth())
             Button("Continue") {
-                
+                continueButtonTapped()
             }
             .buttonStyle(PrimaryButtonStyle(colorSystem: c, fontSystem: f))
             .padding(.top, 30)
@@ -51,6 +52,6 @@ public struct ErrorModalView: View {
 
 struct ErrorModalView_Preview: PreviewProvider {
     static var previews: some View {
-        ErrorModalView(c: C.color, f: C.font, title: "Loading", description: "Sometimes it needs to do something we can all good stuff")
+        ErrorModalView(c: C.color, f: C.font, title: "Loading", description: "Sometimes it needs to do something we can all good stuff", continueButtonTapped: {})
     }
 }

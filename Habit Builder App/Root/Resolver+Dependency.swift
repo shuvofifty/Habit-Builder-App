@@ -7,9 +7,15 @@
 
 import Foundation
 import Factory
+import UIKit
 
 // MARK: - Cordinators
 extension Container {
+    var navigationController: Factory<UINavigationController> {
+        self { UINavigationController(rootViewController: Container.shared.rootCordinator().get(for: .landing)) }
+            .singleton
+    }
+    
     var rootCordinator: Factory<Cordinator> {
         self { RootCordinatorImp() }
             .singleton
@@ -35,9 +41,18 @@ extension Container {
 extension Container {
     var commonValidators: Factory<CommonValidators> {
         self { CommonValidators() }
+            .singleton
     }
     
-    var accountHelper: Factory<AccountHelper> {
-        self { AccountHelperImp() }
+    var modalHelper: Factory<ModalHelper> {
+        self { ModalHelperImp() }
+    }
+}
+
+// MARK: - Network Helper
+extension Container {
+    var accountNetworkHelper: Factory<AccountNetworkHelper> {
+        self { AccountNetworkHelperImp() }
+            .singleton
     }
 }

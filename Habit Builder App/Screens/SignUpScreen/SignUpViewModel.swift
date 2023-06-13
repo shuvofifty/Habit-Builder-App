@@ -16,25 +16,23 @@ extension SignUpView {
     class ViewModel: ObservableObject {
         @Injected(\.rootCordinator) var cordinator: Cordinator
         @Injected(\.commonValidators) var validator: CommonValidators
-        @Injected(\.accountHelper) var accountHelper: AccountHelper
+        @Injected(\.accountNetworkHelper) var accountHelper: AccountNetworkHelper
+        @Injected(\.modalHelper) var modalHelper: ModalHelper
         
         @Published var error: [Error: String] = [:]
         
-        private var loaderDismissal: ModalDismissalSubject?
-        
+        @MainActor
         func continueButtonTapped(email: String, password: String) {
             guard isValid(email: email), isValid(password: password) else {
                 return
             }
-            loaderDismissal = cordinator.showLoader(with: "Creating Account", description: "Easily track your progress and all other habits with the account")
+            modalHelper.show(.loader(title: "Creating Account", description: "Easily track your progress and all other habits with the account"))
             Task {
                 do {
                     let user = try await accountHelper.createAccount(for: email, password: password)
-                    loaderDismissal?.send(true)
-                    loaderDismissal = nil
+                    modalHelper.dismiss()
                 } catch {
-                    loaderDismissal?.send(true)
-                    loaderDismissal = nil
+                    modalHelper.show(.error(title: "Failed to create account", description: "Looks like something went wrong while trying to create an account. Error \(error.localizedDescription)"))
                 }
             }
         }

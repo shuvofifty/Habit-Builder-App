@@ -25,8 +25,6 @@ protocol Cordinator {
     func remove(group id: ScreenGroupID)
     func remove(with viewIDs: [String])
     
-    func showLoader(with title: String?, description: String?) -> ModalDismissalSubject
-    
     func get(for screen: Screen) -> UIViewController
 }
 
@@ -63,21 +61,6 @@ class RootCordinatorImp: NSObject, Cordinator {
         screenGroups[groupId]?.append(id)
         vc.screen_ID = id
         performNavigation(vc: vc, transition: transition)
-    }
-    
-    func showLoader(with title: String?, description: String?) -> PassthroughSubject<Bool, Never> {
-        let dismissModalSubject: ModalDismissalSubject = .init()
-        let loaderView = UIHostingController(
-            rootView: BottomSheetModalView(
-                c: C.color,
-                viewModel: BottomSheetModalView.ViewModel(dismissModalSubject: dismissModalSubject, navigationController: navigationController)
-            ) {
-            ErrorModalView(c: C.color, f: C.font, title: title ?? "Loading", description: description ?? "")
-        })
-        loaderView.view.backgroundColor = .clear
-        loaderView.modalPresentationStyle = .overCurrentContext
-        navigationController?.present(loaderView, animated: false)
-        return dismissModalSubject
     }
     
     private func performNavigation(vc: UIViewController, transition: TransitionStyle) {

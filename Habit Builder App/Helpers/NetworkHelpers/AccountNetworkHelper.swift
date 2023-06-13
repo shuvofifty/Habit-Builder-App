@@ -9,11 +9,11 @@ import Foundation
 import FirebaseCore
 import FirebaseAuth
 
-protocol AccountHelper {
+protocol AccountNetworkHelper {
     func createAccount(for email: String, password: String) async throws -> User
 }
 
-class AccountHelperImp: AccountHelper {
+class AccountNetworkHelperImp: AccountNetworkHelper {
     func createAccount(for email: String, password: String) async throws -> User  {
         return try await withCheckedThrowingContinuation({ continuation in
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in

@@ -47,7 +47,7 @@ public struct BottomSheetModalView<Content: View>: View {
 
 struct BottomSheetModal_PreviewProvider: PreviewProvider {
     static var previews: some View {
-        BottomSheetModalView(c: C.color, viewModel: BottomSheetModalView<LoaderView>.ViewModel(dismissModalSubject: .init(), navigationController: nil)) {
+        BottomSheetModalView(c: C.color, viewModel: BottomSheetModalView<LoaderView>.ViewModel(modalSubject: .init())) {
             LoaderView(c: C.color, f: C.font, title: "Something", description: "Something Fishy Something Fishy Something Fishy Something Fishy Something Fishy Something Fishy Something Fishy")
         }
     }
@@ -55,33 +55,38 @@ struct BottomSheetModal_PreviewProvider: PreviewProvider {
 
 extension BottomSheetModalView {
     class ViewModel: ObservableObject {
-        private let dismissModalSubject: ModalDismissalSubject
-        weak var navigationController: UINavigationController?
+        private let modalSubject: ModalSubject
         
         @Published var dismissModal: Bool = false
         
         private var subscriptions = Set<AnyCancellable>()
         
         
-        init(dismissModalSubject: ModalDismissalSubject, navigationController: UINavigationController?) {
-            self.dismissModalSubject = dismissModalSubject
-            self.navigationController = navigationController
+        init(modalSubject: ModalSubject) {
+            self.modalSubject = modalSubject
             bind()
         }
         
         func bind() {
-            dismissModalSubject.sink {[weak self] _ in
-                self?.dismissModal = true
-            }
-            .store(in: &subscriptions)
+            modalSubject
+                .filter { $0 == .close }
+                .receive(on: RunLoop.main)
+                .sink {[weak self] _ in
+                    self?.dismissModal = true
+                }
+                .store(in: &subscriptions)
         }
         
         func dismissLoader() {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {[weak self] in
-                self?.navigationController?.viewControllers.last?.dismiss(animated: true)
+                self?.modalSubject.send(.presentNew)
             }
         }
     }
 }
 
-typealias ModalDismissalSubject = PassthroughSubject<Bool, Never>
+enum ModalAction {
+    case close, presentNew
+}
+
+typealias ModalSubject = PassthroughSubject<ModalAction, Never>
