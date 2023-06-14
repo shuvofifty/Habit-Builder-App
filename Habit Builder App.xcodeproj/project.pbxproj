@@ -849,6 +849,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Habit Builder App/Preview Content\"";
+				DEVELOPMENT_TEAM = Q68H52VN7T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Habit-Builder-App-Info.plist";
@@ -878,6 +879,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Habit Builder App/Preview Content\"";
+				DEVELOPMENT_TEAM = Q68H52VN7T;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Habit-Builder-App-Info.plist";

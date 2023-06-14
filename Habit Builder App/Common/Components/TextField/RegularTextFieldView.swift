@@ -26,12 +26,18 @@ struct RegularTextFieldView: View {
                 .modifier(modifier ?? RegularTextFieldModifier(fontSystem: f, colorSystem: c))
                 .add(mod: .fullWidth())
                 .onChange(of: fieldFocusState) { focusedAction?($0) }
+                .onSubmit {
+                    hideKeyboard()
+                }
         } else {
             TextField("", text: $text, prompt: .placeHolder(text: placeHolder ?? "", c: c, f: f))
                 .focused($fieldFocusState)
                 .modifier(modifier ?? RegularTextFieldModifier(fontSystem: f, colorSystem: c))
                 .add(mod: .fullWidth())
                 .onChange(of: fieldFocusState) { focusedAction?($0) }
+                .onSubmit {
+                    hideKeyboard()
+                }
         }
     }
 }

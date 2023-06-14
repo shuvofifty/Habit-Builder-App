@@ -41,13 +41,14 @@ struct SignUpView: View {
                     
                     VStack(spacing: 10) {
                         Button("Lets get started") {
+                            hideKeyboard()
                             viewModel.continueButtonTapped(email: emailField, password: password)
                         }
                         .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                         .add(mod: .fullWidth())
                         
                         Button("Already a member? Sign in") {
-                            // Comment
+                            hideKeyboard()
                         }
                         .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                         .add(mod: .fullWidth())
@@ -64,6 +65,9 @@ struct SignUpView: View {
             .frame(maxWidth: .infinity)
             .padding(.horizontal, 20)
             .padding(.top, 26)
+            .onTapGesture {
+                hideKeyboard()
+            }
         }
     }
 }

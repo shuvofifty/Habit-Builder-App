@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 extension UIView {
     func hook(to parent: UIView, top: CGFloat? = nil, right: CGFloat? = nil, bottom: CGFloat? = nil, left: CGFloat? = nil) {
@@ -27,5 +28,11 @@ extension UIView {
     
     func hook(to parent: UIView, with margin: CGFloat) {
         hook(to: parent, top: margin, right: margin, bottom: margin, left: margin)
+    }
+}
+
+extension View {
+    func hideKeyboard() {
+        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }
