@@ -30,7 +30,9 @@ extension SignUpView {
             Task {
                 do {
                     let user = try await accountHelper.createAccount(for: email, password: password)
-                    modalHelper.dismiss()
+                    modalHelper.dismiss {
+                        self.cordinator.navigate(to: .onboarding, transition: .fadeIn)
+                    }
                 } catch {
                     modalHelper.show(.error(title: "Failed to create account", description: "Looks like something went wrong while trying to create an account. Error \(error.localizedDescription)"))
                 }

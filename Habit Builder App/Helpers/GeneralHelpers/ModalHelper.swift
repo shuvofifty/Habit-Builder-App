@@ -14,6 +14,7 @@ import SwiftUI
 protocol ModalHelper {
     func show(_ modal: ModalHelperImp.Modal)
     func dismiss()
+    func dismiss(with finalCompletion: @escaping () -> Void)
 }
 
 class ModalHelperImp: ModalHelper {
@@ -28,6 +29,7 @@ class ModalHelperImp: ModalHelper {
     @Published private var modalToShow: Modal? = .none
     
     private var subscriptions = Set<AnyCancellable>()
+    private var finalCompletion: () -> Void = {}
     
     init() {
         $modalToShow
@@ -41,7 +43,7 @@ class ModalHelperImp: ModalHelper {
                                 .first()
                         }
                         .flatMap { _ in
-                            self.dismissModal()
+                            self.dismissModal() // Dismiss the current modal
                         }
                         .sink { _ in
                             promise(.success(()))
@@ -68,6 +70,11 @@ class ModalHelperImp: ModalHelper {
         modalSubject.send(.close)
     }
     
+    func dismiss(with finalCompletion: @escaping () -> Void) {
+        self.finalCompletion = finalCompletion
+        dismiss()
+    }
+    
     private func present(modal: Modal) -> Future<Void, Never> {
         Future {[unowned self] promise in
             self.navigationController.present(self.get(for: modal), animated: true) {
@@ -79,6 +86,8 @@ class ModalHelperImp: ModalHelper {
     private func dismissModal() -> Future<Void, Never> {
         Future {[unowned self] promise in
             self.navigationController.viewControllers.last?.dismiss(animated: true) {
+                self.finalCompletion()
+                self.finalCompletion = {}
                 promise(.success(()))
             }
         }
