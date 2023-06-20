@@ -12,7 +12,7 @@ import SwiftUI
 import Combine
 
 enum Screen {
-    case landing, signUp, onboarding
+    case landing, signUp, onboarding, signIn
 }
 
 protocol Cordinator {
@@ -38,6 +38,8 @@ class RootCordinatorImp: NSObject, Cordinator {
             return LandingViewController(viewModel: Container.shared.landingViewModel())
         case .signUp:
             return SignUpViewController(viewModel: Container.shared.signUpViewModel())
+        case .signIn:
+            return SignInViewController(viewModel: Container.shared.signInViewModel())
         case .onboarding:
             return OnboardingViewController(viewModel: Container.shared.onboardingViewModel())
         }

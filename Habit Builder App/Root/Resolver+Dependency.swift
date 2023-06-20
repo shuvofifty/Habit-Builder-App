@@ -32,6 +32,10 @@ extension Container {
         self { SignUpView.ViewModel() }
     }
     
+    var signInViewModel: Factory<SignInView.ViewModel> {
+        self { SignInView.ViewModel() }
+    }
+    
     var onboardingViewModel: Factory<OnboardingView.ViewModel> {
         self { OnboardingView.ViewModel() }
     }

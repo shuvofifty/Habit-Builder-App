@@ -11,9 +11,65 @@ import UIKit
 
 struct SignInView: View {
     @StateObject var viewModel: ViewModel
+    @State private var emailField: String = ""
+    @State private var password: String = ""
+    @State private var msg: String? = nil
     
     var body: some View {
-        Text("String")
+        ZStack {
+            C.color.get(for: .background, .main)
+                .ignoresSafeArea()
+            
+            VStack(spacing: 0) {
+                Text("Lets get started on tracking down your habits")
+                    .modifier(C.font.get(for: .h2, customWeight: nil))
+                    .foregroundColor(C.color.get(for: .primary, .s4))
+                    .add(mod: .fullWidth())
+                
+                VStack(spacing: 0) {
+                    RegularTextFieldGroupView(headerText: "Email", value: $emailField, placeHolder: "john@habit.com", errorMsg: $msg, focusedAction: {
+                        if $0 == false {
+//                            let _ = viewModel.isValid(email: emailField)
+                        }
+                    })
+                    
+                    RegularTextFieldGroupView(isSecuredField: true, headerText: "Password", value: $password, placeHolder: "xxxxxxxxxxxx", errorMsg: $msg, focusedAction: {
+                        if $0 == false {
+//                            let _ = viewModel.isValid(password: password)
+                        }
+                    })
+                    .padding(.top, 10)
+                    
+                    VStack(spacing: 10) {
+                        Button("Continue") {
+                            hideKeyboard()
+//                            viewModel.continueButtonTapped(email: emailField, password: password)
+                        }
+                        .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                        .add(mod: .fullWidth())
+                        
+                        Button("Forgot Password?") {
+                            hideKeyboard()
+                        }
+                        .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                        .add(mod: .fullWidth())
+                    }
+                    .padding(.top, 30)
+                }
+                .padding(.top, 40)
+                
+                Spacer()
+                
+                C.asset(.loginHero)
+                    .add(mod: .fullWidth(alignment: .center))
+            }
+            .frame(maxWidth: .infinity)
+            .padding(.horizontal, 20)
+            .padding(.top, 26)
+            .onTapGesture {
+                hideKeyboard()
+            }
+        }
     }
 }
 

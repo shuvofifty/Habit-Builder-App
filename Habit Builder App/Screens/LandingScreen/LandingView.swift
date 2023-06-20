@@ -37,7 +37,7 @@ struct LandingView: View {
                     }.buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                     
                     Button("Member? Sign in") {
-                        print("Hahahaha")
+                        viewModel.cordinator.navigate(to: .signIn, transition: .push)
                     }.buttonStyle(SecondaryButtonBorderedStyle(colorSystem: C.color, fontSystem: C.font))
                 }
                 .padding(.top, 30)
