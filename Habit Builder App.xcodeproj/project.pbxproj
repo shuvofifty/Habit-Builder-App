@@ -70,6 +70,8 @@
 		53AB66C42A38B91900C19CFA /* ModalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66C32A38B91900C19CFA /* ModalHelper.swift */; };
 		53AB66C52A38B91900C19CFA /* ModalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66C32A38B91900C19CFA /* ModalHelper.swift */; };
 		53AB66C62A38B91900C19CFA /* ModalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66C32A38B91900C19CFA /* ModalHelper.swift */; };
+		53AB66CC2A4235E600C19CFA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66CB2A4235E600C19CFA /* SignInView.swift */; };
+		53AB66CE2A42369E00C19CFA /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66CD2A42369E00C19CFA /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,6 +141,8 @@
 		53AB66B92A38B34300C19CFA /* ErrorModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModal.swift; sourceTree = "<group>"; };
 		53AB66BD2A38B5FE00C19CFA /* errorModalAnimation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = errorModalAnimation.json; sourceTree = "<group>"; };
 		53AB66C32A38B91900C19CFA /* ModalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalHelper.swift; sourceTree = "<group>"; };
+		53AB66CB2A4235E600C19CFA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		53AB66CD2A42369E00C19CFA /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -402,6 +406,7 @@
 		53AB667A2A1E8E4100C19CFA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				53AB66CA2A4235C800C19CFA /* SignInScreen */,
 				53AB65552A04BA2800C19CFA /* LandingScreen */,
 				53AB65A82A0C8E5400C19CFA /* SignUpScreen */,
 				53AB66792A1E8E3400C19CFA /* OnboardingScreen */,
@@ -491,6 +496,15 @@
 				53AB66C32A38B91900C19CFA /* ModalHelper.swift */,
 			);
 			path = GeneralHelpers;
+			sourceTree = "<group>";
+		};
+		53AB66CA2A4235C800C19CFA /* SignInScreen */ = {
+			isa = PBXGroup;
+			children = (
+				53AB66CB2A4235E600C19CFA /* SignInView.swift */,
+				53AB66CD2A42369E00C19CFA /* SignInViewModel.swift */,
+			);
+			path = SignInScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -657,6 +671,7 @@
 				53AB656A2A06BFEC00C19CFA /* C.swift in Sources */,
 				53AB66BA2A38B34300C19CFA /* ErrorModal.swift in Sources */,
 				53AB65972A0AD2EA00C19CFA /* ImageSystem.swift in Sources */,
+				53AB66CC2A4235E600C19CFA /* SignInView.swift in Sources */,
 				53AB66952A32878900C19CFA /* BottomSheetModal.swift in Sources */,
 				53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */,
 				53AB66B22A38114A00C19CFA /* AccountNetworkHelper.swift in Sources */,
@@ -679,6 +694,7 @@
 				53AB66872A30F7A900C19CFA /* IDViewController.swift in Sources */,
 				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
 				53AB668C2A32445800C19CFA /* Loader.swift in Sources */,
+				53AB66CE2A42369E00C19CFA /* SignInViewModel.swift in Sources */,
 				53AB66C42A38B91900C19CFA /* ModalHelper.swift in Sources */,
 				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
 				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,
