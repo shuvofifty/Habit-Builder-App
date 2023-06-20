@@ -51,8 +51,8 @@ extension Container {
 
 // MARK: - Network Helper
 extension Container {
-    var accountNetworkHelper: Factory<AccountNetworkHelper> {
-        self { AccountNetworkHelperImp() }
+    var accountNetworkFirebaseHelper: Factory<AccountNetworkHelper> {
+        self { AccountNetworkHelperFirebaseImp() }
             .singleton
     }
 }

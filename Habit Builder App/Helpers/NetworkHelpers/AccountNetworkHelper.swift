@@ -13,7 +13,7 @@ protocol AccountNetworkHelper {
     func createAccount(for email: String, password: String) async throws -> User
 }
 
-class AccountNetworkHelperImp: AccountNetworkHelper {
+class AccountNetworkHelperFirebaseImp: AccountNetworkHelper {
     func createAccount(for email: String, password: String) async throws -> User  {
         return try await withCheckedThrowingContinuation({ continuation in
             Auth.auth().createUser(withEmail: email, password: password) { authResult, error in

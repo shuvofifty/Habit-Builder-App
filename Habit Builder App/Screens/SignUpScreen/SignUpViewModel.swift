@@ -16,7 +16,7 @@ extension SignUpView {
     class ViewModel: ObservableObject {
         @Injected(\.rootCordinator) var cordinator: Cordinator
         @Injected(\.commonValidators) var validator: CommonValidators
-        @Injected(\.accountNetworkHelper) var accountHelper: AccountNetworkHelper
+        @Injected(\.accountNetworkFirebaseHelper) var accountHelper: AccountNetworkHelper
         @Injected(\.modalHelper) var modalHelper: ModalHelper
         
         @Published var error: [Error: String] = [:]
