@@ -72,6 +72,9 @@
 		53AB66C62A38B91900C19CFA /* ModalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66C32A38B91900C19CFA /* ModalHelper.swift */; };
 		53AB66CC2A4235E600C19CFA /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66CB2A4235E600C19CFA /* SignInView.swift */; };
 		53AB66CE2A42369E00C19CFA /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66CD2A42369E00C19CFA /* SignInViewModel.swift */; };
+		53AB66D22A42A86300C19CFA /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 53AB66D12A42A86300C19CFA /* ReSwift */; };
+		53AB66D42A42A8B000C19CFA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66D32A42A8B000C19CFA /* AppState.swift */; };
+		53AB66D72A42A92300C19CFA /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66D62A42A92300C19CFA /* UserState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +146,8 @@
 		53AB66C32A38B91900C19CFA /* ModalHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalHelper.swift; sourceTree = "<group>"; };
 		53AB66CB2A4235E600C19CFA /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		53AB66CD2A42369E00C19CFA /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		53AB66D32A42A8B000C19CFA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		53AB66D62A42A92300C19CFA /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +158,7 @@
 				53AB66AF2A33DC2600C19CFA /* FirebaseDatabaseSwift in Frameworks */,
 				53AB66AD2A33DC2600C19CFA /* FirebaseDatabase in Frameworks */,
 				53AB65632A06B52E00C19CFA /* Factory in Frameworks */,
+				53AB66D22A42A86300C19CFA /* ReSwift in Frameworks */,
 				53AB668F2A3253F500C19CFA /* Lottie in Frameworks */,
 				53AB66A72A33DC2600C19CFA /* FirebaseAnalytics in Frameworks */,
 				53AB66A92A33DC2600C19CFA /* FirebaseAuth in Frameworks */,
@@ -202,6 +208,7 @@
 		53AB64DF29FB046000C19CFA /* Habit Builder App */ = {
 			isa = PBXGroup;
 			children = (
+				53AB66CF2A42A76E00C19CFA /* AppStates */,
 				53AB66B02A38112C00C19CFA /* Helpers */,
 				53AB669D2A33B2C800C19CFA /* AppCommon */,
 				53AB66902A3256BC00C19CFA /* LottieAnimations */,
@@ -507,6 +514,15 @@
 			path = SignInScreen;
 			sourceTree = "<group>";
 		};
+		53AB66CF2A42A76E00C19CFA /* AppStates */ = {
+			isa = PBXGroup;
+			children = (
+				53AB66D32A42A8B000C19CFA /* AppState.swift */,
+				53AB66D62A42A92300C19CFA /* UserState.swift */,
+			);
+			path = AppStates;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -531,6 +547,7 @@
 				53AB66AA2A33DC2600C19CFA /* FirebaseAuthCombine-Community */,
 				53AB66AC2A33DC2600C19CFA /* FirebaseDatabase */,
 				53AB66AE2A33DC2600C19CFA /* FirebaseDatabaseSwift */,
+				53AB66D12A42A86300C19CFA /* ReSwift */,
 			);
 			productName = "Habit Builder App";
 			productReference = 53AB64DD29FB046000C19CFA /* Habit Builder App.app */;
@@ -612,6 +629,7 @@
 				53AB659C2A0BE74800C19CFA /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 				53AB668D2A3253F500C19CFA /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				53AB66A52A33DC2600C19CFA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				53AB66D02A42A86300C19CFA /* XCRemoteSwiftPackageReference "ReSwift" */,
 			);
 			productRefGroup = 53AB64DE29FB046000C19CFA /* Products */;
 			projectDirPath = "";
@@ -668,6 +686,7 @@
 				53AB669A2A33A3A900C19CFA /* RegularTextFieldView.swift in Sources */,
 				53AB66812A1E8EAF00C19CFA /* OnboardingViewModel.swift in Sources */,
 				53AB65542A049BB600C19CFA /* RootCordinator.swift in Sources */,
+				53AB66D42A42A8B000C19CFA /* AppState.swift in Sources */,
 				53AB656A2A06BFEC00C19CFA /* C.swift in Sources */,
 				53AB66BA2A38B34300C19CFA /* ErrorModal.swift in Sources */,
 				53AB65972A0AD2EA00C19CFA /* ImageSystem.swift in Sources */,
@@ -689,6 +708,7 @@
 				53AB65602A0616D000C19CFA /* Extension+UIView.swift in Sources */,
 				53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */,
 				53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */,
+				53AB66D72A42A92300C19CFA /* UserState.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
 				53AB668A2A3110ED00C19CFA /* NavigationTransitions.swift in Sources */,
 				53AB66872A30F7A900C19CFA /* IDViewController.swift in Sources */,
@@ -1063,6 +1083,14 @@
 				minimumVersion = 10.0.0;
 			};
 		};
+		53AB66D02A42A86300C19CFA /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1105,6 +1133,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 53AB66A52A33DC2600C19CFA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabaseSwift;
+		};
+		53AB66D12A42A86300C19CFA /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 53AB66D02A42A86300C19CFA /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

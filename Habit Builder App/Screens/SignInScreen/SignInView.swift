@@ -13,7 +13,6 @@ struct SignInView: View {
     @StateObject var viewModel: ViewModel
     @State private var emailField: String = ""
     @State private var password: String = ""
-    @State private var msg: String? = nil
     
     var body: some View {
         ZStack {
@@ -27,15 +26,15 @@ struct SignInView: View {
                     .add(mod: .fullWidth())
                 
                 VStack(spacing: 0) {
-                    RegularTextFieldGroupView(headerText: "Email", value: $emailField, placeHolder: "john@habit.com", errorMsg: $msg, focusedAction: {
+                    RegularTextFieldGroupView(headerText: "Email", value: $emailField, placeHolder: "john@habit.com", errorMsg: $viewModel.error[.emailFormat], focusedAction: {
                         if $0 == false {
-//                            let _ = viewModel.isValid(email: emailField)
+                            let _ = viewModel.isValid(email: emailField)
                         }
                     })
                     
-                    RegularTextFieldGroupView(isSecuredField: true, headerText: "Password", value: $password, placeHolder: "xxxxxxxxxxxx", errorMsg: $msg, focusedAction: {
+                    RegularTextFieldGroupView(isSecuredField: true, headerText: "Password", value: $password, placeHolder: "xxxxxxxxxxxx", errorMsg: $viewModel.error[.password], focusedAction: {
                         if $0 == false {
-//                            let _ = viewModel.isValid(password: password)
+                            let _ = viewModel.isValid(password: password)
                         }
                     })
                     .padding(.top, 10)
@@ -43,7 +42,7 @@ struct SignInView: View {
                     VStack(spacing: 10) {
                         Button("Continue") {
                             hideKeyboard()
-//                            viewModel.continueButtonTapped(email: emailField, password: password)
+                            viewModel.continueButtonTapped(email: emailField, password: password)
                         }
                         .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                         .add(mod: .fullWidth())
@@ -70,6 +69,7 @@ struct SignInView: View {
                 hideKeyboard()
             }
         }
+        .onAppear { viewModel.setupStoreBindings() }
     }
 }
 
