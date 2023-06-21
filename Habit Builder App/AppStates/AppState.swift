@@ -37,3 +37,9 @@ let appStore = ObservableStore(
         userLoginMiddleWare(resource: UserLoginResource())
     ]
 )
+
+func MainThread(completion: @escaping () -> Void) {
+    DispatchQueue.main.async {
+        completion()
+    }
+}

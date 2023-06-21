@@ -30,6 +30,10 @@ func userReducer(action: Action, state: UserState?) -> UserState {
     switch action {
     case let userAction as UserAction:
         switch userAction {
+        case .login:
+            state.errorMessage = nil
+            state.isLoggedIn = false
+            
         case .loginSuccess(let userInfo):
             state.userInfo = userInfo
             state.errorMessage = nil
@@ -41,9 +45,6 @@ func userReducer(action: Action, state: UserState?) -> UserState {
             
         case .loader(let shouldShow):
             state.shouldShowLoader = shouldShow
-            
-        default:
-            break
         }
     default:
         break
@@ -63,15 +64,22 @@ func userLoginMiddleWare(resource: UserLoginResource) -> Middleware<AppState> {
                 next(action)
                 guard let userAction = action as? UserAction, case .login(let email, let password) = userAction else { return }
                 
-                dispatch(UserAction.loader(true))
+                MainThread {
+                    dispatch(UserAction.loader(true))
+                }
                 
                 Task {
                     do {
                         let user = try await resource.accountHelper.signInUser(for: email, password: password)
-                        dispatch(UserAction.loader(false))
-                        dispatch(UserAction.loginSuccess(user))
+                        MainThread {
+                            dispatch(UserAction.loader(false))
+                            dispatch(UserAction.loginSuccess(user))
+                        }
                     } catch {
-                        dispatch(UserAction.loginFailed(error.localizedDescription))
+                        MainThread {
+                            dispatch(UserAction.loader(false))
+                            dispatch(UserAction.loginFailed(error.localizedDescription))
+                        }
                     }
                 }
             }

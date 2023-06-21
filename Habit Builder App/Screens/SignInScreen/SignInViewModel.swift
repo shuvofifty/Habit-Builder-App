@@ -15,10 +15,12 @@ extension SignInView {
     }
     
     class ViewModel: ObservableObject {
+        enum Modal_ID: String {
+            case LOADER, ERROR
+        }
         
         @Injected(\.commonValidators) private var validator: CommonValidators
         @Injected(\.modalHelper) private var modalHelper: ModalHelper
-        var modalNew = ModalHelperRefactorImp()
         
         @Published var error: [Error: String] = [:]
         
@@ -34,9 +36,9 @@ extension SignInView {
                 .map { $0.shouldShowLoader }
                 .sink {[weak self] showLoader in
                     if showLoader {
-                        self?.modalHelper.show(.loader(title: "Checikng credentials", description: "With the help of account you will be able to track all your progress"))
+                        self?.modalHelper.show(.loader(title: "Checikng credentials", description: "With the help of account you will be able to track all your progress"), with: Modal_ID.LOADER.rawValue)
                     } else {
-                        self?.modalHelper.dismiss()
+                        self?.modalHelper.dismiss(id: Modal_ID.LOADER.rawValue)
                     }
                 }
                 .store(in: &cancellable)
@@ -44,7 +46,7 @@ extension SignInView {
             userState
                 .compactMap { $0.errorMessage }
                 .sink {[weak self] error in
-                    self?.modalHelper.show(.error(title: "Ahh something is not right", description: error))
+                    self?.modalHelper.show(.error(title: "Ahh something is not right", description: error), with: Modal_ID.ERROR.rawValue)
                 }
                 .store(in: &cancellable)
         }
@@ -73,14 +75,6 @@ extension SignInView {
             }
             error.removeValue(forKey: .password)
             return true
-        }
-        
-        func testModal() {
-            modalNew.show(.error(title: nil, description: nil), with: "loader")
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {[weak self] in
-                self?.modalNew.show(.error(title: nil, description: nil), with: "error")
-            }
         }
     }
 }

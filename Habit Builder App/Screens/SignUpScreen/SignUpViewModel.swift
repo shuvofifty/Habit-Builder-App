@@ -26,15 +26,15 @@ extension SignUpView {
             guard isValid(email: email), isValid(password: password) else {
                 return
             }
-            modalHelper.show(.loader(title: "Creating Account", description: "Easily track your progress and all other habits with the account"))
+            modalHelper.show(.loader(title: "Creating Account", description: "Easily track your progress and all other habits with the account"), with: CommonModalID.LOADING.rawValue)
             Task {
                 do {
                     let user = try await accountHelper.createAccount(for: email, password: password)
-                    modalHelper.dismiss {
-                        self.cordinator.navigate(to: .onboarding, transition: .fadeIn)
-                    }
+                    modalHelper.dismiss(id: CommonModalID.LOADING.rawValue)
+                    self.cordinator.navigate(to: .onboarding, transition: .fadeIn)
                 } catch {
-                    modalHelper.show(.error(title: "Failed to create account", description: "Looks like something went wrong while trying to create an account. Error \(error.localizedDescription)"))
+                    modalHelper.dismiss(id: CommonModalID.LOADING.rawValue)
+                    modalHelper.show(.error(title: "Failed to create account", description: "Looks like something went wrong while trying to create an account. Error \(error.localizedDescription)"), with: CommonModalID.ERROR.rawValue)
                 }
             }
         }
