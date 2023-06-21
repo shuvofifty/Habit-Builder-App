@@ -137,16 +137,39 @@ class ModalHelperRefactorImp {
              error(title: String?, description: String?)
     }
     
-    private var modalSubject: ModalSubject = .init()
+    private var modalSubject: NewModalSubject = .init()
+    
+    private var modalCollections: [String: UIView?] = [:]
+    private var subscriptions = Set<AnyCancellable>()
+    
+    init() {
+        modalSubject
+            .filter { $0.action == .closeAnimationCompleted }
+            .map { $0.id }
+            .sink {[weak self] id in
+                self?.modalCollections[id]??.removeFromSuperview()
+                self?.modalCollections.removeValue(forKey: id)
+            }
+            .store(in: &subscriptions)
+    }
     
     func show(_ modal: Modal, with id: String) {
         guard let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
               let window = windowScene.windows.first else {
             return
         }
+        guard modalCollections[id] == nil else {
+            print("Modal ID \(id) is present now")
+            return
+        }
         let overlay = get(for: modal, id: id).view
+        modalCollections[id] = overlay
         window.addSubview(overlay!)
         overlay?.hook(to: window, with: 0)
+    }
+    
+    func dismiss(id: String) {
+        modalSubject.send((id: id, action: .close))
     }
     
     private func get(for modal: Modal, id: String) -> UIViewController {
@@ -158,11 +181,11 @@ class ModalHelperRefactorImp {
         }
     }
     
-    private func getLoader(with title: String?, description: String?, modalSubject: ModalSubject, id: String) -> UIViewController {
+    private func getLoader(with title: String?, description: String?, modalSubject: NewModalSubject, id: String) -> UIViewController {
         let loaderView = UIHostingController(
-            rootView: BottomSheetModalView(
+            rootView: NewBottomSheetModalView(
                 c: C.color,
-                viewModel: BottomSheetModalView.ViewModel(modalSubject: modalSubject)
+                viewModel: NewBottomSheetModalView.ViewModel(modalSubject: modalSubject, id: id)
             ) {
             LoaderView(c: C.color, f: C.font, title: title ?? "Loading", description: description ?? "")
         })
@@ -170,13 +193,13 @@ class ModalHelperRefactorImp {
         return loaderView
     }
     
-    private func getError(with title: String?, description: String?, modalSubject: ModalSubject, id: String) -> UIViewController {
+    private func getError(with title: String?, description: String?, modalSubject: NewModalSubject, id: String) -> UIViewController {
         let loaderView = UIHostingController(
-            rootView: BottomSheetModalView(
+            rootView: NewBottomSheetModalView(
                 c: C.color,
-                viewModel: BottomSheetModalView.ViewModel(modalSubject: modalSubject)
+                viewModel: NewBottomSheetModalView.ViewModel(modalSubject: modalSubject, id: id)
             ) {
-                ErrorModalView(c: C.color, f: C.font, title: title ?? "Error", description: description ?? "", continueButtonTapped: {[weak self] in print("Garvage") })
+                ErrorModalView(c: C.color, f: C.font, title: title ?? "Error", description: description ?? "", continueButtonTapped: {[weak self] in self?.dismiss(id: id) })
         })
         loaderView.view.backgroundColor = .clear
         return loaderView

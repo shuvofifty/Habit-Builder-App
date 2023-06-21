@@ -76,7 +76,11 @@ extension SignInView {
         }
         
         func testModal() {
-            modalNew.show(.loader(title: nil, description: nil), with: "paparaji")
+            modalNew.show(.error(title: nil, description: nil), with: "loader")
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {[weak self] in
+                self?.modalNew.show(.error(title: nil, description: nil), with: "error")
+            }
         }
     }
 }
