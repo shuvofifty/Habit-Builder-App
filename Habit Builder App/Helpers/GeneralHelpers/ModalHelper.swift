@@ -131,3 +131,54 @@ class ModalHelperImp: ModalHelper {
     }
 }
 
+class ModalHelperRefactorImp {
+    enum Modal {
+        case loader(title: String?, description: String?),
+             error(title: String?, description: String?)
+    }
+    
+    private var modalSubject: ModalSubject = .init()
+    
+    func show(_ modal: Modal, with id: String) {
+        guard let windowScene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+              let window = windowScene.windows.first else {
+            return
+        }
+        let overlay = get(for: modal, id: id).view
+        window.addSubview(overlay!)
+        overlay?.hook(to: window, with: 0)
+    }
+    
+    private func get(for modal: Modal, id: String) -> UIViewController {
+        switch modal {
+        case .loader(let title, let description):
+            return getLoader(with: title, description: description, modalSubject: modalSubject, id: id)
+        case .error(let title, let description):
+            return getError(with: title, description: description, modalSubject: modalSubject, id: id)
+        }
+    }
+    
+    private func getLoader(with title: String?, description: String?, modalSubject: ModalSubject, id: String) -> UIViewController {
+        let loaderView = UIHostingController(
+            rootView: BottomSheetModalView(
+                c: C.color,
+                viewModel: BottomSheetModalView.ViewModel(modalSubject: modalSubject)
+            ) {
+            LoaderView(c: C.color, f: C.font, title: title ?? "Loading", description: description ?? "")
+        })
+        loaderView.view.backgroundColor = .clear
+        return loaderView
+    }
+    
+    private func getError(with title: String?, description: String?, modalSubject: ModalSubject, id: String) -> UIViewController {
+        let loaderView = UIHostingController(
+            rootView: BottomSheetModalView(
+                c: C.color,
+                viewModel: BottomSheetModalView.ViewModel(modalSubject: modalSubject)
+            ) {
+                ErrorModalView(c: C.color, f: C.font, title: title ?? "Error", description: description ?? "", continueButtonTapped: {[weak self] in print("Garvage") })
+        })
+        loaderView.view.backgroundColor = .clear
+        return loaderView
+    }
+}

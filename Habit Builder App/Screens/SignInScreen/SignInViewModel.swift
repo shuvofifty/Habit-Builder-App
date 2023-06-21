@@ -18,6 +18,7 @@ extension SignInView {
         
         @Injected(\.commonValidators) private var validator: CommonValidators
         @Injected(\.modalHelper) private var modalHelper: ModalHelper
+        var modalNew = ModalHelperRefactorImp()
         
         @Published var error: [Error: String] = [:]
         
@@ -72,6 +73,10 @@ extension SignInView {
             }
             error.removeValue(forKey: .password)
             return true
+        }
+        
+        func testModal() {
+            modalNew.show(.loader(title: nil, description: nil), with: "paparaji")
         }
     }
 }
