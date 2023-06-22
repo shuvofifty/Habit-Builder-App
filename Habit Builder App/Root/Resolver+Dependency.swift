@@ -8,6 +8,8 @@
 import Foundation
 import Factory
 import UIKit
+import ReSwift
+import Combine
 
 // MARK: - Cordinators
 extension Container {
@@ -38,6 +40,18 @@ extension Container {
     
     var onboardingViewModel: Factory<OnboardingView.ViewModel> {
         self { OnboardingView.ViewModel() }
+    }
+}
+
+// MARK: - States
+extension Container {
+    var store: Factory<Store<AppState>> {
+        self { appStore }
+    }
+    
+    typealias UserStateType = Publishers.Map<PassthroughSubject<AppState, Never>, UserState>
+    var userState: Factory<UserStateType> {
+        self { appStore.statePublisher.map { $0.userState } }
     }
 }
 

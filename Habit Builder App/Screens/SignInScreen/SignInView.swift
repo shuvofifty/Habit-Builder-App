@@ -49,7 +49,6 @@ struct SignInView: View {
                         
                         Button("Forgot Password?") {
                             hideKeyboard()
-                            viewModel.testModal()
                         }
                         .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                         .add(mod: .fullWidth())

@@ -13,14 +13,17 @@ struct UserState {
     var isLoggedIn: Bool = false
     var shouldShowLoader: Bool = false
     var errorMessage: String? = nil
-    var userInfo: UserInfo = UserInfo(email: "")
+    var userInfo: UserInfo? = nil
 }
 
 enum UserAction: Action {
     case login(email: String, password: String)
+    case createAccount(email: String, password: String)
     case loginSuccess(_ userInfo: UserInfo)
     case loginFailed(_ error: String)
     case loader(_ shouldShow: Bool)
+    case createAccountSuccess(_ userInfo: UserInfo)
+    case createAccountFailed(_ error: String)
 }
 
 // Reducer is responsible for changing data not middleware
@@ -30,18 +33,21 @@ func userReducer(action: Action, state: UserState?) -> UserState {
     switch action {
     case let userAction as UserAction:
         switch userAction {
-        case .login:
+        case .login, .createAccount:
             state.errorMessage = nil
             state.isLoggedIn = false
+            state.shouldShowLoader = false
+            state.userInfo = nil
             
-        case .loginSuccess(let userInfo):
+        case .loginSuccess(let userInfo), .createAccountSuccess(let userInfo):
             state.userInfo = userInfo
             state.errorMessage = nil
-            state.isLoggedIn = false
+            state.isLoggedIn = true
             
-        case .loginFailed(let error):
+        case .loginFailed(let error), .createAccountFailed(let error):
             state.isLoggedIn = false
             state.errorMessage = error
+            state.userInfo = nil
             
         case .loader(let shouldShow):
             state.shouldShowLoader = shouldShow
@@ -52,12 +58,12 @@ func userReducer(action: Action, state: UserState?) -> UserState {
     return state
 }
 
-struct UserLoginResource {
+struct UserStateResource {
     @Injected(\.accountNetworkFirebaseHelper) var accountHelper: AccountNetworkHelper
 }
 
 // Do all async stuff here
-func userLoginMiddleWare(resource: UserLoginResource) -> Middleware<AppState> {
+func userLoginMiddleWare(resource: UserStateResource) -> Middleware<AppState> {
     { dispatch, getState in
         { next in
             { action in
@@ -79,6 +85,36 @@ func userLoginMiddleWare(resource: UserLoginResource) -> Middleware<AppState> {
                         MainThread {
                             dispatch(UserAction.loader(false))
                             dispatch(UserAction.loginFailed(error.localizedDescription))
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func createUserAccountMiddleWare(resource: UserStateResource) -> Middleware<AppState> {
+    { dispatch, getState in
+        { next in
+            { action in
+                next(action)
+                guard let userAction = action as? UserAction, case .createAccount(let email, let password) = userAction else { return }
+                
+                MainThread {
+                    dispatch(UserAction.loader(true))
+                }
+                
+                Task {
+                    do {
+                        let user = try await resource.accountHelper.createAccount(for: email, password: password)
+                        MainThread {
+                            dispatch(UserAction.loader(false))
+                            dispatch(UserAction.createAccountSuccess(user))
+                        }
+                    } catch {
+                        MainThread {
+                            dispatch(UserAction.loader(false))
+                            dispatch(UserAction.createAccountFailed(error.localizedDescription))
                         }
                     }
                 }

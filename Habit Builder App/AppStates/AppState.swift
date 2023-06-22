@@ -34,7 +34,8 @@ let appStore = ObservableStore(
     reducer: appReducer,
     state: nil,
     middleware: [
-        userLoginMiddleWare(resource: UserLoginResource())
+        userLoginMiddleWare(resource: UserStateResource()),
+        createUserAccountMiddleWare(resource: UserStateResource())
     ]
 )
 

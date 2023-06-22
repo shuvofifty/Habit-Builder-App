@@ -7,6 +7,8 @@
 
 import Foundation
 import Factory
+import ReSwift
+import Combine
 
 extension SignUpView {
     enum Error {
@@ -16,27 +18,47 @@ extension SignUpView {
     class ViewModel: ObservableObject {
         @Injected(\.rootCordinator) var cordinator: Cordinator
         @Injected(\.commonValidators) var validator: CommonValidators
-        @Injected(\.accountNetworkFirebaseHelper) var accountHelper: AccountNetworkHelper
         @Injected(\.modalHelper) var modalHelper: ModalHelper
+        
+        @Injected(\.userState) private var userState: Container.UserStateType
+        @Injected(\.store) private var store: Store<AppState>
+        private var cancellable = Set<AnyCancellable>()
         
         @Published var error: [Error: String] = [:]
         
-        @MainActor
+        init() {
+            userState
+                .map { $0.shouldShowLoader }
+                .sink {[weak self] showLoader in
+                    if showLoader {
+                        self?.modalHelper.show(.loader(title: "Creating Account", description: "Easily track your progress and all other habits with the account"), with: CommonModalID.LOADING.rawValue)
+                    } else {
+                        self?.modalHelper.dismiss(id: CommonModalID.LOADING.rawValue)
+                    }
+                }
+                .store(in: &cancellable)
+            
+            userState
+                .compactMap { $0.errorMessage }
+                .sink {[weak self] error in
+                    self?.modalHelper.show(.error(title: "Failed to create account", description: error), with: CommonModalID.ERROR.rawValue)
+                }
+                .store(in: &cancellable)
+            
+            userState
+                .filter { $0.isLoggedIn }
+                .compactMap { $0.userInfo }
+                .sink {[weak self] _ in
+                    self?.cordinator.navigate(to: .onboarding, transition: .fadeIn)
+                }
+                .store(in: &cancellable)
+        }
+        
         func continueButtonTapped(email: String, password: String) {
             guard isValid(email: email), isValid(password: password) else {
                 return
             }
-            modalHelper.show(.loader(title: "Creating Account", description: "Easily track your progress and all other habits with the account"), with: CommonModalID.LOADING.rawValue)
-            Task {
-                do {
-                    let user = try await accountHelper.createAccount(for: email, password: password)
-                    modalHelper.dismiss(id: CommonModalID.LOADING.rawValue)
-                    self.cordinator.navigate(to: .onboarding, transition: .fadeIn)
-                } catch {
-                    modalHelper.dismiss(id: CommonModalID.LOADING.rawValue)
-                    modalHelper.show(.error(title: "Failed to create account", description: "Looks like something went wrong while trying to create an account. Error \(error.localizedDescription)"), with: CommonModalID.ERROR.rawValue)
-                }
-            }
+            store.dispatch(UserAction.createAccount(email: email, password: password))
         }
         
         func isValid(email: String) -> Bool {
