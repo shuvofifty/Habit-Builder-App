@@ -41,7 +41,7 @@ struct HomeView: View {
                     }
                 }
                 
-                VStack(spacing: 0) {
+                BaseCardView(c: C.color, f: C.font) {
                     HStack(spacing: 0) {
                         C.asset(.alertIcon)
                             .frame(width: 25, height: 20)
@@ -76,11 +76,7 @@ struct HomeView: View {
                     .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                     .add(mod: .fullWidth())
                 }
-                .padding(15)
-                .background(C.color.get(for: .neutral, .main))
-                .cornerRadius(20)
-                
-                
+                .padding(.top, 17)
                 
                 Spacer()
             }

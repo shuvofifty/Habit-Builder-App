@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		530DA59A2A4CC2AA00FE251C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5992A4CC2AA00FE251C /* HomeView.swift */; };
 		530DA59C2A4CC2F500FE251C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA59B2A4CC2F500FE251C /* HomeViewModel.swift */; };
+		530DA59E2A4CD0B400FE251C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA59D2A4CD0B400FE251C /* CardView.swift */; };
 		53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E429FB046100C19CFA /* Assets.xcassets */; };
 		53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E729FB046100C19CFA /* Preview Assets.xcassets */; };
 		53AB64FC29FB046100C19CFA /* Habit_Builder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */; };
@@ -99,6 +100,7 @@
 /* Begin PBXFileReference section */
 		530DA5992A4CC2AA00FE251C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		530DA59B2A4CC2F500FE251C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		530DA59D2A4CD0B400FE251C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		53AB64DD29FB046000C19CFA /* Habit Builder App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Builder App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AB64E429FB046100C19CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AB64E729FB046100C19CFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				53AB66762A1E65B700C19CFA /* TextField */,
 				53AB65B62A11492700C19CFA /* Mods */,
 				53AB65992A0B391B00C19CFA /* Buttons */,
+				530DA59D2A4CD0B400FE251C /* CardView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				53AB667C2A1E8E7F00C19CFA /* OnboardingViewController.swift in Sources */,
 				53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */,
 				53AB65712A06C5C400C19CFA /* FontSystem.swift in Sources */,
+				530DA59E2A4CD0B400FE251C /* CardView.swift in Sources */,
 				53AB65AA2A0C8E6A00C19CFA /* SignUpViewController.swift in Sources */,
 				53AB66782A1E66A600C19CFA /* TextFieldStyle.swift in Sources */,
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
