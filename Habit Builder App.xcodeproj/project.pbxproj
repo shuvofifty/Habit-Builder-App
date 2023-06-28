@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		530DA59A2A4CC2AA00FE251C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5992A4CC2AA00FE251C /* HomeView.swift */; };
+		530DA59C2A4CC2F500FE251C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA59B2A4CC2F500FE251C /* HomeViewModel.swift */; };
 		53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E429FB046100C19CFA /* Assets.xcassets */; };
 		53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E729FB046100C19CFA /* Preview Assets.xcassets */; };
 		53AB64FC29FB046100C19CFA /* Habit_Builder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */; };
@@ -95,6 +97,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		530DA5992A4CC2AA00FE251C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		530DA59B2A4CC2F500FE251C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		53AB64DD29FB046000C19CFA /* Habit Builder App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Builder App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AB64E429FB046100C19CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AB64E729FB046100C19CFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -184,6 +188,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		530DA5982A4CC26B00FE251C /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				530DA5992A4CC2AA00FE251C /* HomeView.swift */,
+				530DA59B2A4CC2F500FE251C /* HomeViewModel.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
 		53AB64D429FB046000C19CFA = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +426,7 @@
 		53AB667A2A1E8E4100C19CFA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				530DA5982A4CC26B00FE251C /* HomeScreen */,
 				53AB66CA2A4235C800C19CFA /* SignInScreen */,
 				53AB65552A04BA2800C19CFA /* LandingScreen */,
 				53AB65A82A0C8E5400C19CFA /* SignUpScreen */,
@@ -717,9 +731,11 @@
 				53AB66CE2A42369E00C19CFA /* SignInViewModel.swift in Sources */,
 				53AB66C42A38B91900C19CFA /* ModalHelper.swift in Sources */,
 				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
+				530DA59C2A4CC2F500FE251C /* HomeViewModel.swift in Sources */,
 				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,
 				53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */,
 				53AB66982A33795000C19CFA /* CommonValidators.swift in Sources */,
+				530DA59A2A4CC2AA00FE251C /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

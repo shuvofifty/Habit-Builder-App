@@ -32,7 +32,7 @@ final class RobotFontSystem: FontSystem {
             return UIFont(name: getFontName(with: customWeight ?? .regular), size: 14)!
         case .xSmallText:
             return UIFont(name: getFontName(with: customWeight ?? .regular), size: 12)!
-        case .custom(let size, let lineSpace):
+        case .custom(let size, _):
             return UIFont(name: getFontName(with: customWeight ?? .regular), size: size)!
         }
     }

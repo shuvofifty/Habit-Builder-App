@@ -17,4 +17,6 @@ enum Assets: String {
     case habitReasonHero = "habitReasonHeroImage"
     case checkInHero = "checkInHeroImage"
     case loginHero = "loginHeroImage"
+    
+    case homeScreenHero = "homeScreenHero"
 }

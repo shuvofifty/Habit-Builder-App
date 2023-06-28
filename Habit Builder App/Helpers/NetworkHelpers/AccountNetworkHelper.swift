@@ -11,6 +11,7 @@ import FirebaseAuth
 
 struct UserInfo {
     var email: String
+    var userId: String
     var name: String?
 }
 
@@ -28,7 +29,7 @@ class AccountNetworkHelperFirebaseImp: AccountNetworkHelper {
                     return
                 }
                 if let user = authResult?.user {
-                    continuation.resume(returning: UserInfo(email: user.email ?? ""))
+                    continuation.resume(returning: UserInfo(email: user.email ?? "", userId: user.uid))
                     return
                 }
                 continuation.resume(throwing: NSError(domain: "", code: -1))
@@ -44,7 +45,7 @@ class AccountNetworkHelperFirebaseImp: AccountNetworkHelper {
                     return
                 }
                 if let user = authResult?.user {
-                    continuation.resume(returning: UserInfo(email: user.email ?? ""))
+                    continuation.resume(returning: UserInfo(email: user.email ?? "", userId: user.uid))
                     return
                 }
                 continuation.resume(throwing: NSError(domain: "", code: -1))
