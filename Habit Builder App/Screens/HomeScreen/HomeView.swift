@@ -41,6 +41,47 @@ struct HomeView: View {
                     }
                 }
                 
+                VStack(spacing: 0) {
+                    HStack(spacing: 0) {
+                        C.asset(.alertIcon)
+                            .frame(width: 25, height: 20)
+                            .padding(.trailing, 15)
+                        
+                        VStack(spacing: 0) {
+                            Text("Drinking Water")
+                                .modifier(C.font.get(for: .h3, customWeight: nil))
+                                .foregroundColor(C.color.get(for: .text, .main))
+                                .add(mod: .fullWidth())
+                                .padding(.bottom, 5)
+                            
+                            Text("I want to develop a habit which will help me to maintain my body state and help me to grow")
+                                .modifier(C.font.get(for: .smallText, customWeight: nil))
+                                .foregroundColor(C.color.get(for: .text, .main))
+                                .add(mod: .fullWidth())
+                        }
+                    }
+                    .add(mod: .fullWidth())
+                    .padding(.bottom, 25)
+                    
+                    Button("Check in") {
+                        
+                    }
+                    .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                    .add(mod: .fullWidth())
+                    .padding(.bottom, 15)
+                    
+                    Button("Detail") {
+                        
+                    }
+                    .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
+                    .add(mod: .fullWidth())
+                }
+                .padding(15)
+                .background(C.color.get(for: .neutral, .main))
+                .cornerRadius(20)
+                
+                
+                
                 Spacer()
             }
             .padding(.horizontal, 20)

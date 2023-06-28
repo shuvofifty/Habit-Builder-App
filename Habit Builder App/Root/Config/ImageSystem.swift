@@ -19,4 +19,5 @@ enum Assets: String {
     case loginHero = "loginHeroImage"
     
     case homeScreenHero = "homeScreenHero"
+    case alertIcon = "alert"
 }
