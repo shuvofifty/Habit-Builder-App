@@ -78,3 +78,11 @@ extension Container {
             .singleton
     }
 }
+
+// MARK: -  Other dependencies
+extension Container {
+    var coreDatabase: Factory<CoreDatabase> {
+        self { CoreDatabaseImp() }
+            .singleton
+    }
+}

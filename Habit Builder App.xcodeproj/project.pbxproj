@@ -12,6 +12,7 @@
 		530DA59E2A4CD0B400FE251C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA59D2A4CD0B400FE251C /* CardView.swift */; };
 		530DA5A52A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5A32A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld */; };
 		530DA5A72A4D09C000FE251C /* CoreDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5A62A4D09C000FE251C /* CoreDatabase.swift */; };
+		530DA5AA2A4E102F00FE251C /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5A92A4E102F00FE251C /* Entities.swift */; };
 		53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E429FB046100C19CFA /* Assets.xcassets */; };
 		53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E729FB046100C19CFA /* Preview Assets.xcassets */; };
 		53AB64FC29FB046100C19CFA /* Habit_Builder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */; };
@@ -105,6 +106,7 @@
 		530DA59D2A4CD0B400FE251C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		530DA5A42A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitBuilderCDModel.xcdatamodel; sourceTree = "<group>"; };
 		530DA5A62A4D09C000FE251C /* CoreDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatabase.swift; sourceTree = "<group>"; };
+		530DA5A92A4E102F00FE251C /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		53AB64DD29FB046000C19CFA /* Habit Builder App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Builder App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AB64E429FB046100C19CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AB64E729FB046100C19CFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -206,18 +208,11 @@
 		530DA59F2A4D07F800FE251C /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				530DA5A82A4E0EDC00FE251C /* Entities */,
 				530DA5A32A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld */,
 				530DA5A62A4D09C000FE251C /* CoreDatabase.swift */,
+				530DA5A92A4E102F00FE251C /* Entities.swift */,
 			);
 			path = CoreData;
-			sourceTree = "<group>";
-		};
-		530DA5A82A4E0EDC00FE251C /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Entities;
 			sourceTree = "<group>";
 		};
 		53AB64D429FB046000C19CFA = {
@@ -751,6 +746,7 @@
 				53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */,
 				53AB66D72A42A92300C19CFA /* UserState.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
+				530DA5AA2A4E102F00FE251C /* Entities.swift in Sources */,
 				53AB668A2A3110ED00C19CFA /* NavigationTransitions.swift in Sources */,
 				53AB66872A30F7A900C19CFA /* IDViewController.swift in Sources */,
 				53AB65492A0169FD00C19CFA /* SceneDelegate.swift in Sources */,
