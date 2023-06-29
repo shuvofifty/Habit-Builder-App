@@ -10,6 +10,8 @@
 		530DA59A2A4CC2AA00FE251C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5992A4CC2AA00FE251C /* HomeView.swift */; };
 		530DA59C2A4CC2F500FE251C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA59B2A4CC2F500FE251C /* HomeViewModel.swift */; };
 		530DA59E2A4CD0B400FE251C /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA59D2A4CD0B400FE251C /* CardView.swift */; };
+		530DA5A52A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5A32A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld */; };
+		530DA5A72A4D09C000FE251C /* CoreDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5A62A4D09C000FE251C /* CoreDatabase.swift */; };
 		53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E429FB046100C19CFA /* Assets.xcassets */; };
 		53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E729FB046100C19CFA /* Preview Assets.xcassets */; };
 		53AB64FC29FB046100C19CFA /* Habit_Builder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */; };
@@ -101,6 +103,8 @@
 		530DA5992A4CC2AA00FE251C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		530DA59B2A4CC2F500FE251C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		530DA59D2A4CD0B400FE251C /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		530DA5A42A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = HabitBuilderCDModel.xcdatamodel; sourceTree = "<group>"; };
+		530DA5A62A4D09C000FE251C /* CoreDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatabase.swift; sourceTree = "<group>"; };
 		53AB64DD29FB046000C19CFA /* Habit Builder App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Builder App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AB64E429FB046100C19CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AB64E729FB046100C19CFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -199,6 +203,23 @@
 			path = HomeScreen;
 			sourceTree = "<group>";
 		};
+		530DA59F2A4D07F800FE251C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				530DA5A82A4E0EDC00FE251C /* Entities */,
+				530DA5A32A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld */,
+				530DA5A62A4D09C000FE251C /* CoreDatabase.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		530DA5A82A4E0EDC00FE251C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		53AB64D429FB046000C19CFA = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +244,7 @@
 		53AB64DF29FB046000C19CFA /* Habit Builder App */ = {
 			isa = PBXGroup;
 			children = (
+				530DA59F2A4D07F800FE251C /* CoreData */,
 				53AB66CF2A42A76E00C19CFA /* AppStates */,
 				53AB66B02A38112C00C19CFA /* Helpers */,
 				53AB669D2A33B2C800C19CFA /* AppCommon */,
@@ -720,6 +742,7 @@
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
 				53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */,
+				530DA5A52A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld in Sources */,
 				53AB66A02A33B2FE00C19CFA /* RegularTextFieldGroupView.swift in Sources */,
 				53AB65472A0169F000C19CFA /* AppDelegate.swift in Sources */,
 				53AB65652A06B56D00C19CFA /* Resolver+Dependency.swift in Sources */,
@@ -734,6 +757,7 @@
 				53AB668C2A32445800C19CFA /* Loader.swift in Sources */,
 				53AB66CE2A42369E00C19CFA /* SignInViewModel.swift in Sources */,
 				53AB66C42A38B91900C19CFA /* ModalHelper.swift in Sources */,
+				530DA5A72A4D09C000FE251C /* CoreDatabase.swift in Sources */,
 				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
 				530DA59C2A4CC2F500FE251C /* HomeViewModel.swift in Sources */,
 				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,
@@ -1160,6 +1184,19 @@
 			productName = ReSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		530DA5A32A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				530DA5A42A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodel */,
+			);
+			currentVersion = 530DA5A42A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodel */;
+			path = HabitBuilderCDModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 53AB64D529FB046000C19CFA /* Project object */;
 }
