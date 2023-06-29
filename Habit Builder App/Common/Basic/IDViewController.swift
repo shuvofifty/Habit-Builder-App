@@ -7,7 +7,8 @@
 
 import Foundation
 import UIKit
+import Factory
 
 class IDViewController: UIViewController {
-    var screen_ID: String?
+    var screen_ID: String = UUID().uuidString
 }

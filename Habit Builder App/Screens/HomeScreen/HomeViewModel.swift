@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import Factory
 
 extension HomeView {
     class ViewModel: ObservableObject {
-        
+        @Injected(\.rootCordinator) var cordinator: Cordinator
     }
 }

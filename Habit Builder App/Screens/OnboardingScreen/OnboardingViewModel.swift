@@ -55,6 +55,7 @@ extension OnboardingView {
         }
         
         func onboardingProcessComplete() {
+            cordinator.navigate(to: .home, transition: .push)
             cordinator.remove(group: .onBoarding)
         }
         

@@ -41,6 +41,10 @@ extension Container {
     var onboardingViewModel: Factory<OnboardingView.ViewModel> {
         self { OnboardingView.ViewModel() }
     }
+    
+    var homeViewModel: Factory<HomeView.ViewModel> {
+        self { HomeView.ViewModel() }
+    }
 }
 
 // MARK: - States

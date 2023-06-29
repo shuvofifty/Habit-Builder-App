@@ -49,7 +49,7 @@ extension SignUpView {
                 .filter { $0.isLoggedIn }
                 .compactMap { $0.userInfo }
                 .sink {[weak self] _ in
-                    self?.cordinator.navigate(to: .onboarding, transition: .fadeIn)
+                    self?.cordinator.navigate(to: .onboarding, groupWith: .onBoarding, transition: .fadeIn)
                 }
                 .store(in: &cancellable)
         }

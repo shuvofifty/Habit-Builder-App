@@ -64,7 +64,7 @@ struct HomeView: View {
                     .padding(.bottom, 25)
                     
                     Button("Check in") {
-                        
+                        viewModel.cordinator.navigationController?.popViewController(animated: true)
                     }
                     .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                     .add(mod: .fullWidth())

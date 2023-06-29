@@ -12,7 +12,7 @@ import SwiftUI
 import Combine
 
 enum Screen {
-    case landing, signUp, onboarding, signIn
+    case landing, signUp, onboarding, signIn, home
 }
 
 protocol Cordinator {
@@ -42,6 +42,8 @@ class RootCordinatorImp: NSObject, Cordinator {
             return SignInViewController(viewModel: Container.shared.signInViewModel())
         case .onboarding:
             return OnboardingViewController(viewModel: Container.shared.onboardingViewModel())
+        case .home:
+            return HomeViewController(viewModel: Container.shared.homeViewModel())
         }
     }
     
@@ -90,7 +92,7 @@ class RootCordinatorImp: NSObject, Cordinator {
         if let navigationController = self.navigationController {
             var viewControllers = navigationController.viewControllers
             viewControllers.removeAll(where: {
-                if let idVC = $0 as? IDViewController, let id = idVC.screen_ID {
+                if let id = ($0 as? IDViewController)?.screen_ID {
                     return viewIDs.contains(id)
                 }
                 return false
