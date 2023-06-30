@@ -19,4 +19,15 @@ class UserEntity: NSManagedObject, CoreDataManageableObject {
     @NSManaged var firebaseID: String?
     @NSManaged var email: String?
     @NSManaged var name: String?
+    @NSManaged var dateCreated: Date?
+    @NSManaged var habits: NSOrderedSet?
+}
+
+@objc(HabitEntity)
+class HabitEntity: NSManagedObject, CoreDataManageableObject {
+    @NSManaged var id: UUID?
+    @NSManaged var name: String?
+    @NSManaged var reason: String?
+    @NSManaged var dateCreated: Date?
+    @NSManaged var user: UserEntity?
 }

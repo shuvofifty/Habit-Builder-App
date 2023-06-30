@@ -79,6 +79,13 @@ extension Container {
     }
 }
 
+// MARK: - Core Data Helper
+extension Container {
+    var userCoreDataHelper: Factory<UserHelper> {
+        self { UserCoreDataHelper() }
+    }
+}
+
 // MARK: -  Other dependencies
 extension Container {
     var coreDatabase: Factory<CoreDatabase> {

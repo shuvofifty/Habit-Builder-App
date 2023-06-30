@@ -10,8 +10,6 @@ import CoreData
 
 protocol CoreDatabase {
     var context: NSManagedObjectContext { get }
-    
-    func saveContext() async throws
 }
 
 class CoreDatabaseImp: CoreDatabase {
@@ -29,17 +27,5 @@ class CoreDatabaseImp: CoreDatabase {
     
     var context: NSManagedObjectContext {
         persistentContainer.viewContext
-    }
-    
-    func saveContext() async throws {
-        try await context.perform {[unowned self] in
-            if self.context.hasChanges {
-                do {
-                    try self.context.save()
-                } catch {
-                    throw error
-                }
-            }
-        }
     }
 }
