@@ -60,6 +60,7 @@ func userReducer(action: Action, state: UserState?) -> UserState {
 
 struct UserStateResource {
     @Injected(\.accountNetworkFirebaseHelper) var accountHelper: AccountNetworkHelper
+    @Injected(\.userCoreDataHelper) var userHelper: UserHelper
 }
 
 // Do all async stuff here
@@ -107,6 +108,8 @@ func createUserAccountMiddleWare(resource: UserStateResource) -> Middleware<AppS
                 Task {
                     do {
                         let user = try await resource.accountHelper.createAccount(for: email, password: password)
+                        try await resource.userHelper.createUser(with: email, firebaseID: user.firebaseID)
+                        
                         MainThread {
                             dispatch(UserAction.loader(false))
                             dispatch(UserAction.createAccountSuccess(user))

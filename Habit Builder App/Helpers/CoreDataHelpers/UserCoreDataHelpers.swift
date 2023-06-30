@@ -10,13 +10,13 @@ import Factory
 import CoreData
 
 protocol UserHelper {
-    func createUser(with email: String) async throws
+    func createUser(with email: String, firebaseID: String) async throws
 }
 
 class UserCoreDataHelper: UserHelper {
     @Injected(\.coreDatabase) private var coreData: CoreDatabase
     
-    func createUser(with email: String) async throws {
+    func createUser(with email: String, firebaseID: String) async throws {
         let context = coreData.context
         
         try context.performAndWait {
@@ -28,6 +28,7 @@ class UserCoreDataHelper: UserHelper {
             user.id = UUID()
             user.email = email
             user.dateCreated = Date()
+            user.firebaseID = firebaseID
             
             try context.save()
         }
