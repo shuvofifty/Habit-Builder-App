@@ -23,6 +23,20 @@ class UserEntity: NSManagedObject, CoreDataManageableObject {
     @NSManaged var habits: NSOrderedSet?
 }
 
+extension UserEntity {
+    @objc(addHabitsObject:)
+    @NSManaged public func addToHabits(_ value: HabitEntity)
+
+    @objc(removeHabitsObject:)
+    @NSManaged public func removeFromHabits(_ value: HabitEntity)
+
+    @objc(addHabits:)
+    @NSManaged public func addToHabits(_ values: NSOrderedSet)
+
+    @objc(removeHabits:)
+    @NSManaged public func removeFromHabits(_ values: NSOrderedSet)
+}
+
 @objc(HabitEntity)
 class HabitEntity: NSManagedObject, CoreDataManageableObject {
     @NSManaged var id: UUID?

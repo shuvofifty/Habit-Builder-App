@@ -57,6 +57,11 @@ extension Container {
     var userState: Factory<UserStateType> {
         self { appStore.statePublisher.map { $0.userState } }
     }
+    
+    typealias HabitStateType = Publishers.Map<PassthroughSubject<AppState, Never>, HabitState>
+    var habitState: Factory<HabitStateType> {
+        self { appStore.statePublisher.map { $0.habitState } }
+    }
 }
 
 // MARK: - Helpers

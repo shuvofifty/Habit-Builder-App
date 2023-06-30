@@ -69,9 +69,8 @@ class UserCoreDataHelper: UserHelper {
     
     func removeAllUser() {
         let context = coreData.context
-        
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: UserEntity.fetchRequest())
-        try! context.execute(deleteRequest)
+        try! context.execute(NSBatchDeleteRequest(fetchRequest: UserEntity.fetchRequest()))
+        try! context.execute(NSBatchDeleteRequest(fetchRequest: HabitEntity.fetchRequest()))
         try! context.save()
     }
     

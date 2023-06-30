@@ -28,11 +28,9 @@ extension OnboardingView {
         
         @Injected(\.rootCordinator) var cordinator: Cordinator
         @Injected(\.userState) private var userState: Container.UserStateType
+        @Injected(\.habitState) private var habitState: Container.HabitStateType
         @Injected(\.store) private var store: Store<AppState>
         @Injected(\.modalHelper) private var modalHelper: ModalHelper
-        
-        //TODO: - Remove this later
-        @Injected(\.userCoreDataHelper) private var userHelper: UserHelper
         
         private var cancellable = Set<AnyCancellable>()
         
@@ -51,8 +49,6 @@ extension OnboardingView {
         private var subscriptions = Set<AnyCancellable>()
         
         init() {
-            self.userHelper.printUserEntity()
-            
             userState
                 .map { $0.shouldShowLoader }
                 .removeDuplicates()
@@ -69,10 +65,8 @@ extension OnboardingView {
                 .map { $0.updateSuccess }
                 .removeDuplicates()
                 .filter { $0 }
-                .sink {[weak self] _ in
-                    self?.store.dispatch(UserAction.loader(false))
-                    self?.userHelper.printUserEntity()
-                    print("Wooow its time for the complete baby")
+                .sink {[unowned self] _ in
+                    self.store.dispatch(HabitAction.saveHabit(self.firstHabit, self.whyDescription))
                 }
                 .store(in: &cancellable)
             
@@ -82,6 +76,25 @@ extension OnboardingView {
                 .sink {[weak self] error in
                     self?.store.dispatch(UserAction.loader(false))
                     self?.modalHelper.show(.error(title: "Failed to create account", description: error), with: CommonModalID.ERROR.rawValue)
+                }
+                .store(in: &cancellable)
+            
+            habitState
+                .compactMap { $0.errorMessage }
+                .removeDuplicates()
+                .sink {[weak self] error in
+                    self?.store.dispatch(UserAction.loader(false))
+                    self?.modalHelper.show(.error(title: "Failed to create account", description: error), with: CommonModalID.ERROR.rawValue)
+                }
+                .store(in: &cancellable)
+            
+            habitState
+                .map { $0.habitSaveSuccess }
+                .removeDuplicates()
+                .filter { $0 }
+                .sink {[weak self] _ in
+                    self?.store.dispatch(UserAction.loader(false))
+                    self?.navigateToHome()
                 }
                 .store(in: &cancellable)
         }
@@ -101,8 +114,11 @@ extension OnboardingView {
         
         func onboardingProcessComplete() {
             store.dispatch(UserAction.update(name: name))
-//            cordinator.navigate(to: .home, transition: .push)
-//            cordinator.remove(group: .onBoarding)
+        }
+        
+        private func navigateToHome() {
+            cordinator.navigate(to: .home, transition: .push)
+            cordinator.remove(group: .onBoarding)
         }
         
         private func delayStep(by time: CGFloat) -> Future<Void, Never> {

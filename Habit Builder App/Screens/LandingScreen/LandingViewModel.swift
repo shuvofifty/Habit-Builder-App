@@ -16,7 +16,7 @@ extension LandingView {
         @Injected(\.userCoreDataHelper) var userHelper: UserHelper
         
         init() {
-            userHelper.removeAllUser()
+            userHelper.printUserEntity()
         }
         
     }

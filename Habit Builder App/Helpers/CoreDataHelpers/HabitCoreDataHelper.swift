@@ -31,10 +31,7 @@ class HabitCoreDataHelper: HabitHelper {
             habitEntity.reason = reason
             habitEntity.dateCreated = Date()
             
-            let mutableHabits = user.habits as? NSMutableOrderedSet
-            mutableHabits?.add(habitEntity)
-            
-            user.habits = mutableHabits
+            user.addToHabits(habitEntity)
             
             try context.save()
             createdHabitEntity = habitEntity
@@ -49,10 +46,7 @@ class HabitCoreDataHelper: HabitHelper {
     
     private func getUserWithContext(_ context: NSManagedObjectContext, id: UUID) -> UserEntity? {
         let fetchRequest = UserEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate {(evaluatedObject, bindings) -> Bool in
-            let userEntity = evaluatedObject as! UserEntity
-            return userEntity.id == id
-        }
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
         do {
             let existingUsers = try context.fetch(fetchRequest)

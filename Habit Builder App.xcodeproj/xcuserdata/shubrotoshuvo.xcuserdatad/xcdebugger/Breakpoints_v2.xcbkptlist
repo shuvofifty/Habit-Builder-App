@@ -7,17 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "CD04D0D0-93CF-4B8E-8A86-0771C7E9A4D7"
+            uuid = "DDF84A6D-A8F3-4B23-B625-DEFFFAE1BFBF"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Habit Builder App/AppStates/HabitsState.swift"
+            filePath = "Habit Builder App/Helpers/CoreDataHelpers/HabitCoreDataHelper.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "createHabitMiddleWare(resource:)"
-            landmarkType = "9">
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "createHabit(for:name:reason:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DDF84A6D-A8F3-4B23-B625-DEFFFAE1BFBF - 2b4d62eca9b38553"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () throws -&gt; () in Habit_Builder_App.HabitCoreDataHelper.createHabit(for: Foundation.UUID, name: Swift.String, reason: Swift.String) async throws -&gt; Habit_Builder_App.HabitEntity"
+                  moduleName = "Habit Builder App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shubrotoshuvo/Documents/GitHub/Habit%20Builder%20App/Habit%20Builder%20App/Helpers/CoreDataHelpers/HabitCoreDataHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "324">
+               </Location>
+               <Location
+                  uuid = "DDF84A6D-A8F3-4B23-B625-DEFFFAE1BFBF - 2b4d62eca9b38553"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () throws -&gt; () in Habit_Builder_App.HabitCoreDataHelper.createHabit(for: Foundation.UUID, name: Swift.String, reason: Swift.String) async throws -&gt; Habit_Builder_App.HabitEntity"
+                  moduleName = "Habit Builder App"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shubrotoshuvo/Documents/GitHub/Habit%20Builder%20App/Habit%20Builder%20App/Helpers/CoreDataHelpers/HabitCoreDataHelper.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "280">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
