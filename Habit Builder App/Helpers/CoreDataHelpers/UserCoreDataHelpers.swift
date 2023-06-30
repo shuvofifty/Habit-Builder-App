@@ -12,6 +12,8 @@ import CoreData
 protocol UserHelper {
     func createUser(with email: String, firebaseID: String) async throws
     func updateUser(with email: String, name: String) async throws
+    func printUserEntity()
+    func removeAllUser()
 }
 
 class UserCoreDataHelper: UserHelper {
@@ -49,9 +51,25 @@ class UserCoreDataHelper: UserHelper {
         }
     }
     
+    func printUserEntity() {
+        let context = coreData.context
+        let allUser = try! context.fetch(UserEntity.fetchRequest()) as? [UserEntity]
+        for user in allUser ?? [] {
+            print(user.description)
+        }
+    }
+    
+    func removeAllUser() {
+        let context = coreData.context
+        
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: UserEntity.fetchRequest())
+        try! context.execute(deleteRequest)
+        try! context.save()
+    }
+    
     private func getUserWithContext(_ context: NSManagedObjectContext, email: String) -> UserEntity? {
         let fetchRequest = UserEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "email == %@", email)
+        fetchRequest.predicate = NSPredicate(format: "email ==[c] %@", email)
         
         do {
             let existingUsers = try context.fetch(fetchRequest)

@@ -128,7 +128,7 @@ func createUserAccountMiddleWare(resource: UserStateResource) -> Middleware<AppS
                 Task {
                     do {
                         let user = try await resource.accountHelper.createAccount(for: email, password: password)
-//                        try await resource.userHelper.createUser(with: email, firebaseID: user.firebaseID)
+                        try await resource.userHelper.createUser(with: email, firebaseID: user.firebaseID)
                         
                         MainThread {
                             dispatch(UserAction.loader(false))
@@ -152,28 +152,21 @@ func updateUserInfo(resource: UserStateResource) -> Middleware<AppState> {
             { action in
                 next(action)
                 guard let userAction = action as? UserAction, case .update(let name) = userAction, let userInfo = getState()?.userState.userInfo else { return }
-                var updatedUserInfo = userInfo
-                updatedUserInfo.name = name
-                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
-                    MainThread {
-                        dispatch(UserAction.updateSuccessUserInfo(updatedUserInfo))
+                
+                Task {
+                    do {
+                        try await resource.userHelper.updateUser(with: userInfo.email, name: name)
+                        var updatedUserInfo = userInfo
+                        updatedUserInfo.name = name
+                        MainThread {
+                            dispatch(UserAction.updateSuccessUserInfo(updatedUserInfo))
+                        }
+                    } catch let error as LocalizedError {
+                        MainThread {
+                            dispatch(UserAction.updateFailed(error.errorDescription ?? ""))
+                        }
                     }
                 }
-                
-//                Task {
-//                    do {
-//                        try await resource.userHelper.updateUser(with: userInfo.email, name: name)
-//                        var updatedUserInfo = userInfo
-//                        updatedUserInfo.name = name
-//                        MainThread {
-//                            dispatch(UserAction.updateSuccessUserInfo(updatedUserInfo))
-//                        }
-//                    } catch let error as LocalizedError {
-//                        MainThread {
-//                            dispatch(UserAction.updateFailed(error.errorDescription ?? ""))
-//                        }
-//                    }
-//                }
             }
         }
     }
