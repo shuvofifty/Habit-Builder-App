@@ -12,8 +12,6 @@ import ReSwift
 
 extension OnboardingView {
     class ViewModel: ObservableObject {
-        @Injected(\.rootCordinator) var cordinator: Cordinator
-        
         @Published var activeStep: Step = .intro
         
         @Published var name: String = ""
@@ -28,8 +26,12 @@ extension OnboardingView {
         @Published var continueTapped: Bool = false
         private var continueCancellable: AnyCancellable?
         
+        @Injected(\.rootCordinator) var cordinator: Cordinator
         @Injected(\.userState) private var userState: Container.UserStateType
         @Injected(\.store) private var store: Store<AppState>
+        @Injected(\.modalHelper) private var modalHelper: ModalHelper
+        
+        private var cancellable = Set<AnyCancellable>()
         
         
         private lazy var steps: [(step: Step, completion: () -> Future<Void, Never>)] = [
@@ -45,6 +47,42 @@ extension OnboardingView {
         
         private var subscriptions = Set<AnyCancellable>()
         
+        init() {
+            userState
+                .map {
+                    print($0.shouldShowLoader)
+                    return $0.shouldShowLoader
+                }
+                .removeDuplicates()
+                .sink {[weak self] showLoader in
+                    if showLoader {
+                        self?.modalHelper.show(.loader(title: "Almost Done", description: "It almost take 90 days to make a habit permanent. How amazing!"), with: CommonModalID.LOADING.rawValue)
+                    } else {
+                        self?.modalHelper.dismiss(id: CommonModalID.LOADING.rawValue)
+                    }
+                }
+                .store(in: &cancellable)
+            
+            userState
+                .map { $0.updateSuccess }
+                .removeDuplicates()
+                .filter { $0 }
+                .sink {[weak self] _ in
+                    self?.store.dispatch(UserAction.loader(false))
+                    print("Wooow its time for the complete baby")
+                }
+                .store(in: &cancellable)
+            
+            userState
+                .compactMap { $0.errorMessage }
+                .removeDuplicates()
+                .sink {[weak self] error in
+                    self?.store.dispatch(UserAction.loader(false))
+                    self?.modalHelper.show(.error(title: "Failed to create account", description: error), with: CommonModalID.ERROR.rawValue)
+                }
+                .store(in: &cancellable)
+        }
+        
         
         func startOnboardingProcess() {
             steps.publisher
@@ -59,7 +97,6 @@ extension OnboardingView {
         }
         
         func onboardingProcessComplete() {
-            store.dispatch(UserAction.update(name: name))
             cordinator.navigate(to: .home, transition: .push)
             cordinator.remove(group: .onBoarding)
         }
@@ -81,6 +118,7 @@ extension OnboardingView {
                             return
                         }
                         self.store.dispatch(UserAction.loader(true))
+                        self.store.dispatch(UserAction.update(name: self.name))
 //                        promise(.success(()))
 //                        self.nameStepCancellable?.cancel()
 //                        self.nameStepCancellable = nil

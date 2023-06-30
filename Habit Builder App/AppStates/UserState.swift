@@ -14,6 +14,7 @@ struct UserState {
     var shouldShowLoader: Bool = false
     var errorMessage: String? = nil
     var userInfo: UserInfo? = nil
+    var updateSuccess: Bool = false
 }
 
 enum UserAction: Action {
@@ -58,11 +59,18 @@ func userReducer(action: Action, state: UserState?) -> UserState {
         case .loader(let shouldShow):
             state.shouldShowLoader = shouldShow
             
+        case .update:
+            state.errorMessage = nil
+            state.updateSuccess = false
+            
         case .updateSuccessUserInfo(let userInfo):
             state.userInfo = userInfo
+            state.errorMessage = nil
+            state.updateSuccess = true
             
-        default:
-            break
+        case .updateFailed(let error):
+            state.errorMessage = error
+            state.updateSuccess = false
         }
     default:
         break
@@ -144,21 +152,28 @@ func updateUserInfo(resource: UserStateResource) -> Middleware<AppState> {
             { action in
                 next(action)
                 guard let userAction = action as? UserAction, case .update(let name) = userAction, let userInfo = getState()?.userState.userInfo else { return }
-                
-                Task {
-                    do {
-                        try await resource.userHelper.updateUser(with: userInfo.email, name: name)
-                        var updatedUserInfo = userInfo
-                        updatedUserInfo.name = name
-                        MainThread {
-                            dispatch(UserAction.updateSuccessUserInfo(updatedUserInfo))
-                        }
-                    } catch let error as LocalizedError {
-                        MainThread {
-                            dispatch(UserAction.updateFailed(error.errorDescription ?? ""))
-                        }
+                var updatedUserInfo = userInfo
+                updatedUserInfo.name = name
+                DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                    MainThread {
+                        dispatch(UserAction.updateSuccessUserInfo(updatedUserInfo))
                     }
                 }
+                
+//                Task {
+//                    do {
+//                        try await resource.userHelper.updateUser(with: userInfo.email, name: name)
+//                        var updatedUserInfo = userInfo
+//                        updatedUserInfo.name = name
+//                        MainThread {
+//                            dispatch(UserAction.updateSuccessUserInfo(updatedUserInfo))
+//                        }
+//                    } catch let error as LocalizedError {
+//                        MainThread {
+//                            dispatch(UserAction.updateFailed(error.errorDescription ?? ""))
+//                        }
+//                    }
+//                }
             }
         }
     }
