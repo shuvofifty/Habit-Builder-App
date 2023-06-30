@@ -49,9 +49,7 @@ struct OnboardingView: View {
                 .padding(.bottom, 50)
             
             HStack(spacing: 15) {
-                TextField("", text: $name, prompt: .placeHolder(text: "Your name", c: C.color, f: C.font))
-                    .modifier(BottomBorderTextFieldModifier(fontSystem: C.font, colorSystem: C.color))
-                    .add(mod: .fullWidth())
+                BottomBorderTextFieldView(text: $name, placeHolder: "Your name", c: C.color, f: C.font)
                 C.asset(.smallNextButtonPrimary)
                     .frame(width: 40, height: 40)
                     .onTapGesture {

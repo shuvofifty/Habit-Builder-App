@@ -8,6 +8,7 @@
 import Foundation
 import Factory
 import Combine
+import ReSwift
 
 extension OnboardingView {
     class ViewModel: ObservableObject {
@@ -26,6 +27,9 @@ extension OnboardingView {
         
         @Published var continueTapped: Bool = false
         private var continueCancellable: AnyCancellable?
+        
+        @Injected(\.userState) private var userState: Container.UserStateType
+        @Injected(\.store) private var store: Store<AppState>
         
         
         private lazy var steps: [(step: Step, completion: () -> Future<Void, Never>)] = [
@@ -55,6 +59,7 @@ extension OnboardingView {
         }
         
         func onboardingProcessComplete() {
+            store.dispatch(UserAction.update(name: name))
             cordinator.navigate(to: .home, transition: .push)
             cordinator.remove(group: .onBoarding)
         }

@@ -18,12 +18,18 @@ struct UserState {
 
 enum UserAction: Action {
     case login(email: String, password: String)
-    case createAccount(email: String, password: String)
     case loginSuccess(_ userInfo: UserInfo)
     case loginFailed(_ error: String)
+    
     case loader(_ shouldShow: Bool)
+    
+    case createAccount(email: String, password: String)
     case createAccountSuccess(_ userInfo: UserInfo)
     case createAccountFailed(_ error: String)
+    
+    case update(name: String)
+    case updateSuccessUserInfo(_ userInfo: UserInfo?)
+    case updateFailed(_ error: String)
 }
 
 // Reducer is responsible for changing data not middleware
@@ -51,6 +57,12 @@ func userReducer(action: Action, state: UserState?) -> UserState {
             
         case .loader(let shouldShow):
             state.shouldShowLoader = shouldShow
+            
+        case .updateSuccessUserInfo(let userInfo):
+            state.userInfo = userInfo
+            
+        default:
+            break
         }
     default:
         break
@@ -118,6 +130,32 @@ func createUserAccountMiddleWare(resource: UserStateResource) -> Middleware<AppS
                         MainThread {
                             dispatch(UserAction.loader(false))
                             dispatch(UserAction.createAccountFailed(error.localizedDescription))
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func updateUserInfo(resource: UserStateResource) -> Middleware<AppState> {
+    { dispatch, getState in
+        { next in
+            { action in
+                next(action)
+                guard let userAction = action as? UserAction, case .update(let name) = userAction, let userInfo = getState()?.userState.userInfo else { return }
+                
+                Task {
+                    do {
+                        try await resource.userHelper.updateUser(with: userInfo.email, name: name)
+                        var updatedUserInfo = userInfo
+                        updatedUserInfo.name = name
+                        MainThread {
+                            dispatch(UserAction.updateSuccessUserInfo(updatedUserInfo))
+                        }
+                    } catch let error as LocalizedError {
+                        MainThread {
+                            dispatch(UserAction.updateFailed(error.errorDescription ?? ""))
                         }
                     }
                 }
