@@ -10,14 +10,15 @@ import CoreData
 import Factory
 
 protocol HabitHelper {
-    func createHabit(for userId: UUID, name: String, reason: String) async throws
+    func createHabit(for userId: UUID, name: String, reason: String) async throws -> HabitEntity
 }
 
 class HabitCoreDataHelper: HabitHelper {
     @Injected(\.coreDatabase) private var coreData: CoreDatabase
     
-    func createHabit(for userId: UUID, name: String, reason: String) async throws {
+    func createHabit(for userId: UUID, name: String, reason: String) async throws -> HabitEntity {
         let context = coreData.context
+        var createdHabitEntity: HabitEntity?
         
         try context.performAndWait {
             guard let user = getUserWithContext(context, id: userId) else {
@@ -36,6 +37,13 @@ class HabitCoreDataHelper: HabitHelper {
             user.habits = mutableHabits
             
             try context.save()
+            createdHabitEntity = habitEntity
+        }
+        
+        if let habit = createdHabitEntity {
+            return habit
+        } else {
+            throw HabitError.habitCreationFailed
         }
     }
     
@@ -59,11 +67,14 @@ class HabitCoreDataHelper: HabitHelper {
 extension HabitCoreDataHelper {
     enum HabitError: LocalizedError {
         case userNotFound
+        case habitCreationFailed
         
         var errorDescription: String? {
             switch self {
             case .userNotFound:
                 return "Could not find user"
+            case .habitCreationFailed:
+                return "Unable to create habit entity"
             }
         }
     }

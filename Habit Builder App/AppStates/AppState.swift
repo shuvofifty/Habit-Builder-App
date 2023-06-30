@@ -12,6 +12,7 @@ import Factory
 
 struct AppState {
     var userState: UserState
+    var habitState: HabitState
 }
 
 class ObservableStore: Store<AppState> {
@@ -25,8 +26,12 @@ class ObservableStore: Store<AppState> {
 
 // Eacher state will have one reducer only
 private func appReducer(action: Action, state: AppState?) -> AppState {
-    var state = state ?? AppState(userState: UserState(isLoggedIn: false))
+    var state = state ?? AppState(
+        userState: UserState(isLoggedIn: false),
+        habitState: HabitState()
+    )
     state.userState = userReducer(action: action, state: state.userState)
+    state.habitState = habitReducer(action: action, state: state.habitState)
     return state
 }
 
@@ -37,6 +42,8 @@ let appStore = ObservableStore(
         userLoginMiddleWare(resource: UserStateResource()),
         createUserAccountMiddleWare(resource: UserStateResource()),
         updateUserInfo(resource: UserStateResource())
+        
+        
     ]
 )
 

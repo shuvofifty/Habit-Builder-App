@@ -10,6 +10,7 @@ import FirebaseCore
 import FirebaseAuth
 
 struct UserInfo {
+    var uid: UUID?
     var email: String
     var firebaseID: String
     var name: String?

@@ -16,6 +16,7 @@
 		530DA5AD2A4E4F6300FE251C /* UserCoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5AC2A4E4F6300FE251C /* UserCoreDataHelpers.swift */; };
 		530DA5AF2A4F12A700FE251C /* BottomBorderTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5AE2A4F12A700FE251C /* BottomBorderTextFieldView.swift */; };
 		530DA5B12A4F67C600FE251C /* HabitCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5B02A4F67C600FE251C /* HabitCoreDataHelper.swift */; };
+		530DA5B32A4F6C8800FE251C /* HabitsState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5B22A4F6C8800FE251C /* HabitsState.swift */; };
 		53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E429FB046100C19CFA /* Assets.xcassets */; };
 		53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E729FB046100C19CFA /* Preview Assets.xcassets */; };
 		53AB64FC29FB046100C19CFA /* Habit_Builder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */; };
@@ -113,6 +114,7 @@
 		530DA5AC2A4E4F6300FE251C /* UserCoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataHelpers.swift; sourceTree = "<group>"; };
 		530DA5AE2A4F12A700FE251C /* BottomBorderTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextFieldView.swift; sourceTree = "<group>"; };
 		530DA5B02A4F67C600FE251C /* HabitCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitCoreDataHelper.swift; sourceTree = "<group>"; };
+		530DA5B22A4F6C8800FE251C /* HabitsState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsState.swift; sourceTree = "<group>"; };
 		53AB64DD29FB046000C19CFA /* Habit Builder App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Builder App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AB64E429FB046100C19CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AB64E729FB046100C19CFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 			children = (
 				53AB66D32A42A8B000C19CFA /* AppState.swift */,
 				53AB66D62A42A92300C19CFA /* UserState.swift */,
+				530DA5B22A4F6C8800FE251C /* HabitsState.swift */,
 			);
 			path = AppStates;
 			sourceTree = "<group>";
@@ -762,6 +765,7 @@
 				53AB65602A0616D000C19CFA /* Extension+UIView.swift in Sources */,
 				53AB655D2A060E2C00C19CFA /* LandingView.swift in Sources */,
 				53AB65AC2A0C8E7500C19CFA /* SignUpView.swift in Sources */,
+				530DA5B32A4F6C8800FE251C /* HabitsState.swift in Sources */,
 				53AB66D72A42A92300C19CFA /* UserState.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
 				530DA5AA2A4E102F00FE251C /* Entities.swift in Sources */,

@@ -127,8 +127,9 @@ func createUserAccountMiddleWare(resource: UserStateResource) -> Middleware<AppS
                 
                 Task {
                     do {
-                        let user = try await resource.accountHelper.createAccount(for: email, password: password)
-                        try await resource.userHelper.createUser(with: email, firebaseID: user.firebaseID)
+                        var user = try await resource.accountHelper.createAccount(for: email, password: password)
+                        let userEntity = try await resource.userHelper.createUser(with: email, firebaseID: user.firebaseID)
+                        user.uid = userEntity.id
                         
                         MainThread {
                             dispatch(UserAction.loader(false))

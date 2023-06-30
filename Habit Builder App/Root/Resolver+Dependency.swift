@@ -84,6 +84,10 @@ extension Container {
     var userCoreDataHelper: Factory<UserHelper> {
         self { UserCoreDataHelper() }
     }
+    
+    var habitCoreDataHelper: Factory<HabitHelper> {
+        self { HabitCoreDataHelper() }
+    }
 }
 
 // MARK: -  Other dependencies

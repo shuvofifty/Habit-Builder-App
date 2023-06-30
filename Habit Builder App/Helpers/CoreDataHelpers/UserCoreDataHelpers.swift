@@ -10,7 +10,7 @@ import Factory
 import CoreData
 
 protocol UserHelper {
-    func createUser(with email: String, firebaseID: String) async throws
+    func createUser(with email: String, firebaseID: String) async throws -> UserEntity
     func updateUser(with email: String, name: String) async throws
     func printUserEntity()
     func removeAllUser()
@@ -19,8 +19,9 @@ protocol UserHelper {
 class UserCoreDataHelper: UserHelper {
     @Injected(\.coreDatabase) private var coreData: CoreDatabase
     
-    func createUser(with email: String, firebaseID: String) async throws {
+    func createUser(with email: String, firebaseID: String) async throws -> UserEntity {
         let context = coreData.context
+        var createdUserEntity: UserEntity?
         
         try context.performAndWait {
             guard getUserWithContext(context, email: email) == nil else {
@@ -34,6 +35,13 @@ class UserCoreDataHelper: UserHelper {
             user.firebaseID = firebaseID
             
             try context.save()
+            createdUserEntity = user
+        }
+        
+        if let createdUserEntity = createdUserEntity {
+            return createdUserEntity
+        } else {
+            throw UserError.unknown
         }
     }
     
