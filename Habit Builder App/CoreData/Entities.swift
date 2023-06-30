@@ -29,5 +29,4 @@ class HabitEntity: NSManagedObject, CoreDataManageableObject {
     @NSManaged var name: String?
     @NSManaged var reason: String?
     @NSManaged var dateCreated: Date?
-    @NSManaged var user: UserEntity?
 }
