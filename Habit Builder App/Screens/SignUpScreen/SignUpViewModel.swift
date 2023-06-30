@@ -48,8 +48,9 @@ extension SignUpView {
             userState
                 .filter { $0.isLoggedIn }
                 .compactMap { $0.userInfo }
-                .sink {[weak self] _ in
-                    self?.cordinator.navigate(to: .onboarding, groupWith: .onBoarding, transition: .fadeIn)
+                .sink {[unowned self] _ in
+                    self.cancelSubscription(&self.cancellable)
+                    self.cordinator.navigate(to: .onboarding, groupWith: .onBoarding, transition: .fadeIn)
                 }
                 .store(in: &cancellable)
         }

@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 import SwiftUI
+import Combine
 
 extension UIView {
     func hook(to parent: UIView, top: CGFloat? = nil, right: CGFloat? = nil, bottom: CGFloat? = nil, left: CGFloat? = nil) {
@@ -34,5 +35,12 @@ extension UIView {
 extension View {
     func hideKeyboard() {
         UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    }
+}
+
+extension ObservableObject {
+    func cancelSubscription(_ cancellable: inout Set<AnyCancellable>) {
+        cancellable.forEach { $0.cancel() }
+        cancellable.removeAll()
     }
 }

@@ -80,9 +80,10 @@ extension OnboardingView {
                         guard !value.isEmpty else {
                             return
                         }
-                        promise(.success(()))
-                        self.nameStepCancellable?.cancel()
-                        self.nameStepCancellable = nil
+                        self.store.dispatch(UserAction.loader(true))
+//                        promise(.success(()))
+//                        self.nameStepCancellable?.cancel()
+//                        self.nameStepCancellable = nil
                     })
             }
         }
