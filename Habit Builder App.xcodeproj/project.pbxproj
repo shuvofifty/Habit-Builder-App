@@ -14,6 +14,7 @@
 		530DA5A72A4D09C000FE251C /* CoreDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5A62A4D09C000FE251C /* CoreDatabase.swift */; };
 		530DA5AA2A4E102F00FE251C /* Entities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5A92A4E102F00FE251C /* Entities.swift */; };
 		530DA5AD2A4E4F6300FE251C /* UserCoreDataHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5AC2A4E4F6300FE251C /* UserCoreDataHelpers.swift */; };
+		530DA5AF2A4F12A700FE251C /* BottomBorderTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DA5AE2A4F12A700FE251C /* BottomBorderTextFieldView.swift */; };
 		53AB64E529FB046100C19CFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E429FB046100C19CFA /* Assets.xcassets */; };
 		53AB64E829FB046100C19CFA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53AB64E729FB046100C19CFA /* Preview Assets.xcassets */; };
 		53AB64FC29FB046100C19CFA /* Habit_Builder_AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB64FB29FB046100C19CFA /* Habit_Builder_AppUITests.swift */; };
@@ -109,6 +110,7 @@
 		530DA5A62A4D09C000FE251C /* CoreDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDatabase.swift; sourceTree = "<group>"; };
 		530DA5A92A4E102F00FE251C /* Entities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Entities.swift; sourceTree = "<group>"; };
 		530DA5AC2A4E4F6300FE251C /* UserCoreDataHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCoreDataHelpers.swift; sourceTree = "<group>"; };
+		530DA5AE2A4F12A700FE251C /* BottomBorderTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderTextFieldView.swift; sourceTree = "<group>"; };
 		53AB64DD29FB046000C19CFA /* Habit Builder App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Habit Builder App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		53AB64E429FB046100C19CFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		53AB64E729FB046100C19CFA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 			children = (
 				53AB66772A1E66A600C19CFA /* TextFieldStyle.swift */,
 				53AB66992A33A3A900C19CFA /* RegularTextFieldView.swift */,
+				530DA5AE2A4F12A700FE251C /* BottomBorderTextFieldView.swift */,
 			);
 			path = TextField;
 			sourceTree = "<group>";
@@ -737,6 +740,7 @@
 				53AB65972A0AD2EA00C19CFA /* ImageSystem.swift in Sources */,
 				53AB66CC2A4235E600C19CFA /* SignInView.swift in Sources */,
 				53AB66952A32878900C19CFA /* BottomSheetModal.swift in Sources */,
+				530DA5AF2A4F12A700FE251C /* BottomBorderTextFieldView.swift in Sources */,
 				53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */,
 				53AB66B22A38114A00C19CFA /* AccountNetworkHelper.swift in Sources */,
 				53AB667C2A1E8E7F00C19CFA /* OnboardingViewController.swift in Sources */,
