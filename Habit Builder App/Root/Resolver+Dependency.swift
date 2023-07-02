@@ -27,6 +27,11 @@ extension Container {
         self { NavHandlerImp() }
             .singleton
     }
+    
+    var tabHandler: Factory<TabHandler> {
+        self { TabHandlerImp() }
+            .singleton
+    }
 }
 
 // MARK: - ViewModels

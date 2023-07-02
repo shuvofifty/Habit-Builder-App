@@ -29,6 +29,7 @@ protocol Cordinator {
 
 class RootCordinatorImp: NSObject, Cordinator {
     @Injected(\.navHandler) var navHandler: NavHandler
+    @Injected(\.tabHandler) var tabHandler: TabHandler
     
     private var screenGroups: [ScreenGroupID: [String]] = [:]
     

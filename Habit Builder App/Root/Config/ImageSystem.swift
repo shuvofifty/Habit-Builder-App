@@ -20,4 +20,6 @@ enum Assets: String {
     
     case homeScreenHero = "homeScreenHero"
     case alertIcon = "alert"
+    
+    case homeSelected = "homeSelected"
 }
