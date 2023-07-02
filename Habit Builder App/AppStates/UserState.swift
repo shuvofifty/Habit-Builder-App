@@ -97,10 +97,13 @@ func userLoginMiddleWare(resource: UserStateResource) -> Middleware<AppState> {
                 
                 Task {
                     do {
-                        let user = try await resource.accountHelper.signInUser(for: email, password: password)
+                        var userInfofromFirebase = try await resource.accountHelper.signInUser(for: email, password: password)
+                        let uuid = try await resource.userHelper.getUserID(with: userInfofromFirebase.email)
+                        userInfofromFirebase.uid = uuid
+                        
                         MainThread {
                             dispatch(UserAction.loader(false))
-                            dispatch(UserAction.loginSuccess(user))
+                            dispatch(UserAction.loginSuccess(userInfofromFirebase))
                         }
                     } catch {
                         MainThread {

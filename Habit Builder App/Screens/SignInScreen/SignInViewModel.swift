@@ -20,6 +20,7 @@ extension SignInView {
             case LOADER, ERROR
         }
         
+        @Injected(\.rootCordinator) private var cordinator: Cordinator
         @Injected(\.commonValidators) private var validator: CommonValidators
         @Injected(\.modalHelper) private var modalHelper: ModalHelper
         
@@ -55,7 +56,9 @@ extension SignInView {
                 .removeDuplicates()
                 .filter { $0 }
                 .sink {[unowned self] _ in
-                    
+                    self.cordinator.navigate(to: .home, transition: .push)
+                    self.store.dispatch(HabitAction.getAllHabits)
+                    self.cancelSubscription(&cancellable)
                 }
                 .store(in: &cancellable)
         }

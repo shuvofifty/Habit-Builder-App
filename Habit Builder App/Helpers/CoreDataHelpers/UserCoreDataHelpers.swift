@@ -11,6 +11,7 @@ import CoreData
 
 protocol UserHelper {
     func createUser(with email: String, firebaseID: String) async throws -> UserEntity
+    func getUserID(with email: String) async throws -> UUID
     func updateUser(with email: String, name: String) async throws
     func printUserEntity()
     func removeAllUser()
@@ -42,6 +43,23 @@ class UserCoreDataHelper: UserHelper {
             return createdUserEntity
         } else {
             throw UserError.unknown
+        }
+    }
+    
+    func getUserID(with email: String) async throws -> UUID {
+        let context = coreData.context
+        var id: UUID?
+        
+        try context.performAndWait {
+            guard let user = getUserWithContext(context, email: email) else {
+                throw UserError.userNotExist
+            }
+            id = user.id
+        }
+        if let id = id {
+            return id
+        } else {
+            throw UserError.userIdNotPresent
         }
     }
     
@@ -92,6 +110,7 @@ extension UserCoreDataHelper {
     enum UserError: LocalizedError {
         case userAlreadyExist,
              userNotExist,
+             userIdNotPresent,
              unknown
         
         var errorDescription: String? {
@@ -100,6 +119,8 @@ extension UserCoreDataHelper {
                 return "User already exist"
             case .userNotExist:
                 return "User does not exist"
+            case .userIdNotPresent:
+                return "Something weird happened. User ID is not present in core database"
             case .unknown:
                 return "Some unknown error happened"
             }
