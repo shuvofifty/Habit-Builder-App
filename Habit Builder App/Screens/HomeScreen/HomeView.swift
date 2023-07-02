@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    var viewModel: ViewModel
+    @StateObject var viewModel: ViewModel
     
     var body: some View {
         ZStack {
@@ -16,7 +16,7 @@ struct HomeView: View {
                 .ignoresSafeArea()
             
             VStack(spacing: 0) {
-                Text("Hi, Shubroto")
+                Text("Hi, \(viewModel.userName)")
                     .modifier(C.font.get(for: .custom(size: 38, lineSpace: 0), customWeight: .bold))
                     .foregroundColor(C.color.get(for: .primary, .s3))
                     .add(mod: .fullWidth(alignment: .trailing))

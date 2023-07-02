@@ -55,7 +55,7 @@ class HabitCoreDataHelper: HabitHelper {
             }
             
             habits = []
-            /*
+            /**
              This is done to fight faulting. Reference to iOS doc created by you
              Basicaly, core data get only relationsal information when needed to save memory. The process is called faulting
             **/

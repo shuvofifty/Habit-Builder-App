@@ -11,7 +11,7 @@ import CoreData
 
 protocol UserHelper {
     func createUser(with email: String, firebaseID: String) async throws -> UserEntity
-    func getUserID(with email: String) async throws -> UUID
+    func getUser(with email: String) async throws -> UserInfo
     func updateUser(with email: String, name: String) async throws
     func printUserEntity()
     func removeAllUser()
@@ -46,18 +46,18 @@ class UserCoreDataHelper: UserHelper {
         }
     }
     
-    func getUserID(with email: String) async throws -> UUID {
+    func getUser(with email: String) async throws -> UserInfo {
         let context = coreData.context
-        var id: UUID?
+        var userInfo: UserInfo?
         
         try context.performAndWait {
             guard let user = getUserWithContext(context, email: email) else {
                 throw UserError.userNotExist
             }
-            id = user.id
+            userInfo = UserInfo(uid: user.id, email: email, firebaseID: user.firebaseID ?? "", name: user.name)
         }
-        if let id = id {
-            return id
+        if let userInfo = userInfo {
+            return userInfo
         } else {
             throw UserError.userIdNotPresent
         }
