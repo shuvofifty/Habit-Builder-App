@@ -22,6 +22,10 @@ struct HabitState {
     var errorMessage: String?
     
     var habitSaveSuccess: Bool = false
+    
+    var didFetchAllHabitIntiated: Bool = false
+    var didFetchAllHabitSuccess: Bool = false
+    var fetchAllHabitError: String? = nil
 }
 
 enum HabitAction: Action {
@@ -30,7 +34,8 @@ enum HabitAction: Action {
     case saveHabitSuccess(_ habitInfo: HabitInfo)
     
     case getAllHabits
-    case updateHabitStore(_ habits: [HabitInfo])
+    case updateHabitStoreSuccess(_ habits: [HabitInfo])
+    case updateHabitStoreFailed(_ errorMsg: String)
     
     case loader(_ showLoader: Bool)
 }
@@ -57,13 +62,21 @@ func habitReducer(action: Action, state: HabitState?) -> HabitState {
             state.habits.append(habitInfo)
             state.habitSaveSuccess = true
             
-        case .updateHabitStore(let habitInfos):
+        case .updateHabitStoreSuccess(let habitInfos):
             state.habits = habitInfos
+            state.didFetchAllHabitIntiated = false
+            state.didFetchAllHabitSuccess = true
+            state.fetchAllHabitError = nil
             
-        default:
-            break
+        case .getAllHabits:
+            state.didFetchAllHabitIntiated = true
+            state.didFetchAllHabitSuccess = false
+            state.fetchAllHabitError = nil
             
-            
+        case .updateHabitStoreFailed(let msg):
+            state.didFetchAllHabitIntiated = false
+            state.didFetchAllHabitSuccess = false
+            state.fetchAllHabitError = msg
         }
     default:
         break
@@ -112,11 +125,11 @@ func getHabitsMiddleWare(resource: HabitStateResource) -> Middleware<AppState> {
                     do {
                         let habits = try await resource.habitHelper.getAllHabits(for: uid)
                         MainThread {
-                            dispatch(HabitAction.updateHabitStore(habits))
+                            dispatch(HabitAction.updateHabitStoreSuccess(habits))
                         }
                     } catch let error as LocalizedError {
                         MainThread {
-                            dispatch(HabitAction.saveHabitFailed(error.errorDescription ?? ""))
+                            dispatch(HabitAction.updateHabitStoreFailed(error.errorDescription ?? ""))
                         }
                     }
                 }
