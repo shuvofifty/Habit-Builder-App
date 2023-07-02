@@ -55,15 +55,27 @@ class HabitCoreDataHelper: HabitHelper {
             }
             
             habits = []
-            for habit in (user.habits?.array as? [HabitEntity]) ?? []  {
-                habits?.append(
-                    HabitInfo(
-                        name: habit.name ?? "",
-                        reason: habit.reason ?? "",
-                        dateCreated: habit.dateCreated ?? Date()
+            /*
+             This is done to fight faulting. Reference to iOS doc created by you
+             Basicaly, core data get only relationsal information when needed to save memory. The process is called faulting
+            **/
+            let habitEntities = user.habits?.compactMap { $0 as? HabitEntity }
+            
+            
+            if let habitEntities = habitEntities {
+                for habit in habitEntities {
+                    habits?.append(
+                        HabitInfo(
+                            name: habit.name ?? "",
+                            reason: habit.reason ?? "",
+                            dateCreated: habit.dateCreated ?? Date()
+                        )
                     )
-                )
+                }
+            } else {
+                throw HabitError.failedToGetHabit
             }
+            
         }
         
         if let habits = habits {
