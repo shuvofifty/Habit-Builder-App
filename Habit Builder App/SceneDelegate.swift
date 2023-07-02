@@ -17,8 +17,14 @@ final class SceneDelegate: NSObject, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         var rootCordinator = Container.shared.rootCordinator()
-        rootCordinator.navigationController = Container.shared.navigationController()
-        window?.rootViewController = rootCordinator.navigationController
+        let rootScreen: Screen = .landing
+        
+        rootCordinator.navHandler.initiateNavFor(
+            screen: rootScreen,
+            rootScreen: rootCordinator.get(for: rootScreen)
+        )
+        
+        window?.rootViewController = rootCordinator.get(for: rootScreen)
         window?.makeKeyAndVisible()
     }
 }

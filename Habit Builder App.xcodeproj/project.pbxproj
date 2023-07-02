@@ -85,6 +85,7 @@
 		53AB66D22A42A86300C19CFA /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 53AB66D12A42A86300C19CFA /* ReSwift */; };
 		53AB66D42A42A8B000C19CFA /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66D32A42A8B000C19CFA /* AppState.swift */; };
 		53AB66D72A42A92300C19CFA /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66D62A42A92300C19CFA /* UserState.swift */; };
+		53E2C1382A51BD7E001976DC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1372A51BD7E001976DC /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,6 +169,7 @@
 		53AB66CD2A42369E00C19CFA /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		53AB66D32A42A8B000C19CFA /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		53AB66D62A42A92300C19CFA /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
+		53E2C1372A51BD7E001976DC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 				53AB65532A049BB600C19CFA /* RootCordinator.swift */,
 				53AB65642A06B56D00C19CFA /* Resolver+Dependency.swift */,
 				53AB66892A3110ED00C19CFA /* NavigationTransitions.swift */,
+				53E2C1372A51BD7E001976DC /* Router.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -777,6 +780,7 @@
 				53AB66CE2A42369E00C19CFA /* SignInViewModel.swift in Sources */,
 				53AB66C42A38B91900C19CFA /* ModalHelper.swift in Sources */,
 				530DA5A72A4D09C000FE251C /* CoreDatabase.swift in Sources */,
+				53E2C1382A51BD7E001976DC /* Router.swift in Sources */,
 				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
 				530DA59C2A4CC2F500FE251C /* HomeViewModel.swift in Sources */,
 				530DA5B12A4F67C600FE251C /* HabitCoreDataHelper.swift in Sources */,

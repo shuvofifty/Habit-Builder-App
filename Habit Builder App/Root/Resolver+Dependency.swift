@@ -22,6 +22,11 @@ extension Container {
         self { RootCordinatorImp() }
             .singleton
     }
+    
+    var navHandler: Factory<NavHandler> {
+        self { NavHandlerImp() }
+            .singleton
+    }
 }
 
 // MARK: - ViewModels

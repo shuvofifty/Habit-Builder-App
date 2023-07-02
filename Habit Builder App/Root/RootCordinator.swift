@@ -16,7 +16,7 @@ enum Screen {
 }
 
 protocol Cordinator {
-    var navigationController: UINavigationController? { get set }
+    var navHandler: NavHandler { get }
     
     func navigate(to screen: Screen, transition: TransitionStyle)
     func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, transition: TransitionStyle)
@@ -30,6 +30,8 @@ protocol Cordinator {
 
 class RootCordinatorImp: NSObject, Cordinator {
     var navigationController: UINavigationController?
+    @Injected(\.navHandler) var navHandler: NavHandler
+    
     private var screenGroups: [ScreenGroupID: [String]] = [:]
     
     func get(for screen: Screen) -> UIViewController {
@@ -48,7 +50,7 @@ class RootCordinatorImp: NSObject, Cordinator {
     }
     
     func navigate(to screen: Screen, transition: TransitionStyle) {
-        performNavigation(vc: get(for: screen), transition: transition)
+        performNavigation(vc: get(for: screen), transition: transition, screen: screen)
     }
     
     func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, transition: TransitionStyle) {
@@ -64,10 +66,11 @@ class RootCordinatorImp: NSObject, Cordinator {
         }
         screenGroups[groupId]?.append(id)
         vc.screen_ID = id
-        performNavigation(vc: vc, transition: transition)
+        performNavigation(vc: vc, transition: transition, screen: screen)
     }
     
-    private func performNavigation(vc: UIViewController, transition: TransitionStyle) {
+    private func performNavigation(vc: UIViewController, transition: TransitionStyle, screen: Screen) {
+        let navController = navHandler.getNavController(for: screen)
         switch transition {
         case .push:
             navigationController?.pushViewController(vc, animated: true)
