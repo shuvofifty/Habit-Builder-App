@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 import Factory
+import ReSwift
 
 extension SignInView {
     enum Error {
@@ -24,16 +25,15 @@ extension SignInView {
         
         @Published var error: [Error: String] = [:]
         
-        private var store = appStore
+        @Injected(\.userState) private var userState: Container.UserStateType
+        @Injected(\.store) private var store: Store<AppState>
+        
         private var cancellable: Set<AnyCancellable> = []
         
         func setupStoreBindings() {
-            let userState = store
-                .statePublisher
-                .map { $0.userState }
-            
             userState
                 .map { $0.shouldShowLoader }
+                .removeDuplicates()
                 .sink {[weak self] showLoader in
                     if showLoader {
                         self?.modalHelper.show(.loader(title: "Checikng credentials", description: "With the help of account you will be able to track all your progress"), with: Modal_ID.LOADER.rawValue)
@@ -47,6 +47,15 @@ extension SignInView {
                 .compactMap { $0.errorMessage }
                 .sink {[weak self] error in
                     self?.modalHelper.show(.error(title: "Ahh something is not right", description: error), with: Modal_ID.ERROR.rawValue)
+                }
+                .store(in: &cancellable)
+            
+            userState
+                .map { $0.isLoggedIn }
+                .removeDuplicates()
+                .filter { $0 }
+                .sink {[unowned self] _ in
+                    
                 }
                 .store(in: &cancellable)
         }

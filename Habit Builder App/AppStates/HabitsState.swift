@@ -29,6 +29,9 @@ enum HabitAction: Action {
     case saveHabitFailed(_ errorMsg: String)
     case saveHabitSuccess(_ habitInfo: HabitInfo)
     
+    case getAllHabits
+    case updateHabitStore(_ habits: [HabitInfo])
+    
     case loader(_ showLoader: Bool)
 }
 
@@ -53,6 +56,14 @@ func habitReducer(action: Action, state: HabitState?) -> HabitState {
             state.errorMessage = nil
             state.habits.append(habitInfo)
             state.habitSaveSuccess = true
+            
+        case .updateHabitStore(let habitInfos):
+            state.habits = habitInfos
+            
+        default:
+            break
+            
+            
         }
     default:
         break
@@ -78,6 +89,30 @@ func createHabitMiddleWare(resource: HabitStateResource) -> Middleware<AppState>
                         
                         MainThread {
                             dispatch(HabitAction.saveHabitSuccess(habitInfo))
+                        }
+                    } catch let error as LocalizedError {
+                        MainThread {
+                            dispatch(HabitAction.saveHabitFailed(error.errorDescription ?? ""))
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+func getHabitsMiddleWare(resource: HabitStateResource) -> Middleware<AppState> {
+    { dispatch, getState in
+        { next in
+            { action in
+                next(action)
+                guard let habitAction = action as? HabitAction, case .getAllHabits = habitAction, let uid = getState()?.userState.userInfo?.uid else { return }
+                
+                Task {
+                    do {
+                        let habits = try await resource.habitHelper.getAllHabits(for: uid)
+                        MainThread {
+                            dispatch(HabitAction.updateHabitStore(habits))
                         }
                     } catch let error as LocalizedError {
                         MainThread {

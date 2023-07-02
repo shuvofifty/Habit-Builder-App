@@ -11,6 +11,7 @@ import Factory
 
 protocol HabitHelper {
     func createHabit(for userId: UUID, name: String, reason: String) async throws -> HabitEntity
+    func getAllHabits(for userId: UUID) async throws -> [HabitInfo]
 }
 
 class HabitCoreDataHelper: HabitHelper {
@@ -44,6 +45,34 @@ class HabitCoreDataHelper: HabitHelper {
         }
     }
     
+    func getAllHabits(for userId: UUID) async throws -> [HabitInfo] {
+        let context = coreData.context
+        var habits: [HabitInfo]?
+        
+        try context.performAndWait {
+            guard let user = getUserWithContext(context, id: userId) else {
+                throw HabitError.userNotFound
+            }
+            
+            habits = []
+            for habit in (user.habits?.array as? [HabitEntity]) ?? []  {
+                habits?.append(
+                    HabitInfo(
+                        name: habit.name ?? "",
+                        reason: habit.reason ?? "",
+                        dateCreated: habit.dateCreated ?? Date()
+                    )
+                )
+            }
+        }
+        
+        if let habits = habits {
+            return habits
+        } else {
+            throw HabitError.failedToGetHabit
+        }
+    }
+    
     private func getUserWithContext(_ context: NSManagedObjectContext, id: UUID) -> UserEntity? {
         let fetchRequest = UserEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -61,6 +90,7 @@ class HabitCoreDataHelper: HabitHelper {
 extension HabitCoreDataHelper {
     enum HabitError: LocalizedError {
         case userNotFound
+        case failedToGetHabit
         case habitCreationFailed
         
         var errorDescription: String? {
@@ -69,6 +99,8 @@ extension HabitCoreDataHelper {
                 return "Could not find user"
             case .habitCreationFailed:
                 return "Unable to create habit entity"
+            case .failedToGetHabit:
+                return "Failed get habit list for the user"
             }
         }
     }

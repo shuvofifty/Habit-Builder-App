@@ -43,7 +43,8 @@ let appStore = ObservableStore(
         createUserAccountMiddleWare(resource: UserStateResource()),
         updateUserInfo(resource: UserStateResource()),
         
-        createHabitMiddleWare(resource: HabitStateResource())
+        createHabitMiddleWare(resource: HabitStateResource()),
+        getHabitsMiddleWare(resource: HabitStateResource())
     ]
 )
 
