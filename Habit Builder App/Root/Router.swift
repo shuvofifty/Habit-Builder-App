@@ -11,6 +11,7 @@ import UIKit
 protocol NavHandler {
     func getNavController(for screen: Screen) -> UINavigationController
     func initiateNavFor(screen: Screen, rootScreen: UIViewController)
+    func popViewController(for screen: Screen, animated: Bool)
 }
 
 class NavHandlerImp: NavHandler {
@@ -50,5 +51,9 @@ class NavHandlerImp: NavHandler {
             }
             homeNavController = UINavigationController(rootViewController: rootScreen)
         }
+    }
+    
+    func popViewController(for screen: Screen, animated: Bool) {
+        getNavController(for: screen).popViewController(animated: animated)
     }
 }
