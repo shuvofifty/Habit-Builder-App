@@ -23,13 +23,11 @@ protocol Cordinator {
     func navigate(to screen: Screen, groupWith groupId: ScreenGroupID, id: String, transition: TransitionStyle)
     
     func remove(group id: ScreenGroupID)
-    func remove(with viewIDs: [String])
     
     func get(for screen: Screen) -> UIViewController
 }
 
 class RootCordinatorImp: NSObject, Cordinator {
-    var navigationController: UINavigationController?
     @Injected(\.navHandler) var navHandler: NavHandler
     
     private var screenGroups: [ScreenGroupID: [String]] = [:]
@@ -73,12 +71,12 @@ class RootCordinatorImp: NSObject, Cordinator {
         let navController = navHandler.getNavController(for: screen)
         switch transition {
         case .push:
-            navigationController?.pushViewController(vc, animated: true)
+            navController.pushViewController(vc, animated: true)
         case .fadeIn:
-            navigationController?.delegate = self
-            navigationController?.pushViewController(vc, animated: true)
+            navController.delegate = self
+            navController.pushViewController(vc, animated: true)
         case .present:
-            navigationController?.present(vc, animated: true)
+            navController.present(vc, animated: true)
         }
         
     }
@@ -87,21 +85,26 @@ class RootCordinatorImp: NSObject, Cordinator {
         guard let ids = screenGroups[id] else {
             return
         }
-        remove(with: ids)
+        remove(with: ids, navigationController: getNavForScreenGroup(id))
         screenGroups.removeValue(forKey: id)
     }
     
-    func remove(with viewIDs: [String]) {
-        if let navigationController = self.navigationController {
-            var viewControllers = navigationController.viewControllers
-            viewControllers.removeAll(where: {
-                if let id = ($0 as? IDViewController)?.screen_ID {
-                    return viewIDs.contains(id)
-                }
-                return false
-            })
-            navigationController.setViewControllers(viewControllers, animated: true)
+    private func getNavForScreenGroup(_ id: ScreenGroupID) -> UINavigationController {
+        switch id {
+        case .onBoarding:
+            return navHandler.getNavController(for: .landing)
         }
+    }
+    
+    private func remove(with viewIDs: [String], navigationController: UINavigationController) {
+        var viewControllers = navigationController.viewControllers
+        viewControllers.removeAll(where: {
+            if let id = ($0 as? IDViewController)?.screen_ID {
+                return viewIDs.contains(id)
+            }
+            return false
+        })
+        navigationController.setViewControllers(viewControllers, animated: true)
     }
 }
 
