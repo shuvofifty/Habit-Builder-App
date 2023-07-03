@@ -13,6 +13,7 @@ protocol CoreDataManageableObject {
     var id: UUID? { get set }
 }
 
+// MARK: - UserEntity
 @objc(UserEntity)
 class UserEntity: NSManagedObject, CoreDataManageableObject {
     @NSManaged var id: UUID?
@@ -37,10 +38,35 @@ extension UserEntity {
     @NSManaged public func removeFromHabits(_ values: NSOrderedSet)
 }
 
+// MARK: - HabitEntity
 @objc(HabitEntity)
 class HabitEntity: NSManagedObject, CoreDataManageableObject {
     @NSManaged var id: UUID?
     @NSManaged var name: String?
     @NSManaged var reason: String?
     @NSManaged var dateCreated: Date?
+    @NSManaged var logs: NSOrderedSet?
+}
+
+extension HabitEntity {
+    @objc(addHabitLogsObject:)
+    @NSManaged public func addToHabitLogs(_ value: HabitLogsEntity)
+
+    @objc(removeHabitLogsObject:)
+    @NSManaged public func removeFromHabitLogs(_ value: HabitLogsEntity)
+
+    @objc(addHabitLogs:)
+    @NSManaged public func addToHabitLogs(_ values: NSOrderedSet)
+
+    @objc(removeHabitLogs:)
+    @NSManaged public func removeFromHabitLogs(_ values: NSOrderedSet)
+}
+
+// MARK: - HabitLogsEntity
+@objc(HabitLogsEntity)
+class HabitLogsEntity: NSManagedObject, CoreDataManageableObject {
+    @NSManaged var id: UUID?
+    @NSManaged var feelingNotes: String?
+    @NSManaged var complicationScore: Int
+    @NSManaged var dateCompleted: Date?
 }

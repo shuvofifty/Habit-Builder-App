@@ -13,10 +13,10 @@ extension LandingView {
         @Injected(\.rootCordinator) var cordinator: Cordinator
         
         // TODO: - Remove this
-        @Injected(\.userCoreDataHelper) var userHelper: UserHelper
+        @Injected(\.entityDebugger) var debugger: EntityDebugger
         
         init() {
-            userHelper.printUserEntity()
+            debugger.printAllData(for: HabitEntity.self)
         }
         
     }

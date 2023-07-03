@@ -87,6 +87,8 @@
 		53AB66D72A42A92300C19CFA /* UserState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53AB66D62A42A92300C19CFA /* UserState.swift */; };
 		53E2C1382A51BD7E001976DC /* NavHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1372A51BD7E001976DC /* NavHandler.swift */; };
 		53E2C13A2A5239A1001976DC /* TabHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1392A5239A1001976DC /* TabHandler.swift */; };
+		53E2C13C2A532F88001976DC /* HabitLogCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C13B2A532F88001976DC /* HabitLogCoreDataHelper.swift */; };
+		53E2C13F2A538432001976DC /* EntityDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C13E2A538432001976DC /* EntityDebugger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +174,8 @@
 		53AB66D62A42A92300C19CFA /* UserState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserState.swift; sourceTree = "<group>"; };
 		53E2C1372A51BD7E001976DC /* NavHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavHandler.swift; sourceTree = "<group>"; };
 		53E2C1392A5239A1001976DC /* TabHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHandler.swift; sourceTree = "<group>"; };
+		53E2C13B2A532F88001976DC /* HabitLogCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLogCoreDataHelper.swift; sourceTree = "<group>"; };
+		53E2C13E2A538432001976DC /* EntityDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDebugger.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,8 @@
 			children = (
 				530DA5AC2A4E4F6300FE251C /* UserCoreDataHelpers.swift */,
 				530DA5B02A4F67C600FE251C /* HabitCoreDataHelper.swift */,
+				53E2C13B2A532F88001976DC /* HabitLogCoreDataHelper.swift */,
+				53E2C13E2A538432001976DC /* EntityDebugger.swift */,
 			);
 			path = CoreDataHelpers;
 			sourceTree = "<group>";
@@ -755,6 +761,7 @@
 				530DA5AF2A4F12A700FE251C /* BottomBorderTextFieldView.swift in Sources */,
 				53AB65682A06B66200C19CFA /* ColorSystem.swift in Sources */,
 				53E2C13A2A5239A1001976DC /* TabHandler.swift in Sources */,
+				53E2C13C2A532F88001976DC /* HabitLogCoreDataHelper.swift in Sources */,
 				53AB66B22A38114A00C19CFA /* AccountNetworkHelper.swift in Sources */,
 				53AB667C2A1E8E7F00C19CFA /* OnboardingViewController.swift in Sources */,
 				53AB656F2A06C5AE00C19CFA /* FontSystemConfig.swift in Sources */,
@@ -788,6 +795,7 @@
 				53AB667F2A1E8EA000C19CFA /* OnboardingView.swift in Sources */,
 				530DA59C2A4CC2F500FE251C /* HomeViewModel.swift in Sources */,
 				530DA5B12A4F67C600FE251C /* HabitCoreDataHelper.swift in Sources */,
+				53E2C13F2A538432001976DC /* EntityDebugger.swift in Sources */,
 				53AB65B02A0C8E9900C19CFA /* SignUpViewModel.swift in Sources */,
 				53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */,
 				53AB66982A33795000C19CFA /* CommonValidators.swift in Sources */,

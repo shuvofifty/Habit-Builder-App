@@ -103,6 +103,14 @@ extension Container {
     var habitCoreDataHelper: Factory<HabitHelper> {
         self { HabitCoreDataHelper() }
     }
+    
+    var habitLogCoreDataHelper: Factory<HabitLogHelper> {
+        self { HabitLogCoreDataHelper() }
+    }
+    
+    var entityDebugger: Factory<EntityDebugger> {
+        self { EntityDebugger() }
+    }
 }
 
 // MARK: -  Other dependencies
