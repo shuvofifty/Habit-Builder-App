@@ -12,24 +12,24 @@ import Combine
 import CoreData
 
 extension UIView {
-    func hook(to parent: UIView, top: CGFloat? = nil, right: CGFloat? = nil, bottom: CGFloat? = nil, left: CGFloat? = nil) {
+    func hook(to parent: UIView, safeArea: Bool, top: CGFloat? = nil, right: CGFloat? = nil, bottom: CGFloat? = nil, left: CGFloat? = nil) {
         translatesAutoresizingMaskIntoConstraints = false
         if let top = top {
-            topAnchor.constraint(equalTo: parent.topAnchor, constant: top).isActive = true
+            topAnchor.constraint(equalTo: safeArea ? parent.safeAreaLayoutGuide.topAnchor : parent.topAnchor, constant: top).isActive = true
         }
         if let right = right {
-            rightAnchor.constraint(equalTo: parent.rightAnchor, constant: -right).isActive = true
+            rightAnchor.constraint(equalTo: safeArea ? parent.safeAreaLayoutGuide.rightAnchor :  parent.rightAnchor, constant: -right).isActive = true
         }
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: parent.bottomAnchor, constant: -bottom).isActive = true
+            bottomAnchor.constraint(equalTo: safeArea ? parent.safeAreaLayoutGuide.bottomAnchor : parent.bottomAnchor, constant: -bottom).isActive = true
         }
         if let left = left {
-            leftAnchor.constraint(equalTo: parent.leftAnchor, constant: left).isActive = true
+            leftAnchor.constraint(equalTo: safeArea ? parent.safeAreaLayoutGuide.leftAnchor : parent.leftAnchor, constant: left).isActive = true
         }
     }
     
-    func hook(to parent: UIView, with margin: CGFloat) {
-        hook(to: parent, top: margin, right: margin, bottom: margin, left: margin)
+    func hook(to parent: UIView, safeArea: Bool = false, with margin: CGFloat) {
+        hook(to: parent, safeArea: safeArea, top: margin, right: margin, bottom: margin, left: margin)
     }
 }
 
