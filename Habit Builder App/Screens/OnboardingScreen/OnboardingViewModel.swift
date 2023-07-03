@@ -117,7 +117,7 @@ extension OnboardingView {
         }
         
         private func navigateToHome() {
-            cordinator.navigate(to: .home, transition: .push)
+            cordinator.loginUserRouting()
             cordinator.remove(group: .onBoarding)
         }
         

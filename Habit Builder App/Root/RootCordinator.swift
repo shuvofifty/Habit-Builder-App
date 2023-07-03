@@ -25,6 +25,8 @@ protocol Cordinator {
     func remove(group id: ScreenGroupID)
     
     func get(for screen: Screen) -> UIViewController
+    
+    func loginUserRouting()
 }
 
 class RootCordinatorImp: NSObject, Cordinator {
@@ -46,6 +48,17 @@ class RootCordinatorImp: NSObject, Cordinator {
         case .home:
             return HomeViewController(viewModel: Container.shared.homeViewModel())
         }
+    }
+    
+    func loginUserRouting() {
+        navHandler.initiateNavFor(screen: .home, rootScreen: get(for: .home))
+        
+        tabHandler.intiateTabBar(with: [
+            (tag: 0,
+             tab: .home(navHandler.getNavController(for: .home))
+            )
+        ])
+        performNavigation(vc: tabHandler.tabBarController!, transition: .present, screen: .landing)
     }
     
     func navigate(to screen: Screen, transition: TransitionStyle) {
@@ -77,6 +90,7 @@ class RootCordinatorImp: NSObject, Cordinator {
             navController.delegate = self
             navController.pushViewController(vc, animated: true)
         case .present:
+            vc.modalPresentationStyle = .fullScreen
             navController.present(vc, animated: true)
         }
         

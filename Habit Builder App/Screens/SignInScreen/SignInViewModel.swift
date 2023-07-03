@@ -57,7 +57,7 @@ extension SignInView {
                 .filter { $0 }
                 .sink {[unowned self] _ in
                     self.store.dispatch(HabitAction.getAllHabits)
-                    self.cordinator.navigate(to: .home, transition: .push)
+                    self.cordinator.loginUserRouting()
                     self.cancelSubscription(&cancellable)
                 }
                 .store(in: &cancellable)

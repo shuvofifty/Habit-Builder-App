@@ -118,7 +118,7 @@ extension UserCoreDataHelper {
             case .userAlreadyExist:
                 return "User already exist"
             case .userNotExist:
-                return "User does not exist"
+                return "This is weird. Looks like the user is present in firebase but not registered to your device"
             case .userIdNotPresent:
                 return "Something weird happened. User ID is not present in core database"
             case .unknown:
