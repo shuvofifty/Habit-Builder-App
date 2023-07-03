@@ -9,7 +9,8 @@ import Foundation
 import ReSwift
 import Factory
 
-struct HabitInfo {
+struct HabitInfo: Identifiable {
+    var id = UUID()
     var name: String = ""
     var reason: String = ""
     var dateCreated: Date = Date()

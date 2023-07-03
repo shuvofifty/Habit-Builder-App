@@ -48,7 +48,7 @@ struct SignInView: View {
                         .add(mod: .fullWidth())
                         
                         Button("Forgot Password?") {
-                            hideKeyboard()
+                            viewModel.continueButtonTapped(email: "admin@gmail.com", password: "123456789")
                         }
                         .buttonStyle(TertiaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                         .add(mod: .fullWidth())

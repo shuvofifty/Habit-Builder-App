@@ -13,9 +13,12 @@ import Combine
 extension HomeView {
     class ViewModel: ObservableObject {
         @Injected(\.rootCordinator) var cordinator: Cordinator
-        @Injected(\.userState) var userState: Container.UserStateType
+        @Injected(\.userState) private var userState: Container.UserStateType
+        @Injected(\.habitState) private var habitState: Container.HabitStateType
+        @Injected(\.store) var store: Store<AppState>
         
         @Published var userName: String = ""
+        @Published var habits: [HabitInfo] = []
         
         private var cancellable = Set<AnyCancellable>()
         
@@ -23,6 +26,11 @@ extension HomeView {
             userState
                 .compactMap { $0.userInfo?.name }
                 .assign(to: \.userName, on: self)
+                .store(in: &cancellable)
+            
+            habitState
+                .map { $0.habits }
+                .assign(to: \.habits, on: self)
                 .store(in: &cancellable)
         }
     }
