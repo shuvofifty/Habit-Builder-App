@@ -117,6 +117,7 @@ extension OnboardingView {
         }
         
         private func navigateToHome() {
+            self.cancelSubscription(&cancellable)
             cordinator.loginUserRouting()
             cordinator.remove(group: .onBoarding)
         }

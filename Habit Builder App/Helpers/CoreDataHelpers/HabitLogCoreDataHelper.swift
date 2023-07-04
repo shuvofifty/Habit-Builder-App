@@ -26,7 +26,7 @@ class HabitLogCoreDataHelper: HabitLogHelper {
             guard let habit = getHabitWithContext(context, id: habitId) else {
                 throw HabitLogError.habitNotFound
             }
-            var logEntity = HabitLogsEntity()
+            let logEntity = HabitLogsEntity()
             logEntity.id = UUID()
             logEntity.feelingNotes = feelNote
             logEntity.complicationScore = complicationScore

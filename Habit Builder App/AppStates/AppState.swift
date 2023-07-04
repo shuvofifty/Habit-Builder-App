@@ -15,6 +15,11 @@ struct AppState {
     var habitState: HabitState
 }
 
+enum AppAction: Action {
+    // Just call this action to do a event trickling
+    case triggerUpdate
+}
+
 class ObservableStore: Store<AppState> {
     let statePublisher = PassthroughSubject<AppState, Never>()
     

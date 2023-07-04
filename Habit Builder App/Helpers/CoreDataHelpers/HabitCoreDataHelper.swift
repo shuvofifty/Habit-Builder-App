@@ -29,7 +29,7 @@ class HabitCoreDataHelper: HabitHelper {
             let habitEntity = HabitEntity(context: context)
             habitEntity.id = UUID()
             habitEntity.name = name
-            habitEntity.reason = reason
+            habitEntity.reason = reason.trimmingCharacters(in: .whitespacesAndNewlines)
             habitEntity.dateCreated = Date()
             
             user.addToHabits(habitEntity)

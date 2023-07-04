@@ -89,6 +89,9 @@ struct HomeView: View {
                 .padding(.vertical, 20)
             }
         }
+        .onAppear {
+            viewModel.store.dispatch(AppAction.triggerUpdate)
+        }
     }
 }
 

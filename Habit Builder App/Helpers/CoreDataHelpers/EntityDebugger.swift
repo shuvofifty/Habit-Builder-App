@@ -26,4 +26,13 @@ class EntityDebugger {
         print(">>>>>>>>>>=====Entity Ended=====<<<<<<<<<<<<<<<")
         print("")
     }
+    
+    func removeAllData(for entity: NSManagedObject.Type) {
+        let context = coreData.context
+        try! context.execute(NSBatchDeleteRequest(fetchRequest: entity.fetchRequest()))
+        print("")
+        print(">>>>>>>>>>=====All Data got removed=====<<<<<<<<<<<<<<<")
+        print("")
+        try! context.save()
+    }
 }

@@ -60,7 +60,11 @@ func habitReducer(action: Action, state: HabitState?) -> HabitState {
             
         case .saveHabitSuccess(let habitInfo):
             state.errorMessage = nil
-            state.habits.append(habitInfo)
+            
+            var updatedHabit = state.habits
+            updatedHabit.append(habitInfo)
+            state.habits = updatedHabit
+            
             state.habitSaveSuccess = true
             
         case .updateHabitStoreSuccess(let habitInfos):

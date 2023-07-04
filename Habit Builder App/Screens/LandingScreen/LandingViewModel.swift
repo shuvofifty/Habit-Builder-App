@@ -16,7 +16,12 @@ extension LandingView {
         @Injected(\.entityDebugger) var debugger: EntityDebugger
         
         init() {
+//            debugger.removeAllData(for: HabitEntity.self)
+//            debugger.removeAllData(for: UserEntity.self)
+            
+            debugger.printAllData(for: UserEntity.self)
             debugger.printAllData(for: HabitEntity.self)
+            debugger.printAllData(for: HabitLogs.self)
         }
         
     }
