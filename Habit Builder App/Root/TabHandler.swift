@@ -55,7 +55,7 @@ class TabHandlerImp: TabHandler {
     private func changeTabBarColor() {
         let appearance = UITabBarAppearance()
         appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = C.color.get(for: .text, .s2)
+        appearance.backgroundColor = C.color.get(for: .background, .s3)
 
         UITabBar.appearance().standardAppearance = appearance
         UITabBar.appearance().scrollEdgeAppearance = appearance

@@ -10,7 +10,7 @@ import Factory
 import CoreData
 
 protocol HabitLogHelper {
-    
+    func createHabitLog(for habitId: UUID, feelNote: String, complicationScore: Int) async throws
 }
 
 class HabitLogCoreDataHelper: HabitLogHelper {

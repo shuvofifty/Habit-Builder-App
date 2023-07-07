@@ -89,6 +89,7 @@
 		53E2C13A2A5239A1001976DC /* TabHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1392A5239A1001976DC /* TabHandler.swift */; };
 		53E2C13C2A532F88001976DC /* HabitLogCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C13B2A532F88001976DC /* HabitLogCoreDataHelper.swift */; };
 		53E2C13F2A538432001976DC /* EntityDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C13E2A538432001976DC /* EntityDebugger.swift */; };
+		53E2C1412A54F3AA001976DC /* HabitLogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1402A54F3AA001976DC /* HabitLogState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +177,7 @@
 		53E2C1392A5239A1001976DC /* TabHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHandler.swift; sourceTree = "<group>"; };
 		53E2C13B2A532F88001976DC /* HabitLogCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLogCoreDataHelper.swift; sourceTree = "<group>"; };
 		53E2C13E2A538432001976DC /* EntityDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDebugger.swift; sourceTree = "<group>"; };
+		53E2C1402A54F3AA001976DC /* HabitLogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLogState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -585,6 +587,7 @@
 				53AB66D32A42A8B000C19CFA /* AppState.swift */,
 				53AB66D62A42A92300C19CFA /* UserState.swift */,
 				530DA5B22A4F6C8800FE251C /* HabitsState.swift */,
+				53E2C1402A54F3AA001976DC /* HabitLogState.swift */,
 			);
 			path = AppStates;
 			sourceTree = "<group>";
@@ -782,6 +785,7 @@
 				530DA5B32A4F6C8800FE251C /* HabitsState.swift in Sources */,
 				53AB66D72A42A92300C19CFA /* UserState.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
+				53E2C1412A54F3AA001976DC /* HabitLogState.swift in Sources */,
 				530DA5AA2A4E102F00FE251C /* Entities.swift in Sources */,
 				530DA5AD2A4E4F6300FE251C /* UserCoreDataHelpers.swift in Sources */,
 				53AB668A2A3110ED00C19CFA /* NavigationTransitions.swift in Sources */,
