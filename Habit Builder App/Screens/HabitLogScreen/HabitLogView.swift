@@ -22,7 +22,7 @@ struct HabitLogView_Preview: PreviewProvider {
     }
 }
 
-class HomeLogViewController: IDViewController {
+class HabitLogViewController: IDViewController {
     var contentView: UIHostingController<HabitLogView>
     
     init(viewModel: HabitLogView.ViewModel) {

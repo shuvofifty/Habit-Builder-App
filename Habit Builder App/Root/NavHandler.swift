@@ -28,7 +28,7 @@ class NavHandlerImp: NavHandler {
                 fatalError("Root Screen for BaseNavController is not present")
             }
             return baseNavController
-        case .home:
+        case .home, .habitLog:
             guard let homeNavController = homeNavController else {
                 fatalError("Root Screen for HomeNavController is not present")
             }
@@ -44,7 +44,7 @@ class NavHandlerImp: NavHandler {
                 return
             }
             baseNavController = UINavigationController(rootViewController: rootScreen)
-        case .home:
+        case .home, .habitLog:
             guard homeNavController == nil else {
                 print("Home Nav Controller already exist")
                 return

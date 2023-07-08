@@ -55,6 +55,10 @@ extension Container {
     var homeViewModel: Factory<HomeView.ViewModel> {
         self { HomeView.ViewModel() }
     }
+    
+    var habitLogViewModel: Factory<HabitLogView.ViewModel> {
+        self { HabitLogView.ViewModel() }
+    }
 }
 
 // MARK: - States
