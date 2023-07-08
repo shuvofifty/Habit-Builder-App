@@ -67,7 +67,7 @@ struct HomeView: View {
                                 .padding(.bottom, 25)
                                 
                                 Button("Check in") {
-                                    print("Checking In")
+                                    viewModel.cordinator.navigate(to: .habitLog, transition: .push)
                                 }
                                 .buttonStyle(PrimaryButtonStyle(colorSystem: C.color, fontSystem: C.font))
                                 .add(mod: .fullWidth())
