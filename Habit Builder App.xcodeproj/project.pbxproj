@@ -89,7 +89,8 @@
 		53E2C13A2A5239A1001976DC /* TabHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1392A5239A1001976DC /* TabHandler.swift */; };
 		53E2C13C2A532F88001976DC /* HabitLogCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C13B2A532F88001976DC /* HabitLogCoreDataHelper.swift */; };
 		53E2C13F2A538432001976DC /* EntityDebugger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C13E2A538432001976DC /* EntityDebugger.swift */; };
-		53E2C1412A54F3AA001976DC /* HabitLogState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1402A54F3AA001976DC /* HabitLogState.swift */; };
+		53E2C1442A592604001976DC /* HabitLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1432A592604001976DC /* HabitLogView.swift */; };
+		53E2C1462A59260F001976DC /* HabitLogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E2C1452A59260F001976DC /* HabitLogViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,7 +178,8 @@
 		53E2C1392A5239A1001976DC /* TabHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabHandler.swift; sourceTree = "<group>"; };
 		53E2C13B2A532F88001976DC /* HabitLogCoreDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLogCoreDataHelper.swift; sourceTree = "<group>"; };
 		53E2C13E2A538432001976DC /* EntityDebugger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntityDebugger.swift; sourceTree = "<group>"; };
-		53E2C1402A54F3AA001976DC /* HabitLogState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLogState.swift; sourceTree = "<group>"; };
+		53E2C1432A592604001976DC /* HabitLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLogView.swift; sourceTree = "<group>"; };
+		53E2C1452A59260F001976DC /* HabitLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitLogViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -478,6 +480,7 @@
 		53AB667A2A1E8E4100C19CFA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				53E2C1422A5925ED001976DC /* HabitLogScreen */,
 				530DA5982A4CC26B00FE251C /* HomeScreen */,
 				53AB66CA2A4235C800C19CFA /* SignInScreen */,
 				53AB65552A04BA2800C19CFA /* LandingScreen */,
@@ -587,9 +590,17 @@
 				53AB66D32A42A8B000C19CFA /* AppState.swift */,
 				53AB66D62A42A92300C19CFA /* UserState.swift */,
 				530DA5B22A4F6C8800FE251C /* HabitsState.swift */,
-				53E2C1402A54F3AA001976DC /* HabitLogState.swift */,
 			);
 			path = AppStates;
+			sourceTree = "<group>";
+		};
+		53E2C1422A5925ED001976DC /* HabitLogScreen */ = {
+			isa = PBXGroup;
+			children = (
+				53E2C1432A592604001976DC /* HabitLogView.swift */,
+				53E2C1452A59260F001976DC /* HabitLogViewModel.swift */,
+			);
+			path = HabitLogScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -774,6 +785,7 @@
 				53AB66782A1E66A600C19CFA /* TextFieldStyle.swift in Sources */,
 				53AB656D2A06C38700C19CFA /* ColorSystemConfig.swift in Sources */,
 				53AB65592A060D8300C19CFA /* LandingViewController.swift in Sources */,
+				53E2C1442A592604001976DC /* HabitLogView.swift in Sources */,
 				53AB65B82A11493800C19CFA /* BaseMods.swift in Sources */,
 				530DA5A52A4D08B700FE251C /* HabitBuilderCDModel.xcdatamodeld in Sources */,
 				53AB66A02A33B2FE00C19CFA /* RegularTextFieldGroupView.swift in Sources */,
@@ -785,7 +797,6 @@
 				530DA5B32A4F6C8800FE251C /* HabitsState.swift in Sources */,
 				53AB66D72A42A92300C19CFA /* UserState.swift in Sources */,
 				53AB659B2A0B3A5300C19CFA /* ButtonStyle.swift in Sources */,
-				53E2C1412A54F3AA001976DC /* HabitLogState.swift in Sources */,
 				530DA5AA2A4E102F00FE251C /* Entities.swift in Sources */,
 				530DA5AD2A4E4F6300FE251C /* UserCoreDataHelpers.swift in Sources */,
 				53AB668A2A3110ED00C19CFA /* NavigationTransitions.swift in Sources */,
@@ -804,6 +815,7 @@
 				53AB655B2A060D8F00C19CFA /* LandingViewModel.swift in Sources */,
 				53AB66982A33795000C19CFA /* CommonValidators.swift in Sources */,
 				530DA59A2A4CC2AA00FE251C /* HomeView.swift in Sources */,
+				53E2C1462A59260F001976DC /* HabitLogViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
